@@ -1,13 +1,15 @@
-from mcq import menu
+from mcq import menu, take_quiz
 
 #Data
 QUESTIONS = (
     "Which planet in the solar system is the hottest?: ",
+    "What is the most abundant gas in Earth's atmosphere?: ",
 )
 OPTIONS = (
     ("A. Mercury", "B. Venus", "C. Earth", "D. Mars"),
+    ("A. Nitrogen", "B. Oxygen", "C. Carbon-Dioxide", "D. Hydrogen"),
 )
-ANSWERS = ("B")
+ANSWERS = ("B","A")
 #TOPICS = ()
 
 def main():
@@ -20,6 +22,7 @@ def main():
             continue
         if choice == 1:
             name = input("Enter your name: ")
+            take_quiz(QUESTIONS, OPTIONS, ANSWERS, name)
         elif choice == 0:
             print("Goodbye!")
             break
