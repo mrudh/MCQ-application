@@ -28,11 +28,13 @@ def take_quiz(questions, options, answers, name=None):
             print("INCORRECT!")
             print(f"{answers[i]} is the correct answer")
 
-#def print_results():
+#def print_results(guesses, score, answers):
     
 
-#def quiz_by_topic():
+#def quiz_by_topic(QUESTIONS, OPTIONS, ANSWERS, TOPICS):
     
 
 #def timed_quiz():
     
+
+#def quiz_by_difficulty(DIFFICULTY_QUESTIONS):

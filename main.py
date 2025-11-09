@@ -11,6 +11,20 @@ OPTIONS = (
 )
 ANSWERS = ("B","A")
 #TOPICS = ()
+DIFFICULTY_QUESTIONS = {
+    "Easy": [
+        ("Which animal lays the largest eggs?: ",
+         ("A. Whale", "B. Crocodile", "C. Elephant", "D. Ostrich"), "D"),
+    ],
+    "Medium": [
+        ("What is the most abundant gas in Earth's atmosphere?: ",
+         ("A. Nitrogen", "B. Oxygen", "C. Carbon-Dioxide", "D. Hydrogen"), "A"),
+    ],
+    "Hard": [
+        ("Which planet in the solar system is the hottest?: ",
+         ("A. Mercury", "B. Venus", "C. Earth", "D. Mars"), "B"),
+    ]
+}
 
 def main():
     while True:
@@ -23,6 +37,10 @@ def main():
         if choice == 1:
             name = input("Enter your name: ")
             take_quiz(QUESTIONS, OPTIONS, ANSWERS, name)
+        """elif choice == 2:
+            check_high_score()
+        elif choice == 3:
+            quiz_by_topic(QUESTIONS, OPTIONS, ANSWERS, TOPICS)"""
         elif choice == 0:
             print("Goodbye!")
             break
