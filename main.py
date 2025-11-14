@@ -115,9 +115,9 @@ def main():
         if choice == 1:
             name = input("Enter your name: ")
             take_quiz(QUESTIONS, OPTIONS, ANSWERS, name)
-        """elif choice == 2:
+        elif choice == 2:
             check_high_score()
-        elif choice == 3:
+        """elif choice == 3:
             quiz_by_topic(QUESTIONS, OPTIONS, ANSWERS, TOPICS)"""
         elif choice == 0:
             print("Goodbye!")
