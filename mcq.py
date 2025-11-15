@@ -44,20 +44,6 @@ def print_results(guesses, score, answers):
     print()
     percent = int(score / len(answers) * 100)
     print(f"\nYour score is: {percent}%")
-
-for your task #10:
-
-in storage.py
-
-def load_scores():
-    if os.path.exists(SCORE_FILE):
-        with open(SCORE_FILE, "r") as f:
-            return json.load(f)
-    return []
-
-def save_scores(scores):
-    with open(SCORE_FILE, "w") as f:
-        json.dump(scores, f)
     
 
 #def quiz_by_topic(QUESTIONS, OPTIONS, ANSWERS, TOPICS):
