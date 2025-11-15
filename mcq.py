@@ -28,9 +28,7 @@ def take_quiz(questions, options, answers, name=None):
             print("INCORRECT!")
             print(f"{answers[i]} is the correct answer")
 
-#def print_results(guesses, score, answers):
 def print_results(guesses, score, answers):
-    """Display the final quiz results."""
     print("----------------------")
     print("       RESULTS        ")
     print("----------------------")
