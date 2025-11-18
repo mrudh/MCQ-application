@@ -24,7 +24,6 @@ QUESTIONS = (
 
 OPTIONS = (
     ("A. Gold", "B. Oxygen", "C. Osmium", "D. Ozone"),
-    ("A. Atlantic Ocean", "B. Indian Ocean", "C. Arctic Ocean", "D. Pacific Ocean"),
     ("A. Isaac Newton", "B. Albert Einstein", "C. Galileo Galilei", "D. Stephen Hawking"),
     ("A. Rome", "B. Madrid", "C. Paris", "D. Berlin"),
     ("A. Brain", "B. Liver", "C. Heart", "D. Kidney"),
@@ -44,8 +43,8 @@ OPTIONS = (
 )
 
 ANSWERS = (
-    "B", "D", "B", "C", "C", "C", "B", "B",
-    "C", "B", "A", "C", "A", "C", "B", "A", "B", "C"
+    "B", "B", "C", "C", "C", "B", "B",
+    "C", "B", "A", "C", "A", "C", "B", "A", "B", "B"
 )
 
 DIFFICULTY_QUESTIONS = {
