@@ -11,6 +11,7 @@ def menu():
     print("7. Exit")
 
 def take_quiz(questions, options, answers, name=None):
+    from storage import load_scores, save_scores
     guesses = []
     score = 0
     total = len(questions)
@@ -27,6 +28,12 @@ def take_quiz(questions, options, answers, name=None):
         else:
             print("INCORRECT!")
             print(f"{answers[i]} is the correct answer")
+    print_results(guesses, score, answers)
+    percent = int(score / total * 100)
+    if name is not None:
+        scores = load_scores()
+        scores.append({"name": name, "score": percent})
+        save_scores(scores)
 
 def print_results(guesses, score, answers):
     print("----------------------")
