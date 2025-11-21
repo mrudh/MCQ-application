@@ -1,5 +1,6 @@
 from mcq import menu, take_quiz, print_results
-from storage import load_scores, save_scores, check_high_score
+from storage import load_scores, save_scores, check_high_score, load_custom_assessments, save_custom_assessments
+from assessment import create_assessment
 
 #Data
 QUESTIONS = (
@@ -117,6 +118,8 @@ def main():
             take_quiz(QUESTIONS, OPTIONS, ANSWERS, name)
         elif choice == 2:
             check_high_score()
+        elif choice == 4:
+            create_assessment()
         elif choice == 0:
             print("Goodbye!")
             break
