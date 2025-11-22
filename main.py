@@ -1,4 +1,4 @@
-from mcq import menu, take_quiz, print_results, timed_quiz
+from mcq import menu, take_quiz, print_results
 from storage import load_scores, save_scores, check_high_score, load_custom_assessments, save_custom_assessments
 from assessment import create_assessment
 
@@ -120,9 +120,6 @@ def main():
             check_high_score()
         elif choice == 4:
             create_assessment()
-        elif choice == 6:
-            name = input("Enter your name: ")
-            take_quiz(QUESTIONS, OPTIONS, ANSWERS, name, timed=True)
         elif choice == 0:
             print("Goodbye!")
             break

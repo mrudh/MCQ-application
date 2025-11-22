@@ -10,7 +10,8 @@ def menu():
     print("4. Create assessment")
     print("5. Open assessment")
     print("6. Timed quiz")
-    print("7. Exit")
+    print("7. Take quiz by difficulty")
+    print("8. Exit")
 
 def take_quiz(questions, options, answers, name=None, timed=False):
     from storage import load_scores, save_scores
@@ -96,4 +97,25 @@ def timed_quiz(prompt, timeout=5):
             print()
             return None
 
-#def quiz_by_difficulty(DIFFICULTY_QUESTIONS):
+def quiz_by_difficulty(DIFFICULTY_QUESTIONS):
+    levels = list(DIFFICULTY_QUESTIONS.keys())
+    print("Select a difficulty level:")
+    for idx, level in enumerate(levels):
+        print(f"{idx + 1}. {level}")
+    try:
+        idx = int(input("Enter choice: ")) - 1
+        if 0 <= idx < len(levels):
+            selected = DIFFICULTY_QUESTIONS[levels[idx]]
+        if not selected:
+            print("No questions for this level.")
+        else:
+            print("Invalid difficulty selection.")
+        return
+        questions = [q[0] for q in selected]
+        options = [q[1] for q in selected]
+        answers = [q[2] for q in selected]
+        take_quiz(questions, options, answers)
+    except ValueError:
+        print("Invalid input.")
+
+
