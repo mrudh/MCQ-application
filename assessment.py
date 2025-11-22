@@ -1,5 +1,5 @@
 from storage import load_custom_assessments, save_custom_assessments
-
+from mcq import take_quiz
 
 def create_assessment():
     custom_questions = []
@@ -21,3 +21,6 @@ def create_assessment():
     assessments.append({"name": name, "questions": custom_questions, "options": custom_options, "answers": custom_answers})
     save_custom_assessments(assessments)
     print(f"Assessment '{name}' created and saved!")
+    take_now = input("Take this assessment now? (y/n): ").strip().lower()
+    if take_now == 'y':
+        take_quiz(custom_questions, custom_options, custom_answers)
