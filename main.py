@@ -1,7 +1,7 @@
 from mcq import menu, take_quiz, print_results, quiz_by_difficulty, timed_quiz
 from storage import load_scores, save_scores, check_high_score, load_custom_assessments, save_custom_assessments
 from assessment import create_assessment
-
+#from quiz_data import ALL_QUIZ_DATA
 #Data
 QUESTIONS = (
     "Which element has the chemical symbol 'O'? ",
