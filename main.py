@@ -120,7 +120,9 @@ def main():
             check_high_score()
         elif choice == 4:
             create_assessment()
-        elif choice == 0:
+        elif choice == 7:  
+            quiz_by_difficulty(DIFFICULTY_QUESTIONS)
+        elif choice == 8:
             print("Goodbye!")
             break
         else:
