@@ -18,6 +18,8 @@ def main():
             check_high_score()
         elif choice == 4:
             create_assessment()
+        elif choice ==5:
+            open_assessment()
         elif choice == 6:
             name = input("Enter your name: ")
             take_quiz(ALL_QUIZ_DATA, name=name, timed=True)
