@@ -13,16 +13,16 @@ def main():
             continue
         if choice == 1:
             name = input("Enter your name: ")
-            take_quiz(QUESTIONS, OPTIONS, ANSWERS, name)
+            take_quiz(ALL_QUIZ_DATA, name=name)
         elif choice == 2:
             check_high_score()
         elif choice == 4:
             create_assessment()
         elif choice == 6:
             name = input("Enter your name: ")
-            take_quiz(QUESTIONS, OPTIONS, ANSWERS, name, timed=True)
+            take_quiz(ALL_QUIZ_DATA, name=name, timed=True)
         elif choice == 7:  
-            quiz_by_difficulty(DIFFICULTY_QUESTIONS)
+            quiz_by_difficulty(ALL_QUIZ_DATA)
         elif choice == 8:
             print("Goodbye!")
             break
