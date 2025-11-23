@@ -1,4 +1,212 @@
 ALL_QUIZ_DATA = [
-
-
+    {
+        "question": "How many elements are in the periodic table?: ",
+        "options": ("A. 116", "B. 117", "C. 118", "D. 119"),
+        "answer": "C",
+        "topic": "Chemistry",
+        "difficulty": "Medium"
+    },
+    {
+        "question": "Which animal lays the largest eggs?: ",
+        "options": ("A. Whale", "B. Crocodile", "C. Elephant", "D. Ostrich"),
+        "answer": "D",
+        "topic": "Biology",
+        "difficulty": "Easy"
+    },
+    {
+        "question": "What is the most abundant gas in Earth's atmosphere?: ",
+        "options": ("A. Nitrogen", "B. Oxygen", "C. Carbon-Dioxide", "D. Hydrogen"),
+        "answer": "A",
+        "topic": "Geography",
+        "difficulty": "Medium"
+    },
+    {
+        "question": "How many bones are in the human body?: ",
+        "options": ("A. 206", "B. 207", "C. 208", "D. 209"),
+        "answer": "A",
+        "topic": "Anatomy",
+        "difficulty": "Hard"
+    },
+    {
+        "question": "Which planet in the solar system is the hottest?: ",
+        "options": ("A. Mercury", "B. Venus", "C. Earth", "D. Mars"),
+        "answer": "B",
+        "topic": "Astronomy",
+        "difficulty": "Medium"
+    },
+    {
+        "question": "What is the chemical symbol for gold?: ",
+        "options": ("A. Au", "B. Ag", "C. Gd", "D. Go"),
+        "answer": "A",
+        "topic": "Chemistry",
+        "difficulty": "Easy"
+    },
+    {
+        "question": "Which organ is responsible for pumping blood through the body?: ",
+        "options": ("A. Liver", "B. Lungs", "C. Kidneys", "D. Heart"),
+        "answer": "D",
+        "topic": "Biology",
+        "difficulty": "Easy"
+    },
+    {
+        "question": "Which layer of Earth lies directly below the crust?: ",
+        "options": ("A. Inner core", "B. Mantle", "C. Outer core", "D. Lithosphere"),
+        "answer": "B",
+        "topic": "Geology",
+        "difficulty": "Medium"
+    },
+    {
+        "question": "What part of the cell contains genetic material?: ",
+        "options": ("A. Ribosome", "B. Nucleus", "C. Mitochondria", "D. Cytoplasm"),
+        "answer": "B",
+        "topic": "Biology",
+        "difficulty": "Medium"
+    },
+    {
+        "question": "Which planet has the most moons?: ",
+        "options": ("A. Earth", "B. Mars", "C. Jupiter", "D. Saturn"),
+        "answer": "C",
+        "topic": "Astronomy",
+        "difficulty": "Medium"
+    },
+    {
+        "question": "What is the powerhouse of the cell?: ",
+        "options": ("A. Nucleus", "B. Mitochondria", "C. Vacuole", "D. Golgi apparatus"),
+        "answer": "B",
+        "topic": "Biology",
+        "difficulty": "Easy"
+    },
+    {
+        "question": "Which gas do plants absorb during photosynthesis?: ",
+        "options": ("A. Oxygen", "B. Nitrogen", "C. Carbon-Dioxide", "D. Methane"),
+        "answer": "C",
+        "topic": "Biology",
+        "difficulty": "Easy"
+    },
+    {
+        "question": "What is the largest planet in our solar system?: ",
+        "options": ("A. Earth", "B. Jupiter", "C. Saturn", "D. Neptune"),
+        "answer": "B",
+        "topic": "Astronomy",
+        "difficulty": "Easy"
+    },
+    {
+        "question": "Which blood cells help fight infection?: ",
+        "options": ("A. Red blood cells", "B. Platelets", "C. Plasma", "D. White blood cells"),
+        "answer": "D",
+        "topic": "Anatomy",
+        "difficulty": "Medium"
+    },
+    {
+        "question": "Which metal is liquid at room temperature?: ",
+        "options": ("A. Lead", "B. Iron", "C. Mercury", "D. Zinc"),
+        "answer": "C",
+        "topic": "Chemistry",
+        "difficulty": "Easy"
+    },
+    {
+        "question": "The process of water turning into vapor is called?: ",
+        "options": ("A. Condensation", "B. Evaporation", "C. Precipitation", "D. Sublimation"),
+        "answer": "B",
+        "topic": "Science",
+        "difficulty": "Easy"
+    },
+    {
+        "question": "Which planet is known as the Red Planet?: ",
+        "options": ("A. Venus", "B. Jupiter", "C. Mars", "D. Mercury"),
+        "answer": "C",
+        "topic": "Astronomy",
+        "difficulty": "Easy"
+    },
+    {
+        "question": "What is the hardest natural substance on Earth?: ",
+        "options": ("A. Diamond", "B. Gold", "C. Iron", "D. Quartz"),
+        "answer": "A",
+        "topic": "Geology",
+        "difficulty": "Medium"
+    },
+    {
+        "question": "How many chambers does the human heart have?: ",
+        "options": ("A. 2", "B. 3", "C. 4", "D. 5"),
+        "answer": "C",
+        "topic": "Anatomy",
+        "difficulty": "Easy"
+    },
+    {
+        "question": "Which scientist proposed the three laws of motion?: ",
+        "options": ("A. Einstein", "B. Newton", "C. Galileo", "D. Tesla"),
+        "answer": "B",
+        "topic": "Physics",
+        "difficulty": "Medium"
+    },
+    {
+        "question": "What is the smallest unit of life?: ",
+        "options": ("A. Tissue", "B. Cell", "C. Organ", "D. Molecule"),
+        "answer": "B",
+        "topic": "Biology",
+        "difficulty": "Easy"
+    },
+    {
+        "question": "Which planet spins on its side?: ",
+        "options": ("A. Uranus", "B. Neptune", "C. Mars", "D. Venus"),
+        "answer": "A",
+        "topic": "Astronomy",
+        "difficulty": "Hard"
+    },
+    {
+        "question": "What is the boiling point of water at sea level?: ",
+        "options": ("A. 50°C", "B. 75°C", "C. 90°C", "D. 100°C"),
+        "answer": "D",
+        "topic": "Chemistry",
+        "difficulty": "Easy"
+    },
+    {
+        "question": "Which vitamin is produced when skin is exposed to sunlight?: ",
+        "options": ("A. Vitamin A", "B. Vitamin C", "C. Vitamin D", "D. Vitamin K"),
+        "answer": "C",
+        "topic": "Biology",
+        "difficulty": "Easy"
+    },
+    {
+        "question": "Which gas is essential for human respiration?: ",
+        "options": ("A. Nitrogen", "B. Oxygen", "C. Helium", "D. Hydrogen"),
+        "answer": "B",
+        "topic": "Biology",
+        "difficulty": "Easy"
+    },
+    {
+        "question": "What galaxy is Earth located in?: ",
+        "options": ("A. Andromeda", "B. Sombrero Galaxy", "C. Milky Way", "D. Whirlpool Galaxy"),
+        "answer": "C",
+        "topic": "Astronomy",
+        "difficulty": "Easy"
+    },
+    {
+        "question": "Which element has the chemical symbol 'O'?: ",
+        "options": ("A. Osmium", "B. Oxygen", "C. Ozone", "D. Opal"),
+        "answer": "B",
+        "topic": "Chemistry",
+        "difficulty": "Easy"
+    },
+    {
+        "question": "What is the longest bone in the human body?: ",
+        "options": ("A. Tibia", "B. Fibula", "C. Femur", "D. Radius"),
+        "answer": "C",
+        "topic": "Anatomy",
+        "difficulty": "Medium"
+    },
+    {
+        "question": "What phenomenon causes the sky to appear blue?: ",
+        "options": ("A. Reflection", "B. Scattering", "C. Refraction", "D. Diffusion"),
+        "answer": "B",
+        "topic": "Physics",
+        "difficulty": "Hard"
+    },
+    {
+        "question": "Which planet is known for its rings?: ",
+        "options": ("A. Jupiter", "B. Saturn", "C. Uranus", "D. Neptune"),
+        "answer": "B",
+        "topic": "Astronomy",
+        "difficulty": "Easy"
+    }
 ]
