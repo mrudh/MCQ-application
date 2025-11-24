@@ -11,9 +11,26 @@ def main():
         except ValueError:
             print("Invalid input. Please enter a valid number.")
             continue
+        questions = [q['question'] for q in ALL_QUIZ_DATA]
+        options = [q['options'] for q in ALL_QUIZ_DATA]
+        answers = [q['answer'] for q in ALL_QUIZ_DATA]
+
         if choice == 1:
             name = input("Enter your name: ")
-            take_quiz(ALL_QUIZ_DATA, name=name)
+            try:
+                total_questions = int(input(f"How many questions do you want to take? (1 to {len(ALL_QUIZ_DATA)}): "))
+                if not (1 <= total_questions <= len(ALL_QUIZ_DATA)):
+                    print("Invalid number, taking all questions.")
+                    total_questions = len(ALL_QUIZ_DATA)
+            except ValueError:
+                print("Invalid input, taking all questions.")
+                total_questions = len(ALL_QUIZ_DATA)
+            import random
+            selected = random.sample(ALL_QUIZ_DATA, total_questions)
+            qs = [q['question'] for q in selected]
+            opts = [q['options'] for q in selected]
+            ans = [q['answer'] for q in selected]
+            take_quiz(qs, opts, ans, name)
         elif choice == 2:
             check_high_score()
         elif choice == 4:
