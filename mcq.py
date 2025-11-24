@@ -13,44 +13,35 @@ def menu():
     print("7. Take quiz by difficulty")
     print("8. Exit")
 
-def take_quiz(quiz_data, name=None, timed=False):
+def take_quiz(questions, options, answers, name=None, timed=False):
     from storage import load_scores, save_scores
-
     guesses = []
     score = 0
-    total = len(quiz_data)
-
-    for item in quiz_data:
-        question = item["question"]
-        options = item["options"]
-        answer = item["answer"]
-
+    total = len(questions)
+    if timed:
+        print("You have 5 seconds for each question!")
+    for i, question in enumerate(questions):
         print("----------------------")
         print(question)
-        for option in options:
+        for option in options[i]:
             print(option)
-
         if timed:
-            guess = timed_quiz("Enter (A, B, C, D): ", timeout=5)
+            guess = timed_input("Enter (A, B, C, D): ", timeout=5)
             if guess is None:
                 print("Time's up!")
                 guess = ''
         else:
             guess = input("Enter (A, B, C, D): ").strip().upper()
-
         guesses.append(guess)
-
-        if guess == answer:
+        if guess == answers[i]:
             score += 1
             print("CORRECT!")
         else:
             print("INCORRECT!")
-            print(f"{answer} is the correct answer")
-
-    print_results(guesses, score, [item["answer"] for item in quiz_data])
-
+            print(f"{answers[i]} is the correct answer")
+    print_results(guesses, score, answers)
+    percent = int(score / total * 100)
     if name is not None:
-        percent = int(score / total * 100)
         scores = load_scores()
         scores.append({"name": name, "score": percent})
         save_scores(scores)
