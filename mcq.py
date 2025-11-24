@@ -58,25 +58,29 @@ def print_results(guesses, score, answers):
 #def timed_quiz():
     
 
-def quiz_by_difficulty(DIFFICULTY_QUESTIONS):
-    levels = list(DIFFICULTY_QUESTIONS.keys())
+def quiz_by_difficulty(ALL_QUIZ_DATA):
+    levels = sorted(list(set(q['difficulty'] for q in ALL_QUIZ_DATA)))
     print("Select a difficulty level:")
     for idx, level in enumerate(levels):
-        print(f"{idx + 1}. {level}")
+        count = sum(1 for q in ALL_QUIZ_DATA if q['difficulty'] == level)
+        print(f"{idx + 1}. {level} ({count} questions)")
     try:
         idx = int(input("Enter choice: ")) - 1
+        
         if 0 <= idx < len(levels):
-            selected = DIFFICULTY_QUESTIONS[levels[idx]]
-        if not selected:
-            print("No questions for this level.")
+            selected_level = levels[idx]
+            selected_data = [q for q in ALL_QUIZ_DATA if q['difficulty'] == selected_level]
+            if not selected_data:
+                print("No questions for this level.")
+                return
+
+            questions = [q['question'] for q in selected_data]
+            options = [q['options'] for q in selected_data]
+            answers = [q['answer'] for q in selected_data]
+            
+            take_quiz(questions, options, answers)
         else:
             print("Invalid difficulty selection.")
-        return
-        questions = [q[0] for q in selected]
-        options = [q[1] for q in selected]
-        answers = [q[2] for q in selected]
-        take_quiz(questions, options, answers)
     except ValueError:
         print("Invalid input.")
-
 
