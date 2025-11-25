@@ -20,10 +20,10 @@ def main():
             try:
                 total_questions = int(input(f"How many questions do you want to take? (1 to {len(ALL_QUIZ_DATA)}): "))
                 if not (1 <= total_questions <= len(ALL_QUIZ_DATA)):
-                    print("Invalid number, taking all questions.")
+                    print("Invalid number, displaying all questions.")
                     total_questions = len(ALL_QUIZ_DATA)
             except ValueError:
-                print("Invalid input, taking all questions.")
+                print("Invalid input, displaying all questions.")
                 total_questions = len(ALL_QUIZ_DATA)
             import random
             selected = random.sample(ALL_QUIZ_DATA, total_questions)
@@ -39,7 +39,21 @@ def main():
             open_assessment()
         elif choice == 6:
             name = input("Enter your name: ")
-            take_quiz(ALL_QUIZ_DATA, name=name, timed=True)
+            try:
+                total_questions = int(input(f"How many questions do you want to take? (1 to {len(ALL_QUIZ_DATA)}): "))
+                if not (1 <= total_questions <= len(ALL_QUIZ_DATA)):
+                    print("Invalid number, displaying all questions.")
+                    total_questions = len(ALL_QUIZ_DATA)
+            except ValueError:
+                print("Invalid input, displaying all questions.")
+                total_questions = len(ALL_QUIZ_DATA)
+
+            import random
+            selected = random.sample(ALL_QUIZ_DATA, total_questions)
+            qs = [q['question'] for q in selected]
+            opts = [q['options'] for q in selected]
+            ans = [q['answer'] for q in selected]
+            take_quiz(qs, opts, ans, name, timed=True)
         elif choice == 7:  
             quiz_by_difficulty(ALL_QUIZ_DATA)
         elif choice == 8:

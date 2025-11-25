@@ -26,7 +26,7 @@ def take_quiz(questions, options, answers, name=None, timed=False):
         for option in options[i]:
             print(option)
         if timed:
-            guess = timed_input("Enter (A, B, C, D): ", timeout=5)
+            guess = timed_quiz("Enter (A, B, C, D): ", timeout=5)
             if guess is None:
                 print("Time's up!")
                 guess = ''
