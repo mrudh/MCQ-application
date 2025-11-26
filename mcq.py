@@ -2,7 +2,6 @@ import sys
 import time
 
 def menu():
-    """Display the menu options."""
     print("\n====== QUIZ MENU ======")
     print("1. Take quiz")
     print("2. Check highest score")
@@ -11,7 +10,8 @@ def menu():
     print("5. Open assessment")
     print("6. Timed quiz")
     print("7. Take quiz by difficulty")
-    print("8. Exit")
+    print("8. Take quiz with negative marking")
+    print("0. Exit")
 
 def take_quiz(questions, options, answers, name=None, timed=False):
     from storage import load_scores, save_scores
@@ -125,3 +125,55 @@ def quiz_by_difficulty(ALL_QUIZ_DATA):
     except ValueError:
         print("Invalid input.")
 
+def take_negative_mark_quiz(questions, options, answers, name=None, neg_mark=0.25, timed=False):
+    from storage import load_scores, save_scores
+    guesses = []
+    score = 0.0
+    total = len(questions)
+
+    print(f"\nNegative marking is ON: -{neg_mark} for each wrong answer")
+
+    for i, question in enumerate(questions):
+        print("----------------------")
+        print(question)
+        for option in options[i]:
+            print(option)
+        guess = input("Enter (A, B, C, D): ").strip().upper()
+        guesses.append(guess)
+        if guess == answers[i]:
+            score += 1
+            print("CORRECT! (+1)")
+        else:
+            if guess == '':
+                print("No answer selected.")
+                print(f"{answers[i]} is the correct answer (0 marks)")
+            else:
+                score -= neg_mark
+                print("INCORRECT!")
+                print(f"{answers[i]} is the correct answer (-{neg_mark})")
+    percent = max(0, int((score / total) * 100))
+    print("----------------------")
+    print("NEGATIVE QUIZ RESULTS")
+    print("----------------------")
+    print("Answers: ", end="")
+    for answer in answers:
+        print(answer, end=" ")
+    print()
+    print("Guesses: ", end="")
+    for guess in guesses:
+        print(guess, end=" ")
+    print()
+    correct = sum(1 for g, a in zip(guesses, answers) if g == a)
+    wrong = sum(1 for g, a in zip(guesses, answers) if g not in ("",) and g != a)
+    penalty = wrong * neg_mark
+    print(f"\nTotal questions : {total}")
+    print(f"Correct answers : {correct}")
+    print(f"Wrong answers   : {wrong}")
+    print(f"Negative mark   : -{neg_mark} per wrong answer")
+    print(f"Total penalty   : -{penalty} marks")
+    print(f"\nFinal score : {round(score, 2)} / {total}")
+    print(f"Your score is   : {percent}%")
+    if name is not None:
+        scores = load_scores()
+        scores.append({"name": name, "score": percent})
+        save_scores(scores)
