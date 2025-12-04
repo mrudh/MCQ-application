@@ -11,6 +11,7 @@ def menu():
     print("6. Timed quiz")
     print("7. Take quiz by difficulty")
     print("8. Take quiz with negative marking")
+    print("9. Age-based quiz")
     print("0. Exit")
 
 def take_quiz(questions, options, answers, name=None, timed=False):
@@ -177,3 +178,122 @@ def take_negative_mark_quiz(questions, options, answers, name=None, neg_mark=0.2
         scores = load_scores()
         scores.append({"name": name, "score": percent})
         save_scores(scores)
+
+
+
+def age_based_quiz(ALL_QUIZ_DATA):
+    import random
+    from .mcq import take_quiz  # if mcq.py is a module in a package
+    # If this causes an ImportError in your setup, just remove this line;
+    # main.py already imports age_based_quiz from mcq and can call take_quiz
+    # directly if both are in same file.
+
+    name = input("Enter your name: ")
+
+    # Get age
+    try:
+        age = int(input("Enter your age: "))
+    except ValueError:
+        print("Invalid age. Defaulting to general quiz (all difficulties).")
+        age = None
+
+    # Map age to difficulty levels
+    if age is None:
+        allowed_difficulties = ["Easy", "Medium", "Hard"]
+    elif age <= 10:
+        allowed_difficulties = ["Easy"]
+    elif age <= 14:
+        allowed_difficulties = ["Easy", "Medium"]
+    else:
+        allowed_difficulties = ["Easy", "Medium", "Hard"]
+
+    print(f"Using questions with difficulties: {', '.join(allowed_difficulties)}")
+
+    # Filter questions by allowed difficulties
+    filtered_questions = [
+        q for q in ALL_QUIZ_DATA if q["difficulty"] in allowed_difficulties
+    ]
+
+    if not filtered_questions:
+        print("No questions available for this age group.")
+        return
+
+    max_q = len(filtered_questions)
+
+    # Ask how many questions
+    try:
+        total_questions = int(
+            input(f"How many questions do you want to take? (1 to {max_q}): ")
+        )
+        if not (1 <= total_questions <= max_q):
+            print("Invalid number, using all available questions for your age group.")
+            total_questions = max_q
+    except ValueError:
+        print("Invalid input, using all available questions for your age group.")
+        total_questions = max_q
+
+    # Randomly select questions
+    selected = random.sample(filtered_questions, total_questions)
+    qs = [q["question"] for q in selected]
+    opts = [q["options"] for q in selected]
+    ans = [q["answer"] for q in selected]
+
+    # Run the existing quiz function
+    take_quiz(qs, opts, ans, name=name)
+
+
+def age_based_quiz(ALL_QUIZ_DATA):
+    import random
+
+    name = input("Enter your name: ")
+
+    # Get age
+    try:
+        age = int(input("Enter your age: "))
+    except ValueError:
+        print("Invalid age. Defaulting to general quiz (all difficulties).")
+        age = None
+
+    # Map age to difficulty levels
+    if age is None:
+        allowed_difficulties = ["Easy", "Medium", "Hard"]
+    elif age <= 10:
+        allowed_difficulties = ["Easy"]
+    elif age <= 14:
+        allowed_difficulties = ["Easy", "Medium"]
+    else:
+        allowed_difficulties = ["Easy", "Medium", "Hard"]
+
+    print(f"Using questions with difficulties: {', '.join(allowed_difficulties)}")
+
+    # Filter questions by allowed difficulties
+    filtered_questions = [
+        q for q in ALL_QUIZ_DATA if q["difficulty"] in allowed_difficulties
+    ]
+
+    if not filtered_questions:
+        print("No questions available for this age group.")
+        return
+
+    max_q = len(filtered_questions)
+
+    # Ask how many questions
+    try:
+        total_questions = int(
+            input(f"How many questions do you want to take? (1 to {max_q}): ")
+        )
+        if not (1 <= total_questions <= max_q):
+            print("Invalid number, using all available questions for your age group.")
+            total_questions = max_q
+    except ValueError:
+        print("Invalid input, using all available questions for your age group.")
+        total_questions = max_q
+
+    # Randomly select questions
+    selected = random.sample(filtered_questions, total_questions)
+    qs = [q["question"] for q in selected]
+    opts = [q["options"] for q in selected]
+    ans = [q["answer"] for q in selected]
+
+    # Run the existing quiz function
+    take_quiz(qs, opts, ans, name=name)
