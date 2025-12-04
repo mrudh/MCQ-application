@@ -14,7 +14,7 @@ def save_scores(scores):
     with open(SCORE_FILE, "w") as f:
         json.dump(scores, f)
 
-def check_high_score():
+def check_high_score(): 
     scores = load_scores()
     if scores:
         highest = max(scores, key=lambda x: x["score"])
@@ -32,3 +32,5 @@ def load_custom_assessments():
 def save_custom_assessments(assessments):
     with open(ASSESSMENT_FILE, "w") as f:
         json.dump(assessments, f)
+
+        

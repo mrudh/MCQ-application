@@ -1,5 +1,6 @@
 import sys
 import time
+import random
 
 def menu():
     print("\n====== QUIZ MENU ======")
@@ -12,6 +13,7 @@ def menu():
     print("7. Take quiz by difficulty")
     print("8. Take quiz with negative marking")
     print("9. Age-based quiz")
+    print("10. 50 - 50 Lifeline Quiz")
     print("0. Exit")
 
 def take_quiz(questions, options, answers, name=None, timed=False):
@@ -295,5 +297,63 @@ def age_based_quiz(ALL_QUIZ_DATA):
     opts = [q["options"] for q in selected]
     ans = [q["answer"] for q in selected]
 
-    # Run the existing quiz function
+    
     take_quiz(qs, opts, ans, name=name)
+
+
+
+
+def fifty_fifty(options, correct_letter):
+    correct_idx = None
+    for i, opt in enumerate(options):
+        if opt.strip().upper().startswith(correct_letter.upper() + "."):
+            correct_idx = i
+            break
+    wrong_indices = [i for i in range(len(options)) if i != correct_idx]
+    keep_wrong = random.choice(wrong_indices)
+    keep_indices = {correct_idx, keep_wrong}
+    return tuple(opt for i, opt in enumerate(options) if i in keep_indices)
+
+
+def fifty_fifty_quiz(questions, options, answers, name=None):
+    from storage import load_scores, save_scores
+    
+    print("\n===== 50 - 50 LIFELINE QUIZ =====")
+    guesses = []
+    score = 0
+    total = len(questions)
+    for i, question in enumerate(questions):
+        print("\n--------------------------")
+        print(question)
+        for opt in options[i]:
+            print(opt)
+        use = input("Press 'F' to use 50-50 or press Enter to continue: ").strip().upper()
+        current_options = options[i]
+        if use == "F":
+            current_options = fifty_fifty(options[i], answers[i])
+            print("\n50-50 Applied! Remaining options:")
+            for opt in current_options:
+                print(opt)
+        guess = input("Enter (A, B, C, D): ").strip().upper()
+        guesses.append(guess)
+        
+        if guess == answers[i]:
+            score += 1
+            print("CORRECT!")
+        else:
+            print("INCORRECT!")
+            print(f"The correct answer was: {answers[i]}")
+    percent = int((score / total) * 100)
+
+    print("\n===== RESULTS =====")
+    print(f"Your score: {score} / {total}")
+    print(f"Percentage: {percent}%")
+
+    if name:
+        scores = load_scores()
+        scores.append({"name": name, "score": percent})
+        save_scores(scores)
+
+
+
+  
