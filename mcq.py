@@ -14,6 +14,7 @@ def menu():
     print("8. Take quiz with negative marking")
     print("9. Age-based quiz")
     print("10. 50 - 50 Lifeline Quiz")
+    print("11. Challenge quiz")
     print("0. Exit")
 
 def take_quiz(questions, options, answers, name=None, timed=False):
@@ -355,5 +356,93 @@ def fifty_fifty_quiz(questions, options, answers, name=None):
         save_scores(scores)
 
 
+def take_quiz_challenge(questions, options, answers, name=None):
+    from storage import load_scores, save_scores
 
-  
+    while True:
+        try:
+            minutes = int(input("Enter challenge duration in minutes (2 to 5): "))
+            if 2 <= minutes <= 5:
+                break
+            else:
+                print("Please enter a value between 2 and 5 minutes.")
+        except ValueError:
+            print("Please enter a valid number.")
+
+    total_seconds = minutes * 60
+    print(f"\nChallenge started for {minutes} minutes! Answer as many as you can.\n")
+
+    indices = list(range(len(questions)))
+    random.shuffle(indices)
+
+    guesses = []
+    used_answers = []
+    asked = 0
+    correct = 0
+    i = 0
+
+    start_time = time.time()
+
+    while True:
+        elapsed = time.time() - start_time
+        remaining = total_seconds - elapsed
+
+        if remaining <= 0:
+            print("\nTime is up for the challenge!")
+            break
+
+        if i >= len(indices):
+            random.shuffle(indices)
+            i = 0
+
+        idx = indices[i]
+        i += 1
+
+        print("----------------------")
+        print(f"Time remaining: {int(remaining)} seconds")
+        print(questions[idx])
+        for opt in options[idx]:
+            print(opt)
+
+        guess = timed_quiz("Enter (A, B, C, D): ", timeout=remaining)
+        if guess is None:
+            print("\nTime's up while answering!")
+            break
+
+        guess = guess.strip().upper()
+        guesses.append(guess)
+        used_answers.append(answers[idx])
+        asked += 1
+
+        if guess == answers[idx]:
+            correct += 1
+            print("CORRECT!")
+        else:
+            print("INCORRECT!")
+            print(f"{answers[idx]} is the correct answer.")
+    print("----------------------")
+    print("CHALLENGE RESULTS")
+    print("----------------------")
+    print("Answers: ", end="")
+    for a in used_answers:
+        print(a, end=" ")
+    print()
+    print("Guesses: ", end="")
+    for g in guesses:
+        print(g, end=" ")
+    print()
+
+    print(f"\nTotal time        : {minutes} minutes")
+    print(f"Questions answered: {asked}")
+    print(f"Correct answers   : {correct}")
+
+    if asked > 0:
+        percent = int((correct / asked) * 100)
+    else:
+        percent = 0
+    print(f"Accuracy          : {percent}%")
+
+    if name is not None:
+        scores = load_scores()
+        scores.append({"name": name, "score": percent})
+        save_scores(scores)
