@@ -1,6 +1,7 @@
 import sys
 import time
 import random
+from storage import load_scores, save_scores
 
 def menu():
     print("\n====== QUIZ MENU ======")
@@ -14,11 +15,11 @@ def menu():
     print("8. Take quiz with negative marking")
     print("9. Age-based quiz")
     print("10. 50 - 50 Lifeline Quiz")
-    print("11. Challenge quiz")
+    print("11. Quiz Challenge")
+    print("12. Streak Mode")
     print("0. Exit")
 
 def take_quiz(questions, options, answers, name=None, timed=False):
-    from storage import load_scores, save_scores
     guesses = []
     score = 0
     total = len(questions)
@@ -130,7 +131,6 @@ def quiz_by_difficulty(ALL_QUIZ_DATA):
         print("Invalid input.")
 
 def take_negative_mark_quiz(questions, options, answers, name=None, neg_mark=0.25, timed=False):
-    from storage import load_scores, save_scores
     guesses = []
     score = 0.0
     total = len(questions)
@@ -317,8 +317,6 @@ def fifty_fifty(options, correct_letter):
 
 
 def fifty_fifty_quiz(questions, options, answers, name=None):
-    from storage import load_scores, save_scores
-    
     print("\n===== 50 - 50 LIFELINE QUIZ =====")
     guesses = []
     score = 0
@@ -441,6 +439,71 @@ def take_quiz_challenge(questions, options, answers, name=None):
     else:
         percent = 0
     print(f"Accuracy          : {percent}%")
+
+    if name is not None:
+        scores = load_scores()
+        scores.append({"name": name, "score": percent})
+        save_scores(scores)
+
+
+def take_quiz_until_wrong(questions, options, answers, name=None):
+    indices = list(range(len(questions)))
+    random.shuffle(indices)
+
+    guesses = []
+    answers_used = []
+    score = 0
+    asked = 0
+
+    for idx in indices:
+        question = questions[idx]
+        opts = options[idx]
+        correct_answer = answers[idx]
+
+        print("--------------------------")
+        print(question)
+        for opt in opts:
+            print(opt)
+
+        guess = input("Enter (A, B, C, D): ").strip().upper()
+        guesses.append(guess)
+        answers_used.append(correct_answer)
+        asked += 1
+
+        if guess == correct_answer:
+            score += 1
+            print("CORRECT!")
+        else:
+            if guess == '':
+                print("No answer selected.")
+            else:
+                print("INCORRECT!")
+            print(f"{correct_answer} is the correct answer.")
+            print("Quiz over!! First wrong answer reached.")
+            break
+    print("-------------------------")
+    print("STREAK MODE QUIZ RESULTS")
+    print("-------------------------")
+    print("Answers: ", end="")
+    for a in answers_used:
+        print(a, end=" ")
+    print()
+    print("Guesses: ", end="")
+    for g in guesses:
+        print(g, end=" ")
+    print()
+
+    if asked > 0:
+        percent = int((score / asked) * 100)
+    else:
+        percent = 0
+
+    print(f"\nQuestions answered : {asked}")
+    print(f"Correct in a row   : {score}")
+    print(f"Your score is      : {percent}%")
+
+    if score == asked and asked == len(questions):
+        print("\nAmazing! You answered ALL questions correctly!")
 
     if name is not None:
         scores = load_scores()
