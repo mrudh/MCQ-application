@@ -11,7 +11,7 @@ def menu():
     print("6. Timed quiz")
     print("7. Take quiz by difficulty")
     print("8. Take quiz with negative marking")
-    print("9. Age-based quiz") 
+    print("9. Age-based quiz")
     print("0. Exit")
 
 def take_quiz(questions, options, answers, name=None, timed=False):
