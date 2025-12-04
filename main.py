@@ -1,4 +1,4 @@
-from mcq import menu, take_quiz, print_results, quiz_by_difficulty, timed_quiz, take_negative_mark_quiz
+from mcq import menu, take_quiz, print_results, quiz_by_difficulty, timed_quiz, take_negative_mark_quiz, age_based_quiz
 from storage import load_scores, save_scores, check_high_score, load_custom_assessments, save_custom_assessments
 from assessment import create_assessment, open_assessment
 from quiz_data import ALL_QUIZ_DATA
@@ -80,6 +80,8 @@ def main():
             opts = [q['options'] for q in selected]
             ans = [q['answer'] for q in selected]
             take_negative_mark_quiz(qs, opts, ans, name=name, neg_mark=negative_mark)
+        elif choice == 9:  # <-- NEW AGE-BASED QUIZ OPTION
+            age_based_quiz(ALL_QUIZ_DATA)
         elif choice == 0:
             print("Goodbye!")
             break
