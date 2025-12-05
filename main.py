@@ -4,6 +4,8 @@ from assessment import create_assessment, open_assessment
 from quiz_data import ALL_QUIZ_DATA, FILL_IN_QUIZ_DATA
 from attempts import can_attempt_quiz, record_quiz_attempt
 from answers_viewer import show_all_answers
+from attempt_comparison import comparison_menu
+
 
 
 
@@ -175,6 +177,9 @@ def main():
 
         elif choice == 15: 
             show_all_answers()
+
+        elif choice == 16:
+            comparison_menu()
 
         elif choice == 0:
             print("Goodbye!")
