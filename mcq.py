@@ -17,6 +17,7 @@ def menu():
     print("10. 50 - 50 Lifeline Quiz")
     print("11. Quiz Challenge")
     print("12. Streak Mode")
+    print("13. Take quiz (with skip)")
     print("0. Exit")
 
 def take_quiz(questions, options, answers, name=None, timed=False):
@@ -186,21 +187,17 @@ def take_negative_mark_quiz(questions, options, answers, name=None, neg_mark=0.2
 
 def age_based_quiz(ALL_QUIZ_DATA):
     import random
-    from .mcq import take_quiz  # if mcq.py is a module in a package
-    # If this causes an ImportError in your setup, just remove this line;
-    # main.py already imports age_based_quiz from mcq and can call take_quiz
-    # directly if both are in same file.
-
+    from .mcq import take_quiz  
     name = input("Enter your name: ")
 
-    # Get age
+
     try:
         age = int(input("Enter your age: "))
     except ValueError:
         print("Invalid age. Defaulting to general quiz (all difficulties).")
         age = None
 
-    # Map age to difficulty levels
+    
     if age is None:
         allowed_difficulties = ["Easy", "Medium", "Hard"]
     elif age <= 10:
@@ -212,7 +209,7 @@ def age_based_quiz(ALL_QUIZ_DATA):
 
     print(f"Using questions with difficulties: {', '.join(allowed_difficulties)}")
 
-    # Filter questions by allowed difficulties
+    
     filtered_questions = [
         q for q in ALL_QUIZ_DATA if q["difficulty"] in allowed_difficulties
     ]
@@ -223,7 +220,7 @@ def age_based_quiz(ALL_QUIZ_DATA):
 
     max_q = len(filtered_questions)
 
-    # Ask how many questions
+    
     try:
         total_questions = int(
             input(f"How many questions do you want to take? (1 to {max_q}): ")
@@ -235,64 +232,7 @@ def age_based_quiz(ALL_QUIZ_DATA):
         print("Invalid input, using all available questions for your age group.")
         total_questions = max_q
 
-    # Randomly select questions
-    selected = random.sample(filtered_questions, total_questions)
-    qs = [q["question"] for q in selected]
-    opts = [q["options"] for q in selected]
-    ans = [q["answer"] for q in selected]
-
-    # Run the existing quiz function
-    take_quiz(qs, opts, ans, name=name)
-
-
-def age_based_quiz(ALL_QUIZ_DATA):
-    import random
-
-    name = input("Enter your name: ")
-
-    # Get age
-    try:
-        age = int(input("Enter your age: "))
-    except ValueError:
-        print("Invalid age. Defaulting to general quiz (all difficulties).")
-        age = None
-
-    # Map age to difficulty levels
-    if age is None:
-        allowed_difficulties = ["Easy", "Medium", "Hard"]
-    elif age <= 10:
-        allowed_difficulties = ["Easy"]
-    elif age <= 14:
-        allowed_difficulties = ["Easy", "Medium"]
-    else:
-        allowed_difficulties = ["Easy", "Medium", "Hard"]
-
-    print(f"Using questions with difficulties: {', '.join(allowed_difficulties)}")
-
-    # Filter questions by allowed difficulties
-    filtered_questions = [
-        q for q in ALL_QUIZ_DATA if q["difficulty"] in allowed_difficulties
-    ]
-
-    if not filtered_questions:
-        print("No questions available for this age group.")
-        return
-
-    max_q = len(filtered_questions)
-
-    # Ask how many questions
-    try:
-        total_questions = int(
-            input(f"How many questions do you want to take? (1 to {max_q}): ")
-        )
-        if not (1 <= total_questions <= max_q):
-            print("Invalid number, using all available questions for your age group.")
-            total_questions = max_q
-    except ValueError:
-        print("Invalid input, using all available questions for your age group.")
-        total_questions = max_q
-
-    # Randomly select questions
+    
     selected = random.sample(filtered_questions, total_questions)
     qs = [q["question"] for q in selected]
     opts = [q["options"] for q in selected]
@@ -300,6 +240,7 @@ def age_based_quiz(ALL_QUIZ_DATA):
 
     
     take_quiz(qs, opts, ans, name=name)
+
 
 
 
@@ -504,6 +445,80 @@ def take_quiz_until_wrong(questions, options, answers, name=None):
 
     if score == asked and asked == len(questions):
         print("\nAmazing! You answered ALL questions correctly!")
+
+    if name is not None:
+        scores = load_scores()
+        scores.append({"name": name, "score": percent})
+        save_scores(scores)
+
+
+def take_quiz_with_skip(questions, options, answers, name=None):
+    
+    guesses = []
+    score = 0
+    skipped = 0
+    total = len(questions)
+
+    print("\n===== QUIZ (WITH SKIP) =====")
+    print("You can:")
+    print("  - Enter A, B, C, or D to answer")
+    print("  - Enter S or just press Enter to SKIP a question\n")
+
+    for i, question in enumerate(questions):
+        print("----------------------")
+        print(f"Q{i+1}. {question}")
+        for option in options[i]:
+            print(option)
+
+        while True:
+            user_input = input("Enter (A, B, C, D) or S to skip: ").strip().upper()
+
+            
+            if user_input == "" or user_input == "S":
+                guess = "S"       
+                skipped += 1
+                print("Question skipped.")
+                break
+            elif user_input in ("A", "B", "C", "D"):
+                guess = user_input
+                break
+            else:
+                print("Invalid input. Please enter A, B, C, D, or S to skip.")
+
+        guesses.append(guess)
+
+        if guess == answers[i]:
+            score += 1
+            print("CORRECT!")
+        elif guess != "S":
+            print("INCORRECT!")
+            print(f"{answers[i]} is the correct answer")
+
+    
+    print("----------------------")
+    print("     SKIP QUIZ RESULTS")
+    print("----------------------")
+    print("Answers: ", end="")
+    for answer in answers:
+        print(answer, end=" ")
+    print()
+
+    print("Guesses: ", end="")
+    for guess in guesses:
+        print(guess, end=" ")
+    print()
+
+    answered = total - skipped
+    if answered > 0:
+        percent = int((score / answered) * 100)
+    else:
+        percent = 0
+
+    print(f"\nTotal questions : {total}")
+    print(f"Answered        : {answered}")
+    print(f"Skipped         : {skipped}")
+    print(f"Correct         : {score}")
+    print(f"Your score is   : {percent}% (based only on answered questions)")
 
     if name is not None:
         scores = load_scores()
