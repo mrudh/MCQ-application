@@ -1,18 +1,15 @@
-# attempt_comparison.py
+
 
 from storage import load_scores
 
 
 def _normalize_name(name: str) -> str:
-    """Helper to normalize names for comparison."""
+
     return " ".join(name.strip().lower().split())
 
 
 def get_user_attempts(name: str):
-    """
-    Return all attempts for a given user (in the original recorded order).
-    Each attempt is a dict like {"name": ..., "score": ...}.
-    """
+  
     scores = load_scores()
     target = _normalize_name(name)
     user_attempts = [s for s in scores if _normalize_name(s.get("name", "")) == target]
@@ -20,9 +17,7 @@ def get_user_attempts(name: str):
 
 
 def show_first_and_latest_attempt(name: str):
-    """
-    Print a comparison between the user's first and latest quiz attempts.
-    """
+    
     attempts = get_user_attempts(name)
 
     if not attempts:
@@ -52,10 +47,7 @@ def show_first_and_latest_attempt(name: str):
 
 
 def get_all_users():
-    """
-    Get a list of unique user names that have scores recorded.
-    Keeps the first seen variant of the name for display.
-    """
+    
     scores = load_scores()
     seen = set()
     users = []
@@ -71,10 +63,7 @@ def get_all_users():
 
 
 def choose_user_from_list_and_compare():
-    """
-    Show a numbered list of users and let the user pick one
-    to see first vs latest attempt comparison.
-    """
+   
     users = get_all_users()
     if not users:
         print("\nNo quiz attempts stored yet.")
@@ -103,10 +92,7 @@ def choose_user_from_list_and_compare():
 
 
 def comparison_menu():
-    """
-    Small menu for attempt comparison.
-    This will be called as option 16 in the main quiz menu.
-    """
+    
     while True:
         print("\n====== ATTEMPT COMPARISON MENU ======")
         print("1. Compare attempts by typing a name")
