@@ -3,6 +3,8 @@ from storage import load_scores, save_scores, check_high_score, load_custom_asse
 from assessment import create_assessment, open_assessment
 from quiz_data import ALL_QUIZ_DATA, FILL_IN_QUIZ_DATA
 from attempts import can_attempt_quiz, record_quiz_attempt
+from answers_viewer import show_all_answers
+
 
 
 def main():
@@ -146,7 +148,7 @@ def main():
             opts = [q['options'] for q in selected]
             ans = [q['answer'] for q in selected]
             take_quiz_with_skip(qs, opts, ans, name=name)
-            
+
         elif choice == 14:
          name = input("Enter your name: ").strip()
          import random
@@ -170,6 +172,9 @@ def main():
          ans = [q['answer'] for q in selected]
 
          take_fill_in_the_blanks_quiz(qs, ans, name=name)
+
+        elif choice == 15: 
+            show_all_answers()
 
         elif choice == 0:
             print("Goodbye!")
