@@ -17,7 +17,7 @@ def menu():
     print("10. 50 - 50 Lifeline Quiz")
     print("11. Quiz Challenge")
     print("12. Streak Mode")
-    print("13. Take quiz (with skip)")
+    print("13. Quiz Mode: Skip Questions Anytime")
     print("0. Exit")
 
 def take_quiz(questions, options, answers, name=None, timed=False):
@@ -524,3 +524,4 @@ def take_quiz_with_skip(questions, options, answers, name=None):
         scores = load_scores()
         scores.append({"name": name, "score": percent})
         save_scores(scores)
+
