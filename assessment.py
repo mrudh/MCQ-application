@@ -23,24 +23,4 @@ def create_assessment():
     print(f"Assessment '{name}' created and saved!")
     take_now = input("Take this assessment now? (y/n): ").strip().lower()
     if take_now == 'y':
-        take_quiz(custom_questions, custom_options, custom_answers)
-
-
-def open_assessment():
-    assessments = load_custom_assessments()
-    if not assessments:
-        print("No assessments saved yet.")
-        return
-    print("\nSaved assessments:")
-    for idx, a in enumerate(assessments):
-        print(f"{idx + 1}. {a['name']}")
-    try:
-        sel = int(input("Enter assessment number to open: ")) - 1
-        if 0 <= sel < len(assessments):
-            a = assessments[sel]
-            print(f"Opening assessment: {a['name']}")
-            take_quiz(a["questions"], a["options"], a["answers"])
-        else:
-            print("Invalid selection.")
-    except ValueError:
-        print("Invalid input.")
+        take_quiz(custom_questions, custom_options, custom_answers) 

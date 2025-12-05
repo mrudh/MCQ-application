@@ -28,6 +28,7 @@ def menu():
     print("16. Compare first and latest quiz attempts")
     print("17. Answer reference links")
     print("18. See all questions")
+    print("19 ANTI_Quiz")
     print("0. Exit")
 
 def take_quiz(questions, options, answers, name=None, timed=False):
