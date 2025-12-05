@@ -210,3 +210,38 @@ ALL_QUIZ_DATA = [
         "difficulty": "Easy"
     }
 ]
+
+
+
+FILL_IN_QUIZ_DATA = [
+    {
+        "question": "The chemical symbol for gold is ______.",
+        "answer": "Au",
+        "topic": "Chemistry",
+        "difficulty": "Easy"
+    },
+    {
+        "question": "The largest planet in our solar system is ______.",
+        "answer": "Jupiter",
+        "topic": "Astronomy",
+        "difficulty": "Easy"
+    },
+    {
+        "question": "The powerhouse of the cell is the ______.",
+        "answer": "mitochondria|mitochondrion",
+        "topic": "Biology",
+        "difficulty": "Easy"
+    },
+    {
+        "question": "The gas essential for human respiration is ______.",
+        "answer": "oxygen|O2",
+        "topic": "Biology",
+        "difficulty": "Easy"
+    },
+    {
+        "question": "The hardest natural substance on Earth is ______.",
+        "answer": "diamond",
+        "topic": "Geology",
+        "difficulty": "Medium"
+    },
+]

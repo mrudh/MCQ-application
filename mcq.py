@@ -3,6 +3,11 @@ import time
 import random
 from storage import load_scores, save_scores
 
+
+def _normalize_text(s: str) -> str:
+    return " ".join(s.strip().lower().split())
+
+
 def menu():
     print("\n====== QUIZ MENU ======")
     print("1. Take quiz")
@@ -18,6 +23,7 @@ def menu():
     print("11. Quiz Challenge")
     print("12. Streak Mode")
     print("13. Quiz Mode: Skip Questions Anytime")
+    print("14. Fill-in-the-blanks Quiz")
     print("0. Exit")
 
 def take_quiz(questions, options, answers, name=None, timed=False):
@@ -525,3 +531,54 @@ def take_quiz_with_skip(questions, options, answers, name=None):
         scores.append({"name": name, "score": percent})
         save_scores(scores)
 
+
+
+def take_fill_in_the_blanks_quiz(questions, answers, name=None):
+   
+    guesses = []
+    score = 0
+    total = len(questions)
+
+    print("\n===== FILL-IN-THE-BLANKS QUIZ =====")
+    print("Type your answer in the blank. Answers are not case sensitive.\n")
+
+    for i, question in enumerate(questions):
+        print("----------------------")
+        print(f"Q{i+1}. {question}")
+        user_answer = input("Your answer: ").strip()
+        guesses.append(user_answer)
+        normalized_user = _normalize_text(user_answer)
+        raw_correct = answers[i]
+        correct_variants = [a.strip() for a in raw_correct.split("|")]
+        normalized_correct_variants = [_normalize_text(a) for a in correct_variants]
+
+        if normalized_user in normalized_correct_variants:
+            score += 1
+            print("CORRECT!")
+        else:
+            print("INCORRECT!")
+            print("Accepted answer(s): " + " / ".join(correct_variants))
+
+    print("----------------------")
+    print("  FILL-IN QUIZ RESULTS")
+    print("----------------------")
+
+    print("Correct answers: ", end="")
+    for a in answers:
+        print(a, end=" | ")
+    print()
+
+    print("Your answers : ", end="")
+    for g in guesses:
+        print(g, end=" | ")
+    print()
+
+    percent = int((score / total) * 100) if total > 0 else 0
+    print(f"\nTotal questions : {total}")
+    print(f"Correct         : {score}")
+    print(f"Your score is   : {percent}%")
+
+    if name is not None:
+        scores = load_scores()
+        scores.append({"name": name, "score": percent})
+        save_scores(scores)
