@@ -1,13 +1,13 @@
 from mcq import menu, take_quiz, print_results, quiz_by_difficulty, timed_quiz, take_negative_mark_quiz, age_based_quiz, fifty_fifty_quiz, take_quiz_challenge, take_quiz_until_wrong, take_quiz_with_skip, take_fill_in_the_blanks_quiz
 from storage import load_scores, save_scores, check_high_score, load_custom_assessments, save_custom_assessments
-from assessment import create_assessment, open_assessment
+from assessment import create_assessment
 from quiz_data import ALL_QUIZ_DATA, FILL_IN_QUIZ_DATA
 from attempts import can_attempt_quiz, record_quiz_attempt
 from answers_viewer import show_all_answers
 from attempt_comparison import comparison_menu
 from answer_links import links_menu
 from questions_viewer import show_all_questions_only
-
+from wrong_answer_quiz import take_wrong_answer_quiz
 
 
 
@@ -53,7 +53,8 @@ def main():
                 print(f"You have {remaining} assessment attempt(s) left for today.\n")
  
             record_quiz_attempt(name)
-            open_assessment()
+            # open_assessment()
+            create_assessment()
         elif choice == 6:
             name = input("Enter your name: ")
             try:
@@ -188,6 +189,12 @@ def main():
 
         elif choice == 18:
             show_all_questions_only()
+
+        elif choice == 19:  
+            name = input("Enter your name: ").strip()
+            if not name:
+                name = None
+            take_wrong_answer_quiz(name=name)
 
         elif choice == 0:
             print("Goodbye!")
