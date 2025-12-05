@@ -2,6 +2,8 @@ from mcq import menu, take_quiz, print_results, quiz_by_difficulty, timed_quiz, 
 from storage import load_scores, save_scores, check_high_score, load_custom_assessments, save_custom_assessments
 from assessment import create_assessment, open_assessment
 from quiz_data import ALL_QUIZ_DATA
+from attempts import can_attempt_quiz, record_quiz_attempt
+
 
 def main():
     while True:
@@ -35,7 +37,16 @@ def main():
             check_high_score()
         elif choice == 4:
             create_assessment()
-        elif choice ==5:
+        elif choice == 5:
+            name = input("Enter your name: ").strip()
+            allowed, remaining = can_attempt_quiz(name)
+            if not allowed:
+                print(f"Sorry {name}, you have used all your assessment attempts for today.")
+                print("Please try again tomorrow.")
+                continue  
+                print(f"You have {remaining} assessment attempt(s) left for today.\n")
+ 
+            record_quiz_attempt(name)
             open_assessment()
         elif choice == 6:
             name = input("Enter your name: ")
@@ -54,8 +65,10 @@ def main():
             opts = [q['options'] for q in selected]
             ans = [q['answer'] for q in selected]
             take_quiz(qs, opts, ans, name, timed=True)
+
         elif choice == 7:  
             quiz_by_difficulty(ALL_QUIZ_DATA)
+
         elif choice == 8:
             name = input("Enter your name: ")
             try:
@@ -80,8 +93,10 @@ def main():
             opts = [q['options'] for q in selected]
             ans = [q['answer'] for q in selected]
             take_negative_mark_quiz(qs, opts, ans, name=name, neg_mark=negative_mark)
-        elif choice == 9:  # <-- NEW AGE-BASED QUIZ OPTION
+
+        elif choice == 9:  
             age_based_quiz(ALL_QUIZ_DATA)
+
         elif choice == 10:
             name = input("Enter your name: ")
             try:
@@ -99,18 +114,21 @@ def main():
             opts = [tuple(q['options']) for q in selected]
             ans = [q['answer'] for q in selected]
             fifty_fifty_quiz(qs, opts, ans, name)
+
         elif choice == 11:
             name = input("Enter your name: ")
             qs = [q['question'] for q in ALL_QUIZ_DATA]
             opts = [q['options'] for q in ALL_QUIZ_DATA]
             ans = [q['answer'] for q in ALL_QUIZ_DATA]
             take_quiz_challenge(qs, opts, ans, name=name)
+
         elif choice == 12:
             name = input("Enter your name: ")
             qs = [q['question'] for q in ALL_QUIZ_DATA]
             opts = [q['options'] for q in ALL_QUIZ_DATA]
             ans = [q['answer'] for q in ALL_QUIZ_DATA]
             take_quiz_until_wrong(qs, opts, ans, name=name)
+
         elif choice == 13:   
             name = input("Enter your name: ")
             try:
