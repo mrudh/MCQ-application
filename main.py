@@ -6,6 +6,7 @@ from attempts import can_attempt_quiz, record_quiz_attempt
 from answers_viewer import show_all_answers
 from attempt_comparison import comparison_menu
 from answer_links import links_menu
+from questions_viewer import show_all_questions_only
 
 
 
@@ -184,6 +185,9 @@ def main():
 
         elif choice == 17:
             links_menu()
+
+        elif choice == 18:
+            show_all_questions_only()
 
         elif choice == 0:
             print("Goodbye!")
