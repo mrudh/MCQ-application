@@ -26,6 +26,7 @@ def menu():
     print("14. Fill-in-the-blanks Quiz")
     print("15. See all questions & answers")
     print("16. Compare first and latest quiz attempts")
+    print("17. Answer reference links")
     print("0. Exit")
 
 def take_quiz(questions, options, answers, name=None, timed=False):

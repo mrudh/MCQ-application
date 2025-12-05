@@ -5,6 +5,7 @@ from quiz_data import ALL_QUIZ_DATA, FILL_IN_QUIZ_DATA
 from attempts import can_attempt_quiz, record_quiz_attempt
 from answers_viewer import show_all_answers
 from attempt_comparison import comparison_menu
+from answer_links import links_menu
 
 
 
@@ -180,6 +181,9 @@ def main():
 
         elif choice == 16:
             comparison_menu()
+
+        elif choice == 17:
+            links_menu()
 
         elif choice == 0:
             print("Goodbye!")
