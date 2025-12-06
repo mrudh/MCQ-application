@@ -29,6 +29,7 @@ def menu():
     print("17. Answer reference links")
     print("18. See all questions")
     print("19 ANTI_Quiz")
+    print("20. Export all questions")
     print("0. Exit")
 
 def take_quiz(questions, options, answers, name=None, timed=False):
