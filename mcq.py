@@ -30,6 +30,7 @@ def menu():
     print("18. See all questions")
     print("19 ANTI_Quiz")
     print("20. Export all questions")
+    print("21. Summary-Based Quiz")
     print("0. Exit")
 
 def take_quiz(questions, options, answers, name=None, timed=False):
@@ -585,6 +586,67 @@ def take_fill_in_the_blanks_quiz(questions, answers, name=None):
     print(f"Your score is   : {percent}%")
 
     if name is not None:
+        scores = load_scores()
+        scores.append({"name": name, "score": percent})
+        save_scores(scores)
+
+
+def take_quiz_with_summary(questions, options, answers, name=None, timed=False):
+    guesses = []
+    score = 0
+    total = len(questions)
+
+    if timed:
+        print("You have 5 seconds for each question!")
+
+    for i, question in enumerate(questions):
+        print("----------------------")
+        print(question)
+        for option in options[i]:
+            print(option)
+
+        if timed:
+            guess = timed_quiz("Enter (A, B, C, D): ", timeout=5)
+            if guess is None:
+                print("Time's up!")
+                guess = ''
+        else:
+            guess = input("Enter (A, B, C, D): ").strip().upper()
+
+        guesses.append(guess)
+
+        if guess == answers[i]:
+            score += 1
+            print("CORRECT!")
+        else:
+            print("INCORRECT!")
+            print(f"The correct answer is: {answers[i]}")
+
+    # Calculate percentage
+    percent = int((score / total) * 100)
+
+    # 🔥 Summary Bands
+    if percent <= 25:
+        summary = "A challenging start, but every expert begins here. Review the basics and try again—you’ll improve quickly!"
+    elif percent <= 50:
+        summary = "Good effort! You’re starting to grasp the concepts. A little more practice will take you a long way."
+    elif percent <= 75:
+        summary = "Nice work! You’ve shown solid understanding. Keep practicing to reach full mastery."
+    else:
+        summary = "Excellent performance! You have a strong command of the material. Outstanding job!"
+
+    print("----------------------")
+    print("         RESULTS       ")
+    print("----------------------")
+    print("Answers: ", " ".join(answers))
+    print("Guesses: ", " ".join(guesses))
+    print(f"\nScore: {score} / {total}")
+    print(f"Percentage: {percent}%")
+    print("\n📌 Summary:")
+    print(summary)
+
+    # Save score if name provided
+    if name:
         scores = load_scores()
         scores.append({"name": name, "score": percent})
         save_scores(scores)
