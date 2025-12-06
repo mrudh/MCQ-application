@@ -8,6 +8,7 @@ from attempt_comparison import comparison_menu
 from answer_links import links_menu
 from questions_viewer import show_all_questions_only
 from wrong_answer_quiz import take_wrong_answer_quiz
+from export_questions import export_questions
 
 
 
@@ -195,6 +196,13 @@ def main():
             if not name:
                 name = None
             take_wrong_answer_quiz(name=name)
+            
+        elif choice == 20:
+            filename = input("Enter filename to export to (default: exported_questions.json): ").strip()
+            if filename == "":
+                filename = "exported_questions.json"
+            export_questions(filename)
+
 
         elif choice == 0:
             print("Goodbye!")
