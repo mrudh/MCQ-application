@@ -9,6 +9,7 @@ from answer_links import links_menu
 from questions_viewer import show_all_questions_only
 from wrong_answer_quiz import take_wrong_answer_quiz
 from export_questions import export_questions
+from export_answers import export_answers
 
 
 
@@ -221,6 +222,14 @@ def main():
             ans = [q['answer'] for q in selected]
 
             take_quiz_with_summary(qs, opts, ans, name=name)
+
+        elif choice == 22:  
+            filename = input(
+                "Enter filename to export answers to (default: exported_answers.json): "
+            ).strip()
+            if filename == "":
+                filename = "exported_answers.json"
+            export_answers(filename)
 
         elif choice == 0:
             print("Goodbye!")

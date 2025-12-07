@@ -31,6 +31,7 @@ def menu():
     print("19 ANTI_Quiz")
     print("20. Export all questions")
     print("21. Summary-Based Quiz")
+    print("22. Export all answers")
     print("0. Exit")
 
 def take_quiz(questions, options, answers, name=None, timed=False):
@@ -200,7 +201,7 @@ def take_negative_mark_quiz(questions, options, answers, name=None, neg_mark=0.2
 
 def age_based_quiz(ALL_QUIZ_DATA):
     import random
-    from .mcq import take_quiz  
+     
     name = input("Enter your name: ")
 
 
