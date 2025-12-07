@@ -10,6 +10,7 @@ from questions_viewer import show_all_questions_only
 from wrong_answer_quiz import take_wrong_answer_quiz
 from export_questions import export_questions
 from export_answers import export_answers
+from certification_quiz import certification_menu
 
 
 
@@ -230,6 +231,9 @@ def main():
             if filename == "":
                 filename = "exported_answers.json"
             export_answers(filename)
+
+        elif choice == 23:   
+            certification_menu()
 
         elif choice == 0:
             print("Goodbye!")

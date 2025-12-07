@@ -3,9 +3,7 @@ from quiz_data import ALL_QUIZ_DATA, FILL_IN_QUIZ_DATA
 
 
 def _get_option_text(options, correct_letter):
-    """
-    Find the full option text like 'C. 118' from the letter 'C'.
-    """
+   
     correct_letter = correct_letter.strip().upper()
     for opt in options:
         if opt.strip().upper().startswith(correct_letter + "."):
@@ -14,43 +12,13 @@ def _get_option_text(options, correct_letter):
 
 
 def export_answers(filename="exported_answers.json"):
-    """
-    Export all MCQ and fill-in-the-blanks answers to a JSON file.
-
-    Structure:
-
-    {
-      "mcq_answers": [
-        {
-          "number": 1,
-          "question": "...",
-          "options": ["A. ...", "B. ...", ...],
-          "correct_letter": "C",
-          "correct_option_text": "C. 118",
-          "topic": "Chemistry",
-          "difficulty": "Medium"
-        },
-        ...
-      ],
-      "fill_in_answers": [
-        {
-          "number": 1,
-          "question": "...",
-          "accepted_answers": ["mitochondria", "mitochondrion"],
-          "raw_answer": "mitochondria|mitochondrion",
-          "topic": "Biology",
-          "difficulty": "Easy"
-        },
-        ...
-      ]
-    }
-    """
+    
     data = {
         "mcq_answers": [],
         "fill_in_answers": [],
     }
 
-    # MCQ answers
+
     for idx, q in enumerate(ALL_QUIZ_DATA, start=1):
         question_text = q.get("question")
         options = list(q.get("options", ()))
@@ -70,7 +38,7 @@ def export_answers(filename="exported_answers.json"):
             "difficulty": difficulty,
         })
 
-    # Fill-in answers
+
     for idx, q in enumerate(FILL_IN_QUIZ_DATA, start=1):
         question_text = q.get("question")
         raw_answer = q.get("answer", "")
