@@ -32,6 +32,7 @@ def menu():
     print("20. Export all questions")
     print("21. Summary-Based Quiz")
     print("22. Export all answers")
+    print("23. Certification Exam")
     print("0. Exit")
 
 def take_quiz(questions, options, answers, name=None, timed=False):
