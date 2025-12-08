@@ -46,4 +46,46 @@ def show_first_and_latest_attempt(name: str):
     print("===================================\n")
 
 
+def get_all_users():
+    
+    scores = load_scores()
+    seen = set()
+    users = []
+    for s in scores:
+        raw_name = (s.get("name") or "").strip()
+        if not raw_name:
+            continue
+        key = _normalize_name(raw_name)
+        if key not in seen:
+            seen.add(key)
+            users.append(raw_name)
+    return users
 
+
+def choose_user_from_list_and_compare():
+   
+    users = get_all_users()
+    if not users:
+        print("\nNo quiz attempts stored yet.")
+        return
+
+    print("\n=== USERS WITH QUIZ ATTEMPTS ===")
+    for idx, u in enumerate(users, start=1):
+        print(f"{idx}. {u}")
+    print("0. Cancel")
+
+    try:
+        choice = int(input("Enter choice: "))
+    except ValueError:
+        print("Invalid input. Please enter a number.")
+        return
+
+    if choice == 0:
+        print("Cancelled.")
+        return
+
+    if 1 <= choice <= len(users):
+        selected_name = users[choice - 1]
+        show_first_and_latest_attempt(selected_name)
+    else:
+        print("Invalid selection.")
