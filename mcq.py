@@ -13,7 +13,7 @@ def menu():
     print("1. Take quiz")
     print("2. Check highest score")
     print("3. Take quiz by topics")
-    print("4. Create assessment")
+    print("4. Create and manage assessments")
     print("5. Open assessment")
     print("6. Timed quiz")
     print("7. Take quiz by difficulty")

@@ -11,7 +11,7 @@ from wrong_answer_quiz import take_wrong_answer_quiz
 from export_questions import export_questions
 from export_answers import export_answers
 from certification_quiz import certification_menu
-
+from assessment import add_question_to_assessment, edit_question_in_assessment, delete_question_from_assessment
 
 
 def main():
@@ -45,7 +45,33 @@ def main():
         elif choice == 2:
             check_high_score()
         elif choice == 4:
-            create_assessment()
+            while True:
+                print("\n--- Create & Manage Assessments ---")
+                print("1. Create new assessment")
+                print("2. Add question to assessment")
+                print("3. Edit question in assessment")
+                print("4. Delete question from assessment")
+                print("5. Back")
+
+                try:
+                    manage_choice = int(input("Enter choice: "))
+                except ValueError:
+                    print("Invalid input.")
+                    continue
+
+                if manage_choice == 1:
+                    create_assessment()
+                elif manage_choice == 2:
+                    add_question_to_assessment()
+                elif manage_choice == 3:
+                    edit_question_in_assessment()
+                elif manage_choice == 4:
+                    delete_question_from_assessment()  # NEW
+                elif manage_choice == 5:
+                    print("Returning to main menu...")
+                    break
+                else:
+                    print("Invalid selection. Try again.")
         elif choice == 5:
             open_assessment()
         elif choice == 6:
