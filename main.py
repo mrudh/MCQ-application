@@ -11,7 +11,7 @@ from wrong_answer_quiz import take_wrong_answer_quiz
 from export_questions import export_questions
 from export_answers import export_answers
 from certification_quiz import certification_menu
-from assessment import add_question_to_assessment, edit_question_in_assessment, delete_question_from_assessment
+from assessment import add_question_to_assessment, edit_question_in_assessment, delete_question_from_assessment, view_questions_in_assessment
 
 
 def main():
@@ -51,7 +51,8 @@ def main():
                 print("2. Add question to assessment")
                 print("3. Edit question in assessment")
                 print("4. Delete question from assessment")
-                print("5. Back")
+                print("5. View questions in assessment")
+                print("6. Back")
 
                 try:
                     manage_choice = int(input("Enter choice: "))
@@ -66,8 +67,10 @@ def main():
                 elif manage_choice == 3:
                     edit_question_in_assessment()
                 elif manage_choice == 4:
-                    delete_question_from_assessment()  # NEW
+                    delete_question_from_assessment()
                 elif manage_choice == 5:
+                    view_questions_in_assessment()
+                elif manage_choice == 6:
                     print("Returning to main menu...")
                     break
                 else:

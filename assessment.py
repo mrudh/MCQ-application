@@ -153,3 +153,44 @@ def delete_question_from_assessment():
     assessment["answers"].pop(q_idx)
     save_custom_assessments(assessments)
     print(f"Deleted: {removed}")
+
+
+def view_questions_in_assessment():
+    assessments = load_custom_assessments()
+    if not assessments:
+        print("No assessments saved yet.")
+        return
+
+    print("\nSaved assessments:")
+    for idx, a in enumerate(assessments):
+        print(f"{idx + 1}. {a['name']}")
+
+    try:
+        sel = int(input("Select an assessment to view: ")) - 1
+    except ValueError:
+        print("Invalid input.")
+        return
+
+    if sel < 0 or sel >= len(assessments):
+        print("Invalid selection.")
+        return
+
+    assessment = assessments[sel]
+    print(f"\n--- Assessment: {assessment['name']} ---")
+
+    questions = assessment.get("questions", [])
+    options_list = assessment.get("options", [])
+    answers = assessment.get("answers", [])
+
+    if not questions:
+        print("This assessment has no questions yet.")
+        return
+
+    for i, question in enumerate(questions):
+        print("\n----------------------")
+        print(f"Q{i + 1}: {question}")
+        if i < len(options_list):
+            for opt in options_list[i]:
+                print(opt)
+        if i < len(answers):
+            print(f"Correct answer: {answers[i]}")
