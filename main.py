@@ -47,15 +47,6 @@ def main():
         elif choice == 4:
             create_assessment()
         elif choice == 5:
-            name = input("Enter your name: ").strip()
-            allowed, remaining = can_attempt_quiz(name)
-            if not allowed:
-                print(f"Sorry {name}, you have used all your assessment attempts for today.")
-                print("Please try again tomorrow.")
-                continue  
-                print(f"You have {remaining} assessment attempt(s) left for today.\n")
- 
-            record_quiz_attempt(name)
             open_assessment()
         elif choice == 6:
             name = input("Enter your name: ")
