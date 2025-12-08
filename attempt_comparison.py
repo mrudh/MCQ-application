@@ -89,3 +89,26 @@ def choose_user_from_list_and_compare():
         show_first_and_latest_attempt(selected_name)
     else:
         print("Invalid selection.")
+
+def comparison_menu():
+    
+    while True:
+        print("\n====== ATTEMPT COMPARISON MENU ======")
+        print("1. Compare attempts by typing a name")
+        print("2. Compare attempts by choosing from user list")
+        print("0. Back to main menu")
+        choice = input("Enter choice: ").strip()
+
+        if choice == "1":
+            name = input("Enter your name: ").strip()
+            if not name:
+                print("Name cannot be empty.")
+                continue
+            show_first_and_latest_attempt(name)
+        elif choice == "2":
+            choose_user_from_list_and_compare()
+        elif choice == "0":
+            print("Returning to main menu.")
+            break
+        else:
+            print("Invalid choice. Please try again.")
