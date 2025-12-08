@@ -84,8 +84,30 @@ def print_results(guesses, score, answers):
     print(f"\nYour score is: {percent}%")
     
 
-#def quiz_by_topic(QUESTIONS, OPTIONS, ANSWERS, TOPICS):
-    
+def quiz_by_topic(ALL_QUIZ_DATA):
+    topics = sorted(list(set(q['topic'] for q in ALL_QUIZ_DATA)))
+    if not topics:
+        print("No topics found in the quiz data.")
+        return
+    print("Select a topic:")
+    for idx, topic in enumerate(topics):
+        count = sum(1 for q in ALL_QUIZ_DATA if q['topic'] == topic)
+        print(f"{idx + 1}. {topic} ({count} questions)")
+    try:
+        topic_index = int(input("Enter topic number: ")) - 1
+        if 0 <= topic_index < len(topics):
+            selected_topic = topics[topic_index]
+            selected_data = [q for q in ALL_QUIZ_DATA if q['topic'] == selected_topic]
+
+            questions = [q['question'] for q in selected_data]
+            options = [q['options'] for q in selected_data]
+            answers = [q['answer'] for q in selected_data]
+            
+            take_quiz(questions, options, answers)
+        else:
+            print("Invalid topic selection.")
+    except ValueError:
+        print("Invalid input.")
 
 def timed_quiz(prompt, timeout=5):
     if sys.platform.startswith("win"):

@@ -1,4 +1,4 @@
-from mcq import menu, take_quiz, print_results, quiz_by_difficulty, timed_quiz, take_negative_mark_quiz, age_based_quiz, fifty_fifty_quiz, take_quiz_challenge, take_quiz_until_wrong, take_quiz_with_skip, take_fill_in_the_blanks_quiz, take_quiz_with_summary, learning_mode
+from mcq import menu, take_quiz, print_results, quiz_by_difficulty, timed_quiz, take_negative_mark_quiz, age_based_quiz, fifty_fifty_quiz, take_quiz_challenge, take_quiz_until_wrong, take_quiz_with_skip, take_fill_in_the_blanks_quiz, take_quiz_with_summary, learning_mode, quiz_by_topic 
 from storage import load_scores, save_scores, check_high_score, load_custom_assessments, save_custom_assessments
 from assessment import create_assessment, open_assessment
 from quiz_data import ALL_QUIZ_DATA, FILL_IN_QUIZ_DATA
@@ -44,6 +44,8 @@ def main():
             take_quiz(qs, opts, ans, name)
         elif choice == 2:
             check_high_score()
+        elif choice == 3:
+            quiz_by_topic(ALL_QUIZ_DATA)
         elif choice == 4:
             while True:
                 print("\n--- Create & Manage Assessments ---")
