@@ -1,6 +1,6 @@
 from mcq import menu, take_quiz, print_results, quiz_by_difficulty, timed_quiz, take_negative_mark_quiz, age_based_quiz, fifty_fifty_quiz, take_quiz_challenge, take_quiz_until_wrong, take_quiz_with_skip, take_fill_in_the_blanks_quiz, take_quiz_with_summary
 from storage import load_scores, save_scores, check_high_score, load_custom_assessments, save_custom_assessments
-from assessment import create_assessment
+from assessment import create_assessment, open_assessment
 from quiz_data import ALL_QUIZ_DATA, FILL_IN_QUIZ_DATA
 from attempts import can_attempt_quiz, record_quiz_attempt
 from answers_viewer import show_all_answers
@@ -47,17 +47,7 @@ def main():
         elif choice == 4:
             create_assessment()
         elif choice == 5:
-            name = input("Enter your name: ").strip()
-            allowed, remaining = can_attempt_quiz(name)
-            if not allowed:
-                print(f"Sorry {name}, you have used all your assessment attempts for today.")
-                print("Please try again tomorrow.")
-                continue  
-                print(f"You have {remaining} assessment attempt(s) left for today.\n")
- 
-            record_quiz_attempt(name)
-            # open_assessment()
-            create_assessment()
+            open_assessment()
         elif choice == 6:
             name = input("Enter your name: ")
             try:
