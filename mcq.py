@@ -33,6 +33,7 @@ def menu():
     print("21. Summary-Based Quiz")
     print("22. Export all answers")
     print("23. Certification Exam")
+    print("24. Learning mode Quiz")
     print("0. Exit")
 
 def take_quiz(questions, options, answers, name=None, timed=False):
@@ -651,3 +652,49 @@ def take_quiz_with_summary(questions, options, answers, name=None, timed=False):
         scores = load_scores()
         scores.append({"name": name, "score": percent})
         save_scores(scores)
+
+def learning_mode(questions, answers):
+    indices = list(range(len(questions)))
+    random.shuffle(indices)
+
+    total_seen = 0
+    correct_self = 0
+
+    print("\n--- LEARNING MODE ---")
+    print("Press Enter to see the answer for each question.")
+    print("After seeing the answer, type 'y' if you got it right, 'n' if not.")
+    print("Type 'q' at any time to quit learning mode.\n")
+
+    for idx in indices:
+        question = questions[idx]
+        answer = answers[idx]
+
+        print("----------------------")
+        print(f"Q: {question}")
+        input("Press Enter to reveal the answer...")
+
+        print(f"A: {answer}")
+
+        while True:
+            mark = input("Did you get it right? (y/n, or q to quit): ").strip().lower()
+            if mark in ("y", "n", "q"):
+                break
+            print("Please enter 'y', 'n', or 'q'.")
+
+        if mark == "q":
+            break
+
+        total_seen += 1
+        if mark == "y":
+            correct_self += 1
+
+    print("\n--- LEARNING MODE QUIZ SUMMARY ---")
+    print(f"Cards reviewed : {total_seen}")
+    print(f"Marked correct : {correct_self}")
+
+    if total_seen > 0:
+        accuracy = int((correct_self / total_seen) * 100)
+    else:
+        accuracy = 0
+
+    print(f"Self-rated accuracy: {accuracy}%")

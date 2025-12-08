@@ -1,4 +1,4 @@
-from mcq import menu, take_quiz, print_results, quiz_by_difficulty, timed_quiz, take_negative_mark_quiz, age_based_quiz, fifty_fifty_quiz, take_quiz_challenge, take_quiz_until_wrong, take_quiz_with_skip, take_fill_in_the_blanks_quiz, take_quiz_with_summary
+from mcq import menu, take_quiz, print_results, quiz_by_difficulty, timed_quiz, take_negative_mark_quiz, age_based_quiz, fifty_fifty_quiz, take_quiz_challenge, take_quiz_until_wrong, take_quiz_with_skip, take_fill_in_the_blanks_quiz, take_quiz_with_summary, learning_mode
 from storage import load_scores, save_scores, check_high_score, load_custom_assessments, save_custom_assessments
 from assessment import create_assessment, open_assessment
 from quiz_data import ALL_QUIZ_DATA, FILL_IN_QUIZ_DATA
@@ -253,7 +253,10 @@ def main():
 
         elif choice == 23:   
             certification_menu()
-
+        elif choice == 24:
+            questions = [q['question'] for q in ALL_QUIZ_DATA]
+            answers = [q['answer'] for q in ALL_QUIZ_DATA]
+            learning_mode(questions, answers)
         elif choice == 0:
             print("Goodbye!")
             break
