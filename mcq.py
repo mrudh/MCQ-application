@@ -199,7 +199,6 @@ def take_negative_mark_quiz(questions, options, answers, name=None, neg_mark=0.2
         save_scores(scores)
 
 
-
 def age_based_quiz(ALL_QUIZ_DATA):
     import random
      
