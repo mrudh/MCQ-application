@@ -51,47 +51,36 @@ DEFAULT_FILL_LINKS = {
 
 
 def _load_links():
-    """Load all stored links from JSON file."""
+    
     if os.path.exists(LINKS_FILE):
         try:
             with open(LINKS_FILE, "r") as f:
                 return json.load(f)
         except json.JSONDecodeError:
-            # If file is corrupted, start fresh
+            
             return {}
     return {}
 
 
 def _save_links(data):
-    """Save all links to JSON file."""
+    
     with open(LINKS_FILE, "w") as f:
         json.dump(data, f, indent=2)
 
 
 def _key_for_mcq(index):
-    """
-    Create a stable key for an MCQ by index (1-based).
-    Example: "MCQ-1", "MCQ-2", ...
-    """
+    
     return f"MCQ-{index}"
 
 
 def _key_for_fill(index):
-    """
-    Create a stable key for a fill-in-the-blanks question by index (1-based).
-    Example: "FILL-1", "FILL-2", ...
-    """
+    
     return f"FILL-{index}"
 
 
 
 def get_links_for_mcq(index):
-    """
-    Get list of reference links for a specific MCQ answer
-    using its 1-based index in ALL_QUIZ_DATA.
-
-    Returns DEFAULT links + any extra user-added links.
-    """
+    
     links_data = _load_links()
     key = _key_for_mcq(index)
     user_links = links_data.get(key, [])
@@ -105,10 +94,7 @@ def get_links_for_mcq(index):
 
 
 def add_link_for_mcq(index, link):
-    """
-    Add a single reference link for a specific MCQ answer.
-    Only user-added links are written to the JSON file.
-    """
+    
     links_data = _load_links()
     key = _key_for_mcq(index)
     links_data.setdefault(key, [])
@@ -118,12 +104,7 @@ def add_link_for_mcq(index, link):
 
 
 def get_links_for_fill(index):
-    """
-    Get list of reference links for a specific fill-in-the-blanks answer
-    using its 1-based index in FILL_IN_QUIZ_DATA.
-
-    Returns DEFAULT links + any extra user-added links.
-    """
+   
     links_data = _load_links()
     key = _key_for_fill(index)
     user_links = links_data.get(key, [])
@@ -137,10 +118,7 @@ def get_links_for_fill(index):
 
 
 def add_link_for_fill(index, link):
-    """
-    Add a single reference link for a specific fill-in-the-blanks answer.
-    Only user-added links are written to the JSON file.
-    """
+    
     links_data = _load_links()
     key = _key_for_fill(index)
     links_data.setdefault(key, [])
@@ -151,7 +129,7 @@ def add_link_for_fill(index, link):
 
 
 def _get_option_text(options, correct_letter):
-    """Find the full option text like 'C. 118' from the letter 'C'."""
+    
     correct_letter = correct_letter.strip().upper()
     for opt in options:
         if opt.strip().upper().startswith(correct_letter + "."):
@@ -160,7 +138,7 @@ def _get_option_text(options, correct_letter):
 
 
 def show_mcq_with_links(index):
-    """Print an MCQ, its correct answer, and its reference links."""
+    
     if not (1 <= index <= len(ALL_QUIZ_DATA)):
         print("Invalid MCQ number.")
         return
@@ -189,7 +167,7 @@ def show_mcq_with_links(index):
 
 
 def show_fill_with_links(index):
-    """Print a fill-in question, its answer(s), and its reference links."""
+    
     if not (1 <= index <= len(FILL_IN_QUIZ_DATA)):
         print("Invalid fill-in question number.")
         return
