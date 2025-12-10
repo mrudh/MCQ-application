@@ -81,7 +81,7 @@ def take_wrong_answer_quiz(name=None):
     print("    the game treats it as a mistake.\n")
 
     user_guesses = []
-    mode_score = 0  # counts how many times they successfully picked a wrong option
+    mode_score = 0  
 
     for i, question in enumerate(questions):
         print("--------------------------------------------------")

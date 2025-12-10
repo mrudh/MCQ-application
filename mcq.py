@@ -28,7 +28,7 @@ def menu():
     print("16. Compare first and latest quiz attempts")
     print("17. Answer reference links")
     print("18. See all questions")
-    print("19 ANTI_Quiz")
+    print("19. Odd-One-Out Quiz")
     print("20. Export all questions")
     print("21. Summary-Based Quiz")
     print("22. Export all answers")
@@ -646,10 +646,10 @@ def take_quiz_with_summary(questions, options, answers, name=None, timed=False):
             print("INCORRECT!")
             print(f"The correct answer is: {answers[i]}")
 
-    # Calculate percentage
+    
     percent = int((score / total) * 100)
 
-    # 🔥 Summary Bands
+    
     if percent <= 25:
         summary = "A challenging start, but every expert begins here. Review the basics and try again—you’ll improve quickly!"
     elif percent <= 50:
@@ -669,7 +669,7 @@ def take_quiz_with_summary(questions, options, answers, name=None, timed=False):
     print("\n📌 Summary:")
     print(summary)
 
-    # Save score if name provided
+    
     if name:
         scores = load_scores()
         scores.append({"name": name, "score": percent})
