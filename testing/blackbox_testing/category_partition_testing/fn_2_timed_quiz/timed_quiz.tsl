@@ -1,0 +1,28 @@
+function timed_quiz
+
+Platform:
+    windows.        [property WIN]
+    unix_like.      [property UNIX]
+
+TimeoutValue:
+    negative.       [property TNEG]  [if UNIX] [error] [single]
+    zero.           [property TZERO]
+    positive.       [property TPOS]
+
+WindowsInput:
+    enter_pressed.      [property W_ENTER]   [if WIN]
+    backspace_used.     [property W_BS]      [if WIN]
+    typed_chars_enter.  [property W_CHARS]   [if WIN]
+    no_input.           [property W_NONE]    [if WIN]
+
+    enter_pressed.      [if UNIX] [error]
+    backspace_used.     [if UNIX] [error]
+    typed_chars_enter.  [if UNIX] [error]
+    no_input.           [if UNIX] [error]
+
+UnixInputAvailability:
+    available.       [property U_AVAIL] [if UNIX]
+    not_available.   [property U_NONE]  [if UNIX]
+
+    available.       [if WIN] [error]
+    not_available.   [if WIN] [error]

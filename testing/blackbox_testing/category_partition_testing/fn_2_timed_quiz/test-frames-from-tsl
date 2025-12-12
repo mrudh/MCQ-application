@@ -1,0 +1,111 @@
+
+Test Case 1  		<single>  (follows [if])
+   TimeoutValue :  negative
+
+
+Test Case 2  		<error>  (follows [if])
+   WindowsInput :  enter_pressed
+
+
+Test Case 3  		<error>  (follows [if])
+   WindowsInput :  backspace_used
+
+
+Test Case 4  		<error>  (follows [if])
+   WindowsInput :  typed_chars_enter
+
+
+Test Case 5  		<error>  (follows [if])
+   WindowsInput :  no_input
+
+
+Test Case 6  		<error>  (follows [if])
+   UnixInputAvailability :  available
+
+
+Test Case 7  		<error>  (follows [if])
+   UnixInputAvailability :  not_available
+
+
+Test Case 8  		(Key = 1.2.1.0.)
+   Platform              :  windows
+   TimeoutValue          :  zero
+   WindowsInput          :  enter_pressed
+   UnixInputAvailability :  <n/a>
+
+
+Test Case 9  		(Key = 1.2.2.0.)
+   Platform              :  windows
+   TimeoutValue          :  zero
+   WindowsInput          :  backspace_used
+   UnixInputAvailability :  <n/a>
+
+
+Test Case 10 		(Key = 1.2.3.0.)
+   Platform              :  windows
+   TimeoutValue          :  zero
+   WindowsInput          :  typed_chars_enter
+   UnixInputAvailability :  <n/a>
+
+
+Test Case 11 		(Key = 1.2.4.0.)
+   Platform              :  windows
+   TimeoutValue          :  zero
+   WindowsInput          :  no_input
+   UnixInputAvailability :  <n/a>
+
+
+Test Case 12 		(Key = 1.3.1.0.)
+   Platform              :  windows
+   TimeoutValue          :  positive
+   WindowsInput          :  enter_pressed
+   UnixInputAvailability :  <n/a>
+
+
+Test Case 13 		(Key = 1.3.2.0.)
+   Platform              :  windows
+   TimeoutValue          :  positive
+   WindowsInput          :  backspace_used
+   UnixInputAvailability :  <n/a>
+
+
+Test Case 14 		(Key = 1.3.3.0.)
+   Platform              :  windows
+   TimeoutValue          :  positive
+   WindowsInput          :  typed_chars_enter
+   UnixInputAvailability :  <n/a>
+
+
+Test Case 15 		(Key = 1.3.4.0.)
+   Platform              :  windows
+   TimeoutValue          :  positive
+   WindowsInput          :  no_input
+   UnixInputAvailability :  <n/a>
+
+
+Test Case 16 		(Key = 2.2.0.1.)
+   Platform              :  unix_like
+   TimeoutValue          :  zero
+   WindowsInput          :  <n/a>
+   UnixInputAvailability :  available
+
+
+Test Case 17 		(Key = 2.2.0.2.)
+   Platform              :  unix_like
+   TimeoutValue          :  zero
+   WindowsInput          :  <n/a>
+   UnixInputAvailability :  not_available
+
+
+Test Case 18 		(Key = 2.3.0.1.)
+   Platform              :  unix_like
+   TimeoutValue          :  positive
+   WindowsInput          :  <n/a>
+   UnixInputAvailability :  available
+
+
+Test Case 19 		(Key = 2.3.0.2.)
+   Platform              :  unix_like
+   TimeoutValue          :  positive
+   WindowsInput          :  <n/a>
+   UnixInputAvailability :  not_available
