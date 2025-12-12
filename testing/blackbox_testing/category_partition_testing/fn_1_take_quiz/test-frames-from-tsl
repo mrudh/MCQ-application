@@ -1,0 +1,382 @@
+
+Test Case 1  		<error>  (follows [else])
+   UserGuess :  timeout
+
+
+Test Case 2  		(Key = 1.1.1.1.)
+   QuestionsCount :  zero
+   TimedMode      :  timed
+   UserGuess      :  correct
+   NameProvided   :  yes
+
+
+Test Case 3  		(Key = 1.1.1.2.)
+   QuestionsCount :  zero
+   TimedMode      :  timed
+   UserGuess      :  correct
+   NameProvided   :  no
+
+
+Test Case 4  		(Key = 1.1.2.1.)
+   QuestionsCount :  zero
+   TimedMode      :  timed
+   UserGuess      :  incorrect
+   NameProvided   :  yes
+
+
+Test Case 5  		(Key = 1.1.2.2.)
+   QuestionsCount :  zero
+   TimedMode      :  timed
+   UserGuess      :  incorrect
+   NameProvided   :  no
+
+
+Test Case 6  		(Key = 1.1.3.1.)
+   QuestionsCount :  zero
+   TimedMode      :  timed
+   UserGuess      :  invalid
+   NameProvided   :  yes
+
+
+Test Case 7  		(Key = 1.1.3.2.)
+   QuestionsCount :  zero
+   TimedMode      :  timed
+   UserGuess      :  invalid
+   NameProvided   :  no
+
+
+Test Case 8  		(Key = 1.1.4.1.)
+   QuestionsCount :  zero
+   TimedMode      :  timed
+   UserGuess      :  empty
+   NameProvided   :  yes
+
+
+Test Case 9  		(Key = 1.1.4.2.)
+   QuestionsCount :  zero
+   TimedMode      :  timed
+   UserGuess      :  empty
+   NameProvided   :  no
+
+
+Test Case 10 		(Key = 1.1.5.1.)
+   QuestionsCount :  zero
+   TimedMode      :  timed
+   UserGuess      :  timeout
+   NameProvided   :  yes
+
+
+Test Case 11 		(Key = 1.1.5.2.)
+   QuestionsCount :  zero
+   TimedMode      :  timed
+   UserGuess      :  timeout
+   NameProvided   :  no
+
+
+Test Case 12 		(Key = 1.2.1.1.)
+   QuestionsCount :  zero
+   TimedMode      :  not_timed
+   UserGuess      :  correct
+   NameProvided   :  yes
+
+
+Test Case 13 		(Key = 1.2.1.2.)
+   QuestionsCount :  zero
+   TimedMode      :  not_timed
+   UserGuess      :  correct
+   NameProvided   :  no
+
+
+Test Case 14 		(Key = 1.2.2.1.)
+   QuestionsCount :  zero
+   TimedMode      :  not_timed
+   UserGuess      :  incorrect
+   NameProvided   :  yes
+
+
+Test Case 15 		(Key = 1.2.2.2.)
+   QuestionsCount :  zero
+   TimedMode      :  not_timed
+   UserGuess      :  incorrect
+   NameProvided   :  no
+
+
+Test Case 16 		(Key = 1.2.3.1.)
+   QuestionsCount :  zero
+   TimedMode      :  not_timed
+   UserGuess      :  invalid
+   NameProvided   :  yes
+
+
+Test Case 17 		(Key = 1.2.3.2.)
+   QuestionsCount :  zero
+   TimedMode      :  not_timed
+   UserGuess      :  invalid
+   NameProvided   :  no
+
+
+Test Case 18 		(Key = 1.2.4.1.)
+   QuestionsCount :  zero
+   TimedMode      :  not_timed
+   UserGuess      :  empty
+   NameProvided   :  yes
+
+
+Test Case 19 		(Key = 1.2.4.2.)
+   QuestionsCount :  zero
+   TimedMode      :  not_timed
+   UserGuess      :  empty
+   NameProvided   :  no
+
+
+Test Case 20 		(Key = 2.1.1.1.)
+   QuestionsCount :  one
+   TimedMode      :  timed
+   UserGuess      :  correct
+   NameProvided   :  yes
+
+
+Test Case 21 		(Key = 2.1.1.2.)
+   QuestionsCount :  one
+   TimedMode      :  timed
+   UserGuess      :  correct
+   NameProvided   :  no
+
+
+Test Case 22 		(Key = 2.1.2.1.)
+   QuestionsCount :  one
+   TimedMode      :  timed
+   UserGuess      :  incorrect
+   NameProvided   :  yes
+
+
+Test Case 23 		(Key = 2.1.2.2.)
+   QuestionsCount :  one
+   TimedMode      :  timed
+   UserGuess      :  incorrect
+   NameProvided   :  no
+
+
+Test Case 24 		(Key = 2.1.3.1.)
+   QuestionsCount :  one
+   TimedMode      :  timed
+   UserGuess      :  invalid
+   NameProvided   :  yes
+
+
+Test Case 25 		(Key = 2.1.3.2.)
+   QuestionsCount :  one
+   TimedMode      :  timed
+   UserGuess      :  invalid
+   NameProvided   :  no
+
+
+Test Case 26 		(Key = 2.1.4.1.)
+   QuestionsCount :  one
+   TimedMode      :  timed
+   UserGuess      :  empty
+   NameProvided   :  yes
+
+
+Test Case 27 		(Key = 2.1.4.2.)
+   QuestionsCount :  one
+   TimedMode      :  timed
+   UserGuess      :  empty
+   NameProvided   :  no
+
+
+Test Case 28 		(Key = 2.1.5.1.)
+   QuestionsCount :  one
+   TimedMode      :  timed
+   UserGuess      :  timeout
+   NameProvided   :  yes
+
+
+Test Case 29 		(Key = 2.1.5.2.)
+   QuestionsCount :  one
+   TimedMode      :  timed
+   UserGuess      :  timeout
+   NameProvided   :  no
+
+
+Test Case 30 		(Key = 2.2.1.1.)
+   QuestionsCount :  one
+   TimedMode      :  not_timed
+   UserGuess      :  correct
+   NameProvided   :  yes
+
+
+Test Case 31 		(Key = 2.2.1.2.)
+   QuestionsCount :  one
+   TimedMode      :  not_timed
+   UserGuess      :  correct
+   NameProvided   :  no
+
+
+Test Case 32 		(Key = 2.2.2.1.)
+   QuestionsCount :  one
+   TimedMode      :  not_timed
+   UserGuess      :  incorrect
+   NameProvided   :  yes
+
+
+Test Case 33 		(Key = 2.2.2.2.)
+   QuestionsCount :  one
+   TimedMode      :  not_timed
+   UserGuess      :  incorrect
+   NameProvided   :  no
+
+
+Test Case 34 		(Key = 2.2.3.1.)
+   QuestionsCount :  one
+   TimedMode      :  not_timed
+   UserGuess      :  invalid
+   NameProvided   :  yes
+
+
+Test Case 35 		(Key = 2.2.3.2.)
+   QuestionsCount :  one
+   TimedMode      :  not_timed
+   UserGuess      :  invalid
+   NameProvided   :  no
+
+
+Test Case 36 		(Key = 2.2.4.1.)
+   QuestionsCount :  one
+   TimedMode      :  not_timed
+   UserGuess      :  empty
+   NameProvided   :  yes
+
+
+Test Case 37 		(Key = 2.2.4.2.)
+   QuestionsCount :  one
+   TimedMode      :  not_timed
+   UserGuess      :  empty
+   NameProvided   :  no
+
+
+Test Case 38 		(Key = 3.1.1.1.)
+   QuestionsCount :  many
+   TimedMode      :  timed
+   UserGuess      :  correct
+   NameProvided   :  yes
+
+
+Test Case 39 		(Key = 3.1.1.2.)
+   QuestionsCount :  many
+   TimedMode      :  timed
+   UserGuess      :  correct
+   NameProvided   :  no
+
+
+Test Case 40 		(Key = 3.1.2.1.)
+   QuestionsCount :  many
+   TimedMode      :  timed
+   UserGuess      :  incorrect
+   NameProvided   :  yes
+
+
+Test Case 41 		(Key = 3.1.2.2.)
+   QuestionsCount :  many
+   TimedMode      :  timed
+   UserGuess      :  incorrect
+   NameProvided   :  no
+
+
+Test Case 42 		(Key = 3.1.3.1.)
+   QuestionsCount :  many
+   TimedMode      :  timed
+   UserGuess      :  invalid
+   NameProvided   :  yes
+
+
+Test Case 43 		(Key = 3.1.3.2.)
+   QuestionsCount :  many
+   TimedMode      :  timed
+   UserGuess      :  invalid
+   NameProvided   :  no
+
+
+Test Case 44 		(Key = 3.1.4.1.)
+   QuestionsCount :  many
+   TimedMode      :  timed
+   UserGuess      :  empty
+   NameProvided   :  yes
+
+
+Test Case 45 		(Key = 3.1.4.2.)
+   QuestionsCount :  many
+   TimedMode      :  timed
+   UserGuess      :  empty
+   NameProvided   :  no
+
+
+Test Case 46 		(Key = 3.1.5.1.)
+   QuestionsCount :  many
+   TimedMode      :  timed
+   UserGuess      :  timeout
+   NameProvided   :  yes
+
+
+Test Case 47 		(Key = 3.1.5.2.)
+   QuestionsCount :  many
+   TimedMode      :  timed
+   UserGuess      :  timeout
+   NameProvided   :  no
+
+
+Test Case 48 		(Key = 3.2.1.1.)
+   QuestionsCount :  many
+   TimedMode      :  not_timed
+   UserGuess      :  correct
+   NameProvided   :  yes
+
+
+Test Case 49 		(Key = 3.2.1.2.)
+   QuestionsCount :  many
+   TimedMode      :  not_timed
+   UserGuess      :  correct
+   NameProvided   :  no
+
+
+Test Case 50 		(Key = 3.2.2.1.)
+   QuestionsCount :  many
+   TimedMode      :  not_timed
+   UserGuess      :  incorrect
+   NameProvided   :  yes
+
+
+Test Case 51 		(Key = 3.2.2.2.)
+   QuestionsCount :  many
+   TimedMode      :  not_timed
+   UserGuess      :  incorrect
+   NameProvided   :  no
+
+
+Test Case 52 		(Key = 3.2.3.1.)
+   QuestionsCount :  many
+   TimedMode      :  not_timed
+   UserGuess      :  invalid
+   NameProvided   :  yes
+
+
+Test Case 53 		(Key = 3.2.3.2.)
+   QuestionsCount :  many
+   TimedMode      :  not_timed
+   UserGuess      :  invalid
+   NameProvided   :  no
+
+
+Test Case 54 		(Key = 3.2.4.1.)
+   QuestionsCount :  many
+   TimedMode      :  not_timed
+   UserGuess      :  empty
+   NameProvided   :  yes
+
+
+Test Case 55 		(Key = 3.2.4.2.)
+   QuestionsCount :  many
+   TimedMode      :  not_timed
+   UserGuess      :  empty
+   NameProvided   :  no
+
