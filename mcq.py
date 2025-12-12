@@ -90,6 +90,7 @@ def quiz_by_topic(ALL_QUIZ_DATA):
     except ValueError:
         print("Invalid input.")
 
+
 def timed_quiz(prompt, timeout=5):
     if sys.platform.startswith("win"):
         import msvcrt

@@ -1,0 +1,21 @@
+Parameters:
+    QuestionsCount:
+        zero.   [property Q0]
+        one.    [property Q1]
+        many.   [property Qm]
+
+    TimedMode:
+        timed.      [property Timed]
+        not_timed.  [property NotTimed]
+
+    UserGuess:
+        correct.    [property Correct]
+        incorrect.  [property Incorrect]
+        invalid.    [property Invalid]
+        empty.      [property Empty]
+        timeout.    [if Timed] [property Timeout]
+                  [else] [error]
+
+    NameProvided:
+        yes.    [property NameYes]
+        no.     [property NameNo]

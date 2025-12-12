@@ -26,6 +26,7 @@ def create_assessment():
     if take_now == 'y':
         take_quiz(custom_questions, custom_options, custom_answers)
 
+
 def open_assessment():
     assessments = load_custom_assessments()
     if not assessments:
