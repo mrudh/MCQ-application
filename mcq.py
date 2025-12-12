@@ -260,9 +260,6 @@ def age_based_quiz(ALL_QUIZ_DATA):
     take_quiz(qs, opts, ans, name=name)
 
 
-
-
-
 def fifty_fifty(options, correct_letter):
     correct_idx = None
     for i, opt in enumerate(options):
@@ -647,7 +644,7 @@ def take_quiz_with_summary(questions, options, answers, name=None, timed=False):
     print("Guesses: ", " ".join(guesses))
     print(f"\nScore: {score} / {total}")
     print(f"Percentage: {percent}%")
-    print("\n📌 Summary:")
+    print("\n Summary:")
     print(summary)
 
     

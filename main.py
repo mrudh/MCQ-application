@@ -38,7 +38,6 @@ def quiz_modes_menu():
         answers = [q['answer'] for q in ALL_QUIZ_DATA]
 
         if choice == "1":
-            # 🔁 this is your old "choice == 6" block
             name = input("Enter your name: ")
             try:
                 total_questions = int(input(f"How many questions do you want to take? (1 to {len(ALL_QUIZ_DATA)}): "))
@@ -60,7 +59,6 @@ def quiz_modes_menu():
             quiz_by_difficulty(ALL_QUIZ_DATA)
 
         elif choice == "3":
-            # paste your old "choice == 8" logic here
             name = input("Enter your name: ")
             try:
                 total_questions = int(input(f"How many questions do you want to take? (1 to {len(ALL_QUIZ_DATA)}): "))
@@ -89,7 +87,6 @@ def quiz_modes_menu():
             age_based_quiz(ALL_QUIZ_DATA)
 
         elif choice == "5":
-            # your old choice == 10
             name = input("Enter your name: ")
             try:
                 total_questions = int(input(f"How many questions do you want to take? (1 to {len(ALL_QUIZ_DATA)}): "))
@@ -117,7 +114,6 @@ def quiz_modes_menu():
 
         elif choice == "8":
             name = input("Enter your name: ")
-            # re-use your old choice == 13 logic but using `questions/options/answers`
             import random
             total_questions = len(ALL_QUIZ_DATA)
             selected = random.sample(ALL_QUIZ_DATA, total_questions)
@@ -127,7 +123,6 @@ def quiz_modes_menu():
             take_quiz_with_skip(qs, opts, ans, name=name)
 
         elif choice == "9":
-            # reuse your current choice == 14 block for FILL_IN_QUIZ_DATA
             name = input("Enter your name: ").strip()
             import random
 
@@ -248,7 +243,6 @@ def main():
         choice = input("Enter choice: ").strip()
 
         if choice == "1":
-            # quick normal quiz (your old choice == 1)
             name = input("Enter your name: ")
             import random
             try:
