@@ -1,0 +1,28 @@
+Parameters:
+
+QuestionsCount:
+    zero.   [property Q0] [single]
+    one.    [property Q1]
+    many.   [property QM]
+
+UserMark:
+    y_correct.        [property MY]
+    n_incorrect.      [property MN]
+    quit_immediately. [property MQ]
+
+QuitPosition:
+    first.   [if MQ]
+             [else] [error]
+
+    middle.  [if MQ] [property PM]
+             [else] [error]
+
+    last.    [if MQ] [property PL]
+             [else] [error]
+
+middle. [if Q1] [error]
+last.   [if Q1] [error]
+
+first.  [if Q0] [error]
+middle. [if Q0] [error]
+last.   [if Q0] [error]

@@ -5,12 +5,9 @@ import mcq
 
 class TestTakeQuiz_CategoryPartition(unittest.TestCase):
     def setUp(self):
-#one question scenario
         self.qs1 = ["Q1?"]
         self.opts1 = [["A", "B", "C", "D"]]
         self.ans1 = ["A"]
-
-#multiple questions scenario
         self.qs2 = ["Q1?", "Q2?"]
         self.opts2 = [["A", "B", "C", "D"], ["A", "B", "C", "D"]]
         self.ans2 = ["A", "B"]

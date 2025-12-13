@@ -10,7 +10,6 @@ class TestTakeNegativeMarkQuizFromTSLFrames(unittest.TestCase):
         self.questions_one = ["Q1?"]
         self.options_one = [["A", "B", "C", "D"]]
         self.answers_one = ["A"]
-
         self.questions_many = ["Q1?", "Q2?"]
         self.options_many = [
             ["A", "B", "C", "D"],
