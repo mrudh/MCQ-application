@@ -1,0 +1,21 @@
+Test Case 1  		<single>
+   QuestionsCount :  zero
+
+
+Test Case 2  		<single>
+   MinutesScenario :  below_then_valid
+
+
+Test Case 3  		<single>
+   MinutesScenario :  above_then_valid
+
+
+Test Case 4  		(Key = 2.1.)
+   QuestionsCount  :  non_zero
+   MinutesScenario :  valid_2
+
+
+Test Case 5  		(Key = 2.2.)
+   QuestionsCount  :  non_zero
+   MinutesScenario :  valid_5
+
