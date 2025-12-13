@@ -1,0 +1,12 @@
+Parameters:
+
+QuestionsCount:
+    zero.      [property Q0] [single]
+    non_zero.  [property QN]
+
+MinutesScenario:
+    valid_2.            [property M2]
+    valid_5.            [property M5]
+
+    below_then_valid.   [property MBAD] [single]
+    above_then_valid.   [property MBAD] [single]()
