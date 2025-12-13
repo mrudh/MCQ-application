@@ -1,0 +1,95 @@
+
+Test Case 1  		<single>
+   QuestionsCount :  zero
+
+
+Test Case 2  		<error>  (follows [else])
+   QuitPosition :  first
+
+
+Test Case 3  		<error>  (follows [else])
+   QuitPosition :  middle
+
+
+Test Case 4  		<error>  (follows [else])
+   QuitPosition :  last
+
+
+Test Case 5  		<error>  (follows [if])
+   QuitPosition :  middle
+
+
+Test Case 6  		<error>  (follows [if])
+   QuitPosition :  last
+
+
+Test Case 7  		<error>  (follows [if])
+   QuitPosition :  first
+
+
+Test Case 8  		<error>  (follows [if])
+   QuitPosition :  middle
+
+
+Test Case 9  		<error>  (follows [if])
+   QuitPosition :  last
+
+
+Test Case 10 		(Key = 2.1.0.)
+   QuestionsCount :  one
+   UserMark       :  y_correct
+   QuitPosition   :  <n/a>
+
+
+Test Case 11 		(Key = 2.2.0.)
+   QuestionsCount :  one
+   UserMark       :  n_incorrect
+   QuitPosition   :  <n/a>
+
+
+Test Case 12 		(Key = 2.3.1.)
+   QuestionsCount :  one
+   UserMark       :  quit_immediately
+   QuitPosition   :  first
+
+
+Test Case 13 		(Key = 2.3.2.)
+   QuestionsCount :  one
+   UserMark       :  quit_immediately
+   QuitPosition   :  middle
+
+
+Test Case 14 		(Key = 2.3.3.)
+   QuestionsCount :  one
+   UserMark       :  quit_immediately
+   QuitPosition   :  last
+
+
+Test Case 15 		(Key = 3.1.0.)
+   QuestionsCount :  many
+   UserMark       :  y_correct
+   QuitPosition   :  <n/a>
+
+
+Test Case 16 		(Key = 3.2.0.)
+   QuestionsCount :  many
+   UserMark       :  n_incorrect
+   QuitPosition   :  <n/a>
+
+
+Test Case 17 		(Key = 3.3.1.)
+   QuestionsCount :  many
+   UserMark       :  quit_immediately
+   QuitPosition   :  first
+
+
+Test Case 18 		(Key = 3.3.2.)
+   QuestionsCount :  many
+   UserMark       :  quit_immediately
+   QuitPosition   :  middle
+
+
+Test Case 19 		(Key = 3.3.3.)
+   QuestionsCount :  many
+   UserMark       :  quit_immediately
+   QuitPosition   :  last

@@ -14,7 +14,6 @@ class TestTakeQuizUntilWrongFromFrames(unittest.TestCase):
         self.qs1 = ["Q1?"]
         self.opts1 = [["A", "B", "C", "D"]]
         self.ans1 = ["A"]
-
         self.qs2 = ["Q1?", "Q2?", "Q3?"]
         self.opts2 = [
             ["A", "B", "C", "D"],
