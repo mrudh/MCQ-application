@@ -1,0 +1,36 @@
+Parameters:
+
+QuestionsCount:
+    zero.   [property Q0] [single]
+    one.    [property Q1]
+    many.   [property QM]
+
+# What kind of first non-correct outcome happens (if any)
+FirstWrongType:
+    none_all_correct.   [property ALLCOR]
+    empty_input.        [property EMPTY]
+    wrong_input.        [property WRONG]
+    invalid_input.      [property INV]
+
+# Where the first wrong happens (only meaningful when QuestionsCount=many)
+WrongPosition:
+    first_question.   [property POS1]
+    middle.           [property POSM]
+    last_question.    [property POSL]
+
+NameProvided:
+    yes.  [property NAME_Y]
+    no.   [property NAME_N]
+
+zero. [single]
+
+middle. [if Q1] [error]
+last_question. [if Q1] [error]
+
+first_question. [if Q0] [error]
+middle.         [if Q0] [error]
+last_question.  [if Q0] [error]
+
+first_question. [if ALLCOR] [error]
+middle.         [if ALLCOR] [error]
+last_question.  [if ALLCOR] [error]
