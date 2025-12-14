@@ -1,0 +1,18 @@
+Parameters:
+
+QuestionCount:
+    zero. [property N0] [single]
+    one.  [property N1] [single]
+    many. [property NM] [single]
+
+AssessmentName:
+    empty.     [property NAME_EMPTY] [single]
+    non_empty. [property NAME_OK] [single]
+
+CorrectOptionInput:
+    valid_abcd. [property ANS_OK] [single]
+    invalid.    [property ANS_BAD] [single]
+
+TakeNowChoice:
+    yes. [property TAKE_Y] [single]
+    no.  [property TAKE_N] [single]

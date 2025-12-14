@@ -1,0 +1,42 @@
+
+Test Case 1  		<single>
+   QuestionCount :  zero
+
+
+Test Case 2  		<single>
+   QuestionCount :  one
+
+
+Test Case 3  		<single>
+   QuestionCount :  many
+
+
+Test Case 4  		<single>
+   AssessmentName :  empty
+
+
+Test Case 5  		<single>
+   AssessmentName :  non_empty
+
+
+Test Case 6  		<single>
+   CorrectOptionInput :  valid_abcd
+
+
+Test Case 7  		<single>
+   CorrectOptionInput :  invalid
+
+
+Test Case 8  		<single>
+   TakeNowChoice :  yes
+
+
+Test Case 9  		<single>
+   TakeNowChoice :  no
+
+
+Test Case 10 		(Key = 0.0.0.0.)
+   QuestionCount      :  <n/a>
+   AssessmentName     :  <n/a>
+   CorrectOptionInput :  <n/a>
+   TakeNowChoice      :  <n/a>
