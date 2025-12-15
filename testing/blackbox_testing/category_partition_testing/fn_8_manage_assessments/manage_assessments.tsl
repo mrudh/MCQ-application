@@ -1,0 +1,109 @@
+Parameters:
+
+FunctionUnderTest:
+    list_assessments. [property F_LIST]
+    add_question.     [property F_ADD]
+    edit_question.    [property F_EDIT]
+    delete_question.  [property F_DELETE]
+
+AssessmentsState:
+    none_saved. [property A_NONE] [single]
+    some_saved. [property A_SOME]
+
+SelectionInput:
+    valid_index.      [property SEL_OK]
+    invalid_non_int.  [property SEL_BAD] [single]
+    out_of_range.     [property SEL_OOR] [single]
+
+QuestionsInAssessment:
+    zero_questions. [property Q0] [single]
+    some_questions. [property QN]
+
+QuestionIndexInput:
+    valid_q_index.    [property QSEL_OK]
+    invalid_q_nonint. [property QSEL_BAD] [single]
+    q_out_of_range.   [property QSEL_OOR] [single]
+
+EditNewQuestion:
+    blank_keep. [property NEWQ_BLANK] [single]
+    change.     [property NEWQ_CHANGE] [single]
+
+EditOptionsChoice:
+    keep_all.    [property OPT_KEEP] [single]
+    change_some. [property OPT_CHANGE] [single]
+
+NewAnswerInput:
+    blank_keep. [property ANS_KEEP] [single]
+    provided.   [property ANS_NEW] [single]
+
+AddOrDeleteAnswerInput:
+    valid_abcd. [property ANS_OK] [single]
+    invalid.    [property ANS_BAD] [single]
+
+
+valid_index.      [if F_LIST] [error]
+invalid_non_int.  [if F_LIST] [error]
+out_of_range.     [if F_LIST] [error]
+
+zero_questions.   [if F_LIST] [error]
+some_questions.   [if F_LIST] [error]
+
+valid_q_index.    [if F_LIST] [error]
+invalid_q_nonint. [if F_LIST] [error]
+q_out_of_range.   [if F_LIST] [error]
+
+blank_keep.       [if F_LIST] [error]
+change.           [if F_LIST] [error]
+
+keep_all.         [if F_LIST] [error]
+change_some.      [if F_LIST] [error]
+
+some_saved. [if F_ADD]
+            [else] [single]
+
+some_saved. [if F_EDIT]
+            [else] [single]
+
+some_saved. [if F_DELETE]
+            [else] [single]
+
+zero_questions.   [if SEL_OK]
+                 [else] [error]
+some_questions.   [if SEL_OK]
+                 [else] [error]
+
+valid_q_index.    [if SEL_OK]
+                 [else] [error]
+invalid_q_nonint. [if SEL_OK]
+                 [else] [error]
+q_out_of_range.   [if SEL_OK]
+                 [else] [error]
+
+valid_q_index.    [if F_ADD] [error]
+invalid_q_nonint. [if F_ADD] [error]
+q_out_of_range.   [if F_ADD] [error]
+
+blank_keep.       [if F_ADD] [error]
+change.           [if F_ADD] [error]
+keep_all.         [if F_ADD] [error]
+change_some.      [if F_ADD] [error]
+provided.         [if F_ADD] [error]
+blank_keep.       [if F_ADD] [error]
+
+blank_keep.       [if F_DELETE] [error]
+change.           [if F_DELETE] [error]
+keep_all.         [if F_DELETE] [error]
+change_some.      [if F_DELETE] [error]
+provided.         [if F_DELETE] [error]
+blank_keep.       [if F_DELETE] [error]
+
+valid_abcd. [if F_EDIT] [error]
+invalid.    [if F_EDIT] [error]
+
+valid_abcd. [if F_ADD]
+            [else] [error]
+invalid.    [if F_ADD]
+            [else] [error]
+
+valid_abcd. [if F_DELETE] [error]
+invalid.    [if F_DELETE] [error]
