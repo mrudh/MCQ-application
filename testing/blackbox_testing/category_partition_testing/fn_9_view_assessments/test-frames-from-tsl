@@ -1,0 +1,71 @@
+
+Test Case 1  		<single>
+   AssessmentsState :  none_saved
+
+
+Test Case 2  		<single>
+   SelectionInput :  invalid
+
+
+Test Case 3  		<single>
+   SelectionRange :  out_of_range
+
+
+Test Case 4  		<single>
+   QuestionsState :  no_questions
+
+
+Test Case 5  		<error>  (follows [if])
+   QuestionsState :  invalid
+
+
+Test Case 6  		<error>  (follows [if])
+   QuestionsState :  valid
+
+
+Test Case 7  		<error>  (follows [if])
+   QuestionsState :  out_of_range
+
+
+Test Case 8  		<error>  (follows [if])
+   QuestionsState :  in_range
+
+
+Test Case 9  		<error>  (follows [if])
+   QuestionsState :  no_questions
+
+
+Test Case 10 		<error>  (follows [if])
+   QuestionsState :  has_questions
+
+
+Test Case 11 		<error>  (follows [if])
+   QuestionsState :  out_of_range
+
+
+Test Case 12 		<error>  (follows [if])
+   QuestionsState :  in_range
+
+
+Test Case 13 		<error>  (follows [if])
+   QuestionsState :  no_questions
+
+
+Test Case 14 		<error>  (follows [if])
+   QuestionsState :  has_questions
+
+
+Test Case 15 		<error>  (follows [if])
+   QuestionsState :  no_questions
+
+
+Test Case 16 		<error>  (follows [if])
+   QuestionsState :  has_questions
+
+
+Test Case 17 		(Key = 2.2.2.2.)
+   AssessmentsState :  some_saved
+   SelectionInput   :  valid
+   SelectionRange   :  in_range
+   QuestionsState   :  has_questions
+
