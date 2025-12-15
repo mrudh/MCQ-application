@@ -1,0 +1,32 @@
+Parameters:
+
+AssessmentsState:
+    none_saved.   [property A_NONE] [single]
+    some_saved.   [property A_SOME]
+
+SelectionInput:
+    invalid.      [property SEL_BAD] [single]
+    valid.        [property SEL_OK]
+
+SelectionRange:
+    out_of_range. [property IDX_BAD] [single]
+    in_range.     [property IDX_OK]
+
+QuestionsState:
+    no_questions. [property Q_NONE] [single]
+    has_questions.[property Q_SOME]
+
+invalid.      [if A_NONE] [error]
+valid.        [if A_NONE] [error]
+out_of_range. [if A_NONE] [error]
+in_range.     [if A_NONE] [error]
+no_questions. [if A_NONE] [error]
+has_questions.[if A_NONE] [error]
+
+out_of_range. [if SEL_BAD] [error]
+in_range.     [if SEL_BAD] [error]
+no_questions. [if SEL_BAD] [error]
+has_questions.[if SEL_BAD] [error]
+
+no_questions. [if IDX_BAD] [error]
+has_questions.[if IDX_BAD] [error]
