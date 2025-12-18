@@ -19,6 +19,7 @@ def build_assessments_with_questions():
 
 class TestViewQuestionsInAssessment(unittest.TestCase):
 
+    #If there are no assessments stored, the function should inform the user and exit immediately
     @patch("builtins.print")
     @patch("assessment.load_custom_assessments", return_value=[])
     def test_frame_1_none_saved_returns_early(self, _mock_load, mock_print):
@@ -26,6 +27,7 @@ class TestViewQuestionsInAssessment(unittest.TestCase):
         mock_print.assert_any_call("No assessments saved yet.")
 
 
+    #If the selection input is not a number, it should be handled as invalid input without crashing
     @patch("builtins.print")
     @patch("assessment.load_custom_assessments", return_value=build_assessments_with_questions())
     def test_frame_2_selection_input_invalid_value_error(
@@ -39,6 +41,7 @@ class TestViewQuestionsInAssessment(unittest.TestCase):
         mock_print.assert_any_call("Invalid input.")
 
 
+    #Entering 0 becomes index -1 after subtracting 1, so it should be rejected as an invalid selection
     @patch("builtins.print")
     @patch("assessment.load_custom_assessments", return_value=build_assessments_with_questions())
     def test_frame_3_out_of_range_negative_index(
@@ -51,6 +54,7 @@ class TestViewQuestionsInAssessment(unittest.TestCase):
         mock_print.assert_any_call("Invalid selection.")
 
 
+    #A selection larger than the number of available assessments should be rejected cleanly
     @patch("builtins.print")
     @patch("assessment.load_custom_assessments", return_value=build_assessments_with_questions())
     def test_frame_3_out_of_range_too_large_index(
@@ -64,6 +68,7 @@ class TestViewQuestionsInAssessment(unittest.TestCase):
         mock_print.assert_any_call("Invalid selection.")
 
 
+    #If the chosen assessment has an empty questions list, the function should show the 'no questions' message
     @patch("builtins.print")
     @patch(
         "assessment.load_custom_assessments",
@@ -76,6 +81,7 @@ class TestViewQuestionsInAssessment(unittest.TestCase):
         mock_print.assert_any_call("This assessment has no questions yet.")
 
 
+    #For a valid assessment with questions, the function should print the assessment header and each question line
     @patch("builtins.print")
     @patch("assessment.load_custom_assessments", return_value=build_assessments_with_questions())
     def test_frame_17_has_questions_prints_header_and_questions(
@@ -91,6 +97,7 @@ class TestViewQuestionsInAssessment(unittest.TestCase):
         mock_print.assert_any_call("Q2: Q2?")
 
 
+    #If options are missing for some questions, the function should still print questions without raising errors
     @patch("builtins.print")
     @patch(
         "assessment.load_custom_assessments",
@@ -113,6 +120,7 @@ class TestViewQuestionsInAssessment(unittest.TestCase):
         mock_print.assert_any_call("Q2: Q2?")
 
 
+    #If answers are missing for later questions, only the available answers should be printed and execution should continue
     @patch("builtins.print")
     @patch(
         "assessment.load_custom_assessments",
@@ -140,6 +148,7 @@ class TestViewQuestionsInAssessment(unittest.TestCase):
         mock_print.assert_any_call("Q2: Q2?")
 
 
+    #If the 'questions' key is missing, it should be treated the same as having no questions
     @patch("builtins.print")
     @patch(
         "assessment.load_custom_assessments",
@@ -152,6 +161,7 @@ class TestViewQuestionsInAssessment(unittest.TestCase):
         mock_print.assert_any_call("This assessment has no questions yet.")
 
 
+    #On a normal run, the function should first display the saved assessments list before showing questions
     @patch("builtins.print")
     @patch("assessment.load_custom_assessments", return_value=build_assessments_with_questions())
     def test_valid_selection_displays_saved_assessments_list(self, _mock_load, mock_print):
