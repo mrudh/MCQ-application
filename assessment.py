@@ -1,4 +1,4 @@
-from storage import load_custom_assessments, save_custom_assessments
+from assessment_storage import load_custom_assessments, save_custom_assessments
 from mcq import take_quiz
 from attempts import can_attempt_quiz, record_quiz_attempt 
 

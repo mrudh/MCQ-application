@@ -1,27 +1,28 @@
 import unittest
 from unittest.mock import patch, mock_open
 import sys
-import mcq
+import mcq_types
 import assessment
+import storage
 
 
 class TestTakeQuizStatements(unittest.TestCase):
     # Tests the basic untimed quiz flow where the user answers correctly
-    @patch("mcq.print")
-    @patch("mcq.input", side_effect=["A"])
+    @patch("mcq_types.print")
+    @patch("mcq_types.input", side_effect=["A"])
     def test_take_quiz_not_timed_all_correct_no_name(self, mock_input, mock_print):
         questions = ["Q1"]
         options = [("A. 1", "B. 2", "C. 3", "D. 4")]
         answers = ["A"]
 
-        mcq.take_quiz(questions, options, answers, name=None, timed=False)
+        mcq_types.take_quiz(questions, options, answers, name=None, timed=False)
 
 
     #Tests the untimed quiz flow where answer is wrong and saving the score should occur
-    @patch("mcq.save_scores")
-    @patch("mcq.load_scores", return_value=[])
-    @patch("mcq.print")
-    @patch("mcq.input", side_effect=["B"])
+    @patch("mcq_types.save_scores")
+    @patch("mcq_types.load_scores", return_value=[])
+    @patch("mcq_types.print")
+    @patch("mcq_types.input", side_effect=["B"])
     def test_take_quiz_not_timed_wrong_with_name(
         self, mock_input, mock_print, mock_load, mock_save
     ):
@@ -29,31 +30,31 @@ class TestTakeQuizStatements(unittest.TestCase):
         options = [("A. 1", "B. 2", "C. 3", "D. 4")]
         answers = ["A"]
 
-        mcq.take_quiz(questions, options, answers, name="Alice", timed=False)
+        mcq_types.take_quiz(questions, options, answers, name="Alice", timed=False)
 
         mock_save.assert_called_once()
 
 
     # Verifies that the timed quiz correctly handles a valid user input
-    @patch("mcq.print")
-    @patch("mcq.timed_quiz", return_value="A")
+    @patch("mcq_types.print")
+    @patch("mcq_types.timed_quiz", return_value="A")
     def test_take_quiz_timed_correct(self, mock_timed, mock_print):
         questions = ["Q1"]
         options = [("A. 1", "B. 2", "C. 3", "D. 4")]
         answers = ["A"]
 
-        mcq.take_quiz(questions, options, answers, name=None, timed=True)
+        mcq_types.take_quiz(questions, options, answers, name=None, timed=True)
 
 
     #Verifies that the timed quiz handles timeout
-    @patch("mcq.print")
-    @patch("mcq.timed_quiz", return_value=None)
+    @patch("mcq_types.print")
+    @patch("mcq_types.timed_quiz", return_value=None)
     def test_take_quiz_timed_timeout(self, mock_timed, mock_print):
         questions = ["Q1"]
         options = [("A. 1", "B. 2", "C. 3", "D. 4")]
         answers = ["A"]
 
-        mcq.take_quiz(questions, options, answers, name=None, timed=True)
+        mcq_types.take_quiz(questions, options, answers, name=None, timed=True)
 
 
 class TestTimedQuizStatements(unittest.TestCase):
@@ -63,7 +64,7 @@ class TestTimedQuizStatements(unittest.TestCase):
     @patch("select.select")
     def test_timed_quiz_non_windows_input(self, mock_select, mock_read, *_):
         mock_select.return_value = ([sys.stdin], [], [])
-        result = mcq.timed_quiz("Enter: ", timeout=1)
+        result = mcq_types.timed_quiz("Enter: ", timeout=1)
         self.assertEqual(result, "A")
 
 
@@ -73,40 +74,40 @@ class TestTimedQuizStatements(unittest.TestCase):
     @patch("select.select")
     def test_timed_quiz_non_windows_timeout(self, mock_select, mock_read, *_):
         mock_select.return_value = ([], [], [])
-        result = mcq.timed_quiz("Enter: ", timeout=1)
+        result = mcq_types.timed_quiz("Enter: ", timeout=1)
         self.assertIsNone(result)
 
 
 class TestNegativeMarkStatements(unittest.TestCase):
     #Tests negative marking handles correct, wrong, and blank answers correctly
-    @patch("mcq.print")
-    @patch("mcq.input", side_effect=["A", "B", ""])
+    @patch("mcq_types.print")
+    @patch("mcq_types.input", side_effect=["A", "B", ""])
     def test_negative_mark_mix_no_name(self, mock_input, mock_print):
         questions = ["Q1", "Q2", "Q3"]
         options = [("A.1", "B.2", "C.3", "D.4")] * 3
         answers = ["A", "A", "A"]
 
-        mcq.take_negative_mark_quiz(questions, options, answers, name=None)
+        mcq_types.take_negative_mark_quiz(questions, options, answers, name=None)
 
     #Tests negative mark mode saves score when a name is provided
-    @patch("mcq.save_scores")
-    @patch("mcq.load_scores", return_value=[])
-    @patch("mcq.print")
-    @patch("mcq.input", side_effect=["B"])
+    @patch("mcq_types.save_scores")
+    @patch("mcq_types.load_scores", return_value=[])
+    @patch("mcq_types.print")
+    @patch("mcq_types.input", side_effect=["B"])
     def test_negative_mark_with_name(self, mock_input, mock_print, mock_load, mock_save):
         questions = ["Q1"]
         options = [("A.1", "B.2", "C.3", "D.4")]
         answers = ["A"]
 
-        mcq.take_negative_mark_quiz(questions, options, answers, name="Bob")
+        mcq_types.take_negative_mark_quiz(questions, options, answers, name="Bob")
         mock_save.assert_called_once()
 
 
 class TestChallengeModeStatements(unittest.TestCase):
     #Tests repeated invalid inputs until user finally enters a valid time, followed by immediate timeout
-    @patch("mcq.print")
-    @patch("mcq.time.time", side_effect=[0, 1000])
-    @patch("mcq.input", side_effect=["abc", "1", "3"])
+    @patch("mcq_types.print")
+    @patch("mcq_types.time.time", side_effect=[0, 1000])
+    @patch("mcq_types.input", side_effect=["abc", "1", "3"])
     def test_challenge_invalid_then_valid_minutes_immediate_timeout(
         self, mock_input, mock_time, mock_print
     ):
@@ -114,17 +115,17 @@ class TestChallengeModeStatements(unittest.TestCase):
         options = [("A.1", "B.2", "C.3", "D.4")]
         answers = ["A"]
 
-        mcq.take_quiz_challenge(questions, options, answers, name=None)
+        mcq_types.take_quiz_challenge(questions, options, answers, name=None)
 
 
     #Tests challenge mode when exactly one question is answered before time runs out and score is saved
     @patch("storage.save_scores")
     @patch("storage.load_scores", return_value=[])
-    @patch("mcq.random.shuffle", side_effect=lambda lst: None)
-    @patch("mcq.timed_quiz", return_value="A")
-    @patch("mcq.time.time", side_effect=[0, 0, 9999])
-    @patch("mcq.print")
-    @patch("mcq.input", side_effect=["3"])
+    @patch("mcq_types.random.shuffle", side_effect=lambda lst: None)
+    @patch("mcq_types.timed_quiz", return_value="A")
+    @patch("mcq_types.time.time", side_effect=[0, 0, 9999])
+    @patch("mcq_types.print")
+    @patch("mcq_types.input", side_effect=["3"])
     def test_challenge_one_question_then_timeup(
         self,
         mock_input,
@@ -139,29 +140,29 @@ class TestChallengeModeStatements(unittest.TestCase):
         options = [("A.1", "B.2", "C.3", "D.4")] * 2
         answers = ["A", "B"]
 
-        mcq.take_quiz_challenge(questions, options, answers, name="Carol")
+        mcq_types.take_quiz_challenge(questions, options, answers, name="Carol")
         mock_save.assert_called_once()
 
 
 class TestStreakModeStatements(unittest.TestCase):
     #Tests streak mode ending immediately when user provides blank input
-    @patch("mcq.random.shuffle", side_effect=lambda lst: None)
-    @patch("mcq.print")
-    @patch("mcq.input", side_effect=[""])
+    @patch("mcq_types.random.shuffle", side_effect=lambda lst: None)
+    @patch("mcq_types.print")
+    @patch("mcq_types.input", side_effect=[""])
     def test_streak_first_blank_ends(self, mock_input, mock_print, mock_shuffle):
         questions = ["Q1"]
         options = [("A.1", "B.2", "C.3", "D.4")]
         answers = ["A"]
 
-        mcq.take_quiz_until_wrong(questions, options, answers, name=None)
+        mcq_types.take_quiz_until_wrong(questions, options, answers, name=None)
 
 
     #Tests streak mode where the user gets the first question correct, second wrong, and score is saved
-    @patch("mcq.save_scores")
-    @patch("mcq.load_scores", return_value=[])
-    @patch("mcq.random.shuffle", side_effect=lambda lst: None)
-    @patch("mcq.print")
-    @patch("mcq.input", side_effect=["A", "B"])
+    @patch("mcq_types.save_scores")
+    @patch("mcq_types.load_scores", return_value=[])
+    @patch("mcq_types.random.shuffle", side_effect=lambda lst: None)
+    @patch("mcq_types.print")
+    @patch("mcq_types.input", side_effect=["A", "B"])
     def test_streak_all_correct_then_wrong_with_name(
         self, mock_input, mock_print, mock_shuffle, mock_load, mock_save
     ):
@@ -169,56 +170,56 @@ class TestStreakModeStatements(unittest.TestCase):
         options = [("A.1", "B.2", "C.3", "D.4")] * 2
         answers = ["A", "B"]
 
-        mcq.take_quiz_until_wrong(questions, options, answers, name="Dave")
+        mcq_types.take_quiz_until_wrong(questions, options, answers, name="Dave")
         mock_save.assert_called_once()
 
 
 class TestLearningModeStatements(unittest.TestCase):
     #Tests learning mode when the user quits immediately after first question
-    @patch("mcq.random.shuffle", side_effect=lambda lst: None)
-    @patch("mcq.print")
-    @patch("mcq.input", side_effect=["", "q"])
+    @patch("mcq_types.random.shuffle", side_effect=lambda lst: None)
+    @patch("mcq_types.print")
+    @patch("mcq_types.input", side_effect=["", "q"])
     def test_learning_mode_quit_immediately(self, mock_input, mock_print, mock_shuffle):
         questions = ["Q1"]
         answers = ["A1"]
 
-        mcq.learning_mode(questions, answers)
+        mcq_types.learning_mode(questions, answers)
 
 
     # Tests learning mode when user marks some questions as correct and some as incorrect
-    @patch("mcq.random.shuffle", side_effect=lambda lst: None)
-    @patch("mcq.print")
-    @patch("mcq.input", side_effect=["", "x", "y", "", "n"])
+    @patch("mcq_types.random.shuffle", side_effect=lambda lst: None)
+    @patch("mcq_types.print")
+    @patch("mcq_types.input", side_effect=["", "x", "y", "", "n"])
     def test_learning_mode_y_and_n(self, mock_input, mock_print, mock_shuffle):
         questions = ["Q1", "Q2"]
         answers = ["A1", "A2"]
 
-        mcq.learning_mode(questions, answers)
+        mcq_types.learning_mode(questions, answers)
 
 
 class TestAssessmentStatements(unittest.TestCase):
     #Loading assessments returns an empty list when no file exists
-    @patch("storage.os.path.exists", return_value=False)
+    @patch("assessment_storage.os.path.exists", return_value=False)
     def test_load_custom_assessments_no_file(self, mock_exists):
-        from storage import load_custom_assessments as storage_load
+        from assessment_storage import load_custom_assessments as storage_load
 
         self.assertEqual(storage_load(), [])
 
 
     #To test assessments are correctly loaded from file when one exists
-    @patch("storage.os.path.exists", return_value=True)
-    @patch("storage.open", new_callable=mock_open, read_data='[{"name": "A"}]')
+    @patch("assessment_storage.os.path.exists", return_value=True)
+    @patch("assessment_storage.open", new_callable=mock_open, read_data='[{"name": "A"}]')
     def test_load_custom_assessments_with_file(self, mock_file, mock_exists):
-        from storage import load_custom_assessments as storage_load
+        from assessment_storage import load_custom_assessments as storage_load
 
         data = storage_load()
         self.assertEqual(data, [{"name": "A"}])
 
 
     #Tests saving assessments triggers a file write
-    @patch("storage.open", new_callable=mock_open)
+    @patch("assessment_storage.open", new_callable=mock_open)
     def test_save_custom_assessments(self, mock_file):
-        from storage import save_custom_assessments as storage_save
+        from assessment_storage import save_custom_assessments as storage_save
 
         storage_save([{"name": "A"}])
         mock_file.assert_called_once()
@@ -340,3 +341,4 @@ class TestAssessmentStatements(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+

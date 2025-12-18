@@ -24,6 +24,8 @@ def sample_assessments():
 
 
 class TestListAssessments(unittest.TestCase):
+
+    #If there are no saved assessments, the helper should print a message and return None
     @patch("builtins.print")
     @patch("assessment.load_custom_assessments", return_value=[])
     def test_none_saved_returns_none(self, _mock_load, _mock_print):
@@ -31,6 +33,7 @@ class TestListAssessments(unittest.TestCase):
         self.assertIsNone(result)
 
 
+    #If saved assessments exist, the helper should return the same list it loaded
     @patch("builtins.print")
     @patch("assessment.load_custom_assessments")
     def test_some_saved_returns_list(self, mock_load, _mock_print):
@@ -42,6 +45,8 @@ class TestListAssessments(unittest.TestCase):
 
 
 class TestAddQuestionToAssessment(unittest.TestCase):
+
+    #When there are no assessments, add-question should exit early and not attempt to save anything
     @patch("builtins.print")
     @patch("assessment.save_custom_assessments")
     @patch("assessment.list_assessments", return_value=[])
@@ -50,6 +55,7 @@ class TestAddQuestionToAssessment(unittest.TestCase):
         mock_save.assert_not_called()
 
 
+    #A non-numeric assessment selection should be treated as invalid and must not trigger a save
     @patch("builtins.print")
     @patch("assessment.save_custom_assessments")
     @patch("assessment.list_assessments")
@@ -62,6 +68,7 @@ class TestAddQuestionToAssessment(unittest.TestCase):
         mock_save.assert_not_called()
 
 
+    #An out-of-range assessment index should be rejected and must not modify or save the data
     @patch("builtins.print")
     @patch("assessment.save_custom_assessments")
     @patch("assessment.list_assessments")
@@ -74,6 +81,7 @@ class TestAddQuestionToAssessment(unittest.TestCase):
         mock_save.assert_not_called()
 
 
+    #A valid selection should append the new question/options/answer and persist the updated assessments list
     @patch("builtins.print")
     @patch("assessment.save_custom_assessments")
     @patch("assessment.list_assessments")
@@ -103,6 +111,8 @@ class TestAddQuestionToAssessment(unittest.TestCase):
 
 
 class TestEditQuestionInAssessment(unittest.TestCase):
+
+    #If no assessments exist, edit should stop immediately and never call save
     @patch("builtins.print")
     @patch("assessment.save_custom_assessments")
     @patch("assessment.list_assessments", return_value=[])
@@ -111,6 +121,7 @@ class TestEditQuestionInAssessment(unittest.TestCase):
         mock_save.assert_not_called()
 
 
+    #If the user enters a non-integer for assessment selection, nothing should be edited or saved
     @patch("builtins.print")
     @patch("assessment.save_custom_assessments")
     @patch("assessment.list_assessments")
@@ -123,6 +134,7 @@ class TestEditQuestionInAssessment(unittest.TestCase):
         mock_save.assert_not_called()
 
 
+    #If the selected question number is out of range, edit should abort without saving
     @patch("builtins.print")
     @patch("assessment.save_custom_assessments")
     @patch("assessment.list_assessments")
@@ -136,6 +148,7 @@ class TestEditQuestionInAssessment(unittest.TestCase):
         mock_save.assert_not_called()
 
 
+    #Leaving all prompts blank should keep question, options, and answer unchanged
     @patch("builtins.print")
     @patch("assessment.save_custom_assessments")
     @patch("assessment.list_assessments")
@@ -165,6 +178,7 @@ class TestEditQuestionInAssessment(unittest.TestCase):
         mock_save.assert_called_once_with(data)
 
 
+    #Editing specific fields should update only those fields and uppercase the final answer before saving
     @patch("builtins.print")
     @patch("assessment.save_custom_assessments")
     @patch("assessment.list_assessments")
@@ -189,6 +203,8 @@ class TestEditQuestionInAssessment(unittest.TestCase):
 
 
 class TestDeleteQuestionFromAssessment(unittest.TestCase):
+
+    #If there are no assessments to delete from, the function should exit without saving
     @patch("builtins.print")
     @patch("assessment.save_custom_assessments")
     @patch("assessment.list_assessments", return_value=[])
@@ -197,6 +213,7 @@ class TestDeleteQuestionFromAssessment(unittest.TestCase):
         mock_save.assert_not_called()
 
 
+    #An invalid assessment selection should not delete anything and should not call save
     @patch("builtins.print")
     @patch("assessment.save_custom_assessments")
     @patch("assessment.list_assessments")
@@ -207,6 +224,7 @@ class TestDeleteQuestionFromAssessment(unittest.TestCase):
         mock_save.assert_not_called()
 
 
+    #An out-of-range question number should be rejected without mutating data or saving
     @patch("builtins.print")
     @patch("assessment.save_custom_assessments")
     @patch("assessment.list_assessments")
@@ -221,6 +239,7 @@ class TestDeleteQuestionFromAssessment(unittest.TestCase):
         mock_save.assert_not_called()
 
 
+    #A valid delete should remove the chosen question/options/answer consistently and then persist the updated list
     @patch("builtins.print")
     @patch("assessment.save_custom_assessments")
     @patch("assessment.list_assessments")

@@ -2,7 +2,7 @@ import json
 import unittest
 from unittest.mock import mock_open, patch
 import assessment as app
-import storage
+import assessment_storage
 
 
 class TestCreateAssessmentCategoryPartition(unittest.TestCase):
@@ -12,6 +12,7 @@ class TestCreateAssessmentCategoryPartition(unittest.TestCase):
             app.create_assessment()
 
 
+    #Creates an assessment with 0 questions and chooses not to take it, so it should save but not start a quiz
     @patch("builtins.print")
     @patch("assessment.take_quiz")
     @patch("assessment.save_custom_assessments")
@@ -33,6 +34,7 @@ class TestCreateAssessmentCategoryPartition(unittest.TestCase):
         mock_take_quiz.assert_not_called()
 
 
+    #Creates an assessment with 1 question and opts to take it immediately, answer should be uppercased and quiz should run
     @patch("builtins.print")
     @patch("assessment.take_quiz")
     @patch("assessment.save_custom_assessments")
@@ -60,6 +62,7 @@ class TestCreateAssessmentCategoryPartition(unittest.TestCase):
         self.assertEqual(args[2], ["A"])
 
 
+    #Creates an assessment with multiple questions and declines to take it, so it should save without invoking the quiz
     @patch("builtins.print")
     @patch("assessment.take_quiz")
     @patch("assessment.save_custom_assessments")
@@ -83,6 +86,7 @@ class TestCreateAssessmentCategoryPartition(unittest.TestCase):
         mock_take_quiz.assert_not_called()
 
 
+    #Even with an invalid correct option (not A/B/C/D), the assessment should still be persisted, and the quiz should not run when user says 'n'
     @patch("builtins.print")
     @patch("assessment.take_quiz")
     @patch("assessment.save_custom_assessments")
@@ -109,25 +113,28 @@ class TestCreateAssessmentCategoryPartition(unittest.TestCase):
 
 class TestAssessmentStorageFunctions(unittest.TestCase):
 
-    @patch("storage.os.path.exists", return_value=False)
+    #When the JSON file does not exist, load should return an empty list instead of crashing
+    @patch("assessment_storage.os.path.exists", return_value=False)
     def test_load_custom_assessments_file_missing_returns_empty(self, _mock_exists):
-        self.assertEqual(storage.load_custom_assessments(), [])
+        self.assertEqual(assessment_storage.load_custom_assessments(), [])
 
 
-    @patch("storage.os.path.exists", return_value=True)
+    #When the file exists, load should parse JSON content and return the exact decoded Python structure
+    @patch("assessment_storage.os.path.exists", return_value=True)
     def test_load_custom_assessments_file_exists_reads_json(self, _mock_exists):
         fake_data = [{"name": "A1", "questions": [], "options": [], "answers": []}]
         m = mock_open(read_data=json.dumps(fake_data))
-        with patch("storage.open", m):
-            result = storage.load_custom_assessments()
+        with patch("assessment_storage.open", m):
+            result = assessment_storage.load_custom_assessments()
         self.assertEqual(result, fake_data)
 
 
+    #Save should write valid JSON that rounds back to the original data structure
     def test_save_custom_assessments_writes_json(self):
         fake_data = [{"name": "A1", "questions": [], "options": [], "answers": []}]
         m = mock_open()
-        with patch("storage.open", m):
-            storage.save_custom_assessments(fake_data)
+        with patch("assessment_storage.open", m):
+            assessment_storage.save_custom_assessments(fake_data)
         handle = m()
         written = "".join(call.args[0] for call in handle.write.mock_calls)
         self.assertEqual(json.loads(written), fake_data)
