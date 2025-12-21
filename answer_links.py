@@ -199,6 +199,7 @@ def links_menu():
         print("2. Add a link to an MCQ answer")
         print("3. View fill-in answer + links")
         print("4. Add a link to a fill-in answer")
+        print("5. Delete a link from an MCQ answer")
         print("0. Back to main quiz menu")
         choice = input("Enter choice: ").strip()
 
@@ -248,11 +249,94 @@ def links_menu():
                     print("Empty link, nothing saved.")
             except ValueError:
                 print("Please enter a valid number.")
+        elif choice == "5":
+            print("\n--- MCQ Questions ---")
+            for i, q in enumerate(ALL_QUIZ_DATA, start=1):
+                print(f"{i}. {q['question']}")
+            try:
+                idx = int(input("Enter MCQ number to delete a link from: "))
+                show_mcq_with_links(idx)
+                user_links = _show_user_links_for_mcq(idx)
+                if not user_links:
+                    continue
+                raw = input("Enter link number to delete (or paste exact link text): ").strip()
+                if not raw:
+                    print("Nothing entered. Cancelled.")
+                    continue
+                try:
+                    num = int(raw)
+                    ok, msg = delete_link_for_mcq(idx, num)
+                except ValueError:
+                    ok, msg = delete_link_for_mcq(idx, raw)
+
+                print(msg)
+
+            except ValueError:
+                print("Please enter a valid number.")
         elif choice == "0":
             print("Returning to main quiz menu.")
             break
         else:
             print("Invalid choice. Please try again.")
+
+
+def delete_link_for_mcq(index, link_or_number):
+
+    links_data = _load_links()
+    key = _key_for_mcq(index)
+
+    user_links = links_data.get(key, [])
+    if not user_links:
+        return False, "No user-added links to delete for this MCQ."
+
+
+    if isinstance(link_or_number, int):
+        pos = link_or_number
+        if pos < 1 or pos > len(user_links):
+            return False, f"Invalid number. Enter 1 to {len(user_links)}."
+        removed = user_links.pop(pos - 1)
+
+        if user_links:
+            links_data[key] = user_links
+        else:
+            links_data.pop(key, None)
+
+        _save_links(links_data)
+        return True, f"Deleted: {removed}"
+
+
+    target = str(link_or_number).strip()
+    if target in user_links:
+        user_links.remove(target)
+
+        if user_links:
+            links_data[key] = user_links
+        else:
+            links_data.pop(key, None)
+
+        _save_links(links_data)
+        return True, f"Deleted: {target}"
+
+    return False, "That link was not found in user-added links (defaults can't be deleted)."
+
+
+def _show_user_links_for_mcq(index):
+ 
+    links_data = _load_links()
+    key = _key_for_mcq(index)
+    user_links = links_data.get(key, [])
+
+    if not user_links:
+        print("\nNo user-added links stored for this MCQ yet.")
+        return []
+
+    print("\nUser-added link(s) for this MCQ:")
+    for i, link in enumerate(user_links, start=1):
+        print(f"  {i}. {link}")
+    return user_links
+
+
+
 
 
 if __name__ == "__main__":
