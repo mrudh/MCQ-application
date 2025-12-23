@@ -1,7 +1,7 @@
 import json
 import unittest
 from unittest.mock import mock_open, patch
-import assessment as app
+import manage_assessment as app
 import assessment_storage
 
 
@@ -14,9 +14,9 @@ class TestCreateAssessmentCategoryPartition(unittest.TestCase):
 
     #Creates an assessment with 0 questions and chooses not to take it, so it should save but not start a quiz
     @patch("builtins.print")
-    @patch("assessment.take_quiz")
-    @patch("assessment.save_custom_assessments")
-    @patch("assessment.load_custom_assessments", return_value=[])
+    @patch("manage_assessment.take_quiz")
+    @patch("manage_assessment.save_custom_assessments")
+    @patch("manage_assessment.load_custom_assessments", return_value=[])
     def test_question_count_zero_take_no(
         self,
         _mock_load,
@@ -36,9 +36,9 @@ class TestCreateAssessmentCategoryPartition(unittest.TestCase):
 
     #Creates an assessment with 1 question and opts to take it immediately, answer should be uppercased and quiz should run
     @patch("builtins.print")
-    @patch("assessment.take_quiz")
-    @patch("assessment.save_custom_assessments")
-    @patch("assessment.load_custom_assessments", return_value=[])
+    @patch("manage_assessment.take_quiz")
+    @patch("manage_assessment.save_custom_assessments")
+    @patch("manage_assessment.load_custom_assessments", return_value=[])
     def test_question_count_one_valid_answer_take_yes(
         self,
         _mock_load,
@@ -64,9 +64,9 @@ class TestCreateAssessmentCategoryPartition(unittest.TestCase):
 
     #Creates an assessment with multiple questions and declines to take it, so it should save without invoking the quiz
     @patch("builtins.print")
-    @patch("assessment.take_quiz")
-    @patch("assessment.save_custom_assessments")
-    @patch("assessment.load_custom_assessments", return_value=[])
+    @patch("manage_assessment.take_quiz")
+    @patch("manage_assessment.save_custom_assessments")
+    @patch("manage_assessment.load_custom_assessments", return_value=[])
     def test_question_count_many_take_no(
         self,
         _mock_load,
@@ -88,9 +88,9 @@ class TestCreateAssessmentCategoryPartition(unittest.TestCase):
 
     #Even with an invalid correct option (not A/B/C/D), the assessment should still be persisted, and the quiz should not run when user says 'n'
     @patch("builtins.print")
-    @patch("assessment.take_quiz")
-    @patch("assessment.save_custom_assessments")
-    @patch("assessment.load_custom_assessments", return_value=[])
+    @patch("manage_assessment.take_quiz")
+    @patch("manage_assessment.save_custom_assessments")
+    @patch("manage_assessment.load_custom_assessments", return_value=[])
     def test_invalid_correct_option_still_saved(
         self,
         _mock_load,

@@ -1,10 +1,6 @@
-import io
-import sys
-import types
-import unittest
-from unittest.mock import patch
-import mcq_types
-import manage_assessment
+import io, sys, json, types, unittest
+from unittest.mock import patch, mock_open
+import mcq_types, manage_assessment, assessment_storage
 
 # test cases for take quiz function
 class TestConcolicTakeQuiz(unittest.TestCase):
@@ -101,6 +97,7 @@ class TestConcolicTakeQuiz(unittest.TestCase):
         m_save_scores.assert_called_once()
 
 
+# test cases for timed quiz function
 class TestTimedQuiz_Concolic(unittest.TestCase):
 
     # Concolic test case 1: Non-Windows path where select reports input and the function returns uppercase line.
@@ -201,7 +198,7 @@ class TestTimedQuiz_Concolic(unittest.TestCase):
 
 
 
-
+# test cases for negative marking quiz function
 class TestNegativeMarkQuiz_Concolic(unittest.TestCase):
 
     # Concolic test case 1: Correct answer path with name=None avoids saving scores
@@ -277,6 +274,7 @@ class TestNegativeMarkQuiz_Concolic(unittest.TestCase):
         m_save.assert_called_once()
 
 
+# test cases for challenge mode quiz function
 class TestChallengeMode_Concolic(unittest.TestCase):
 
     # Concolic test case 1: Remaining time becomes <= 0 immediately so the challenge exits and saves score
@@ -377,6 +375,7 @@ class TestChallengeMode_Concolic(unittest.TestCase):
         m_save.assert_called_once()
 
 
+# test cases for take quiz until wrong function
 class TestStreakMode_Concolic(unittest.TestCase):
 
     # Concolic test case 1: All answers correct triggers the 'Amazing!' branch and saves when name is set
@@ -440,6 +439,7 @@ class TestStreakMode_Concolic(unittest.TestCase):
         m_save.assert_not_called()
 
 
+# test cases for learning mode quiz function
 class TestLearningMode_Concolic(unittest.TestCase):
 
     # Concolic test case 1: User quits immediately so totals stay zero and accuracy is 0%
@@ -502,7 +502,7 @@ class TestLearningMode_Concolic(unittest.TestCase):
         self.assertIn("Self-rated accuracy: 100%", out)
 
 
-
+# test cases for create assessment function
 class TestCreateAssessment_Concolic(unittest.TestCase):
 
     # Concolic test case 1: Take-now is 'n' so assessment saves but quiz is not started
@@ -527,6 +527,7 @@ class TestCreateAssessment_Concolic(unittest.TestCase):
         m_take.assert_called_once()
 
 
+# test cases for list, add, edit, delete questions from assessment function
 class TestListAssessments_Concolic(unittest.TestCase):
 
     # Concolic test case 1: Empty assessments list returns None after printing the 'no assessments' message
@@ -661,6 +662,7 @@ class TestDeleteQuestion_Concolic(unittest.TestCase):
         m_save.assert_called_once()
 
 
+# test cases for view questions from assessment function
 class TestViewQuestions_Concolic(unittest.TestCase):
 
     # Concolic test case 1: No saved assessments triggers the early 'No assessments saved yet' return.
@@ -741,6 +743,23 @@ class TestViewQuestions_Concolic(unittest.TestCase):
             self.assertIn("Q1: Q1", out)
             self.assertIn("Q2: Q2", out)
             self.assertIn("Correct answer: A", out)
+
+
+# test cases for load and save custom assessment function
+class TestAssessmentStorage_MoreCoverage(unittest.TestCase):
+
+    # Covers JSON decode failure branch by loading a malformed JSON file
+    @patch("assessment_storage.os.path.exists", return_value=True)
+    @patch("assessment_storage.open", new_callable=mock_open, read_data="not-json")
+    def test_load_custom_assessments_malformed_json_returns_empty(self, m_open, m_exists):
+        self.assertEqual(assessment_storage.load_custom_assessments(), [])
+
+
+    # Covers file read exception branch by forcing open() to raise an OSError
+    @patch("assessment_storage.os.path.exists", return_value=True)
+    @patch("assessment_storage.open", side_effect=OSError("boom"))
+    def test_load_custom_assessments_open_fails_returns_empty(self, m_open, m_exists):
+        self.assertEqual(assessment_storage.load_custom_assessments(), [])
 
 
 if __name__ == "__main__":
