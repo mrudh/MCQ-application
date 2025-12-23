@@ -2,7 +2,7 @@
 import random
 
 from quiz_data import ALL_QUIZ_DATA
-from storage import load_scores, save_scores
+from utils import load_scores, save_scores
 
 
 def _ask_int(prompt, minimum, maximum):
