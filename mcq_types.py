@@ -1,8 +1,7 @@
 import sys
 import time
 import random
-from utils import print_results
-from storage import load_scores, save_scores
+from utils import print_results, load_scores, save_scores
 
 
 def take_quiz(questions, options, answers, name=None, timed=False):
@@ -127,8 +126,6 @@ def take_negative_mark_quiz(questions, options, answers, name=None, neg_mark=0.2
 
 
 def take_quiz_challenge(questions, options, answers, name=None):
-    from storage import load_scores, save_scores
-
     while True:
         try:
             minutes = int(input("Enter challenge duration in minutes (2 to 5): "))
@@ -138,10 +135,8 @@ def take_quiz_challenge(questions, options, answers, name=None):
                 print("Please enter a value between 2 and 5 minutes.")
         except ValueError:
             print("Please enter a valid number.")
-
     total_seconds = minutes * 60
     print(f"\nChallenge started for {minutes} minutes! Answer as many as you can.\n")
-
     indices = list(range(len(questions)))
     random.shuffle(indices)
 
@@ -150,21 +145,17 @@ def take_quiz_challenge(questions, options, answers, name=None):
     asked = 0
     correct = 0
     i = 0
-
     start_time = time.time()
 
     while True:
         elapsed = time.time() - start_time
         remaining = total_seconds - elapsed
-
         if remaining <= 0:
             print("\nTime is up for the challenge!")
             break
-
         if i >= len(indices):
             random.shuffle(indices)
             i = 0
-
         idx = indices[i]
         i += 1
 

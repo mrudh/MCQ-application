@@ -3,7 +3,7 @@ import sys
 import unittest
 from unittest.mock import patch
 import mcq_types
-import assessment
+import manage_assessment
 
 
 class TestTakeQuizConditions(unittest.TestCase):
@@ -118,8 +118,8 @@ class TestNegativeMarkConditions(unittest.TestCase):
 class TestChallengeModeConditions(unittest.TestCase):
 
     #Saves accuracy when the challenge ends due to timed_quiz returning None mid-question
-    @patch("storage.save_scores")
-    @patch("storage.load_scores", return_value=[])
+    @patch("mcq_types.save_scores")
+    @patch("mcq_types.load_scores", return_value=[])
     @patch("mcq_types.timed_quiz", return_value=None)
     @patch("builtins.input", side_effect=["3"])
     def test_challenge_valid_time_then_timeout(self, mock_input, mock_timed, mock_load, mock_save):
@@ -202,8 +202,8 @@ class TestLearningModeConditions(unittest.TestCase):
 class TestAssessmentConditions(unittest.TestCase):
 
     # Creates and saves an assessment without starting the quiz when the user selects 'n'
-    @patch("assessment.save_custom_assessments")
-    @patch("assessment.load_custom_assessments", return_value=[])
+    @patch("manage_assessment.save_custom_assessments")
+    @patch("manage_assessment.load_custom_assessments", return_value=[])
     @patch("mcq_types.take_quiz")
     @patch(
         "builtins.input",
@@ -217,24 +217,21 @@ class TestAssessmentConditions(unittest.TestCase):
         ],
     )
     def test_create_assessment_not_taken_now(self, mock_input, mock_take_quiz, mock_load, mock_save):
-        assessment.create_assessment()
+        manage_assessment.create_assessment()
         mock_save.assert_called_once()
         mock_take_quiz.assert_not_called()
 
 
     #Returns None from list_assessments when there are no stored assessments
-    @patch("assessment.load_custom_assessments", return_value=[])
+    @patch("manage_assessment.load_custom_assessments", return_value=[])
     def test_list_assessments_none(self, mock_load):
-        result = assessment.list_assessments()
+        result = manage_assessment.list_assessments()
         self.assertIsNone(result)
 
 
     #Adds a new question into the selected assessment and maintains the update
-    @patch(
-        "assessment.list_assessments",
-        return_value=[{"name": "A", "questions": [], "options": [], "answers": []}],
-    )
-    @patch("assessment.save_custom_assessments")
+    @patch("manage_assessment.list_assessments", return_value=[{"name": "A", "questions": [], "options": [], "answers": []}])
+    @patch("manage_assessment.save_custom_assessments")
     @patch("builtins.input",
         side_effect=[
             "1",
@@ -244,12 +241,12 @@ class TestAssessmentConditions(unittest.TestCase):
         ],
     )
     def test_add_question_valid(self, mock_input, mock_save, mock_list):
-        assessment.add_question_to_assessment()
+        manage_assessment.add_question_to_assessment()
         mock_save.assert_called_once()
 
 
     #Keeps existing values during edit when the user presses 'Enter' for all fields
-    @patch("assessment.list_assessments",
+    @patch("manage_assessment.list_assessments",
         return_value=[{
             "name": "A",
             "questions": ["Q1"],
@@ -257,7 +254,7 @@ class TestAssessmentConditions(unittest.TestCase):
             "answers": ["A"],
         }],
     )
-    @patch("assessment.save_custom_assessments")
+    @patch("manage_assessment.save_custom_assessments")
     @patch("builtins.input",
         side_effect=[
             "1",
@@ -270,33 +267,31 @@ class TestAssessmentConditions(unittest.TestCase):
     def test_edit_question_keep_existing(
         self, mock_input, mock_save, mock_list
     ):
-        assessment.edit_question_in_assessment()
+        manage_assessment.edit_question_in_assessment()
         mock_save.assert_called_once()
 
 
     #Deletes the chosen question from the assessment and maintains the change
-    @patch(
-        "assessment.list_assessments",
+    @patch("manage_assessment.list_assessments",
         return_value=[{
             "name": "A",
             "questions": ["Q1"],
             "options": [("A.1", "B.2", "C.3", "D.4")],
-            "answers": ["A"],
+            "answers": ["A"]
         }],
     )
-    @patch("assessment.save_custom_assessments")
+    @patch("manage_assessment.save_custom_assessments")
     @patch(
         "builtins.input",
         side_effect=["1", "1"],
     )
     def test_delete_question_valid(self, mock_input, mock_save, mock_list):
-        assessment.delete_question_from_assessment()
+        manage_assessment.delete_question_from_assessment()
         mock_save.assert_called_once()
 
 
     #Prints the selected assessment’s questions, options, and answers
-    @patch(
-        "assessment.load_custom_assessments",
+    @patch("manage_assessment.load_custom_assessments",
         return_value=[{
             "name": "A",
             "questions": ["Q1"],
@@ -307,7 +302,7 @@ class TestAssessmentConditions(unittest.TestCase):
     @patch("sys.stdout", new_callable=io.StringIO)
     @patch("builtins.input", side_effect=["1"])
     def test_view_questions_valid(self, mock_input, mock_stdout, mock_load):
-        assessment.view_questions_in_assessment()
+        manage_assessment.view_questions_in_assessment()
         out = mock_stdout.getvalue()
         self.assertIn("Assessment: A", out)
         self.assertIn("Q1", out)

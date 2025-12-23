@@ -2,7 +2,7 @@ import io
 import unittest
 from unittest.mock import patch
 import mcq_types
-import assessment
+import manage_assessment
 
 
 class TestTakeQuizLoops(unittest.TestCase):
@@ -170,8 +170,8 @@ class TestLearningModeLoops(unittest.TestCase):
 class TestAssessmentLoops(unittest.TestCase):
 
     #Loop testing for assessment functions with zero questions
-    @patch("assessment.save_custom_assessments")
-    @patch("assessment.load_custom_assessments", return_value=[])
+    @patch("manage_assessment.save_custom_assessments")
+    @patch("manage_assessment.load_custom_assessments", return_value=[])
     @patch("mcq_types.take_quiz")
     @patch(
         "builtins.input",
@@ -184,13 +184,13 @@ class TestAssessmentLoops(unittest.TestCase):
     def test_create_assessment_zero_questions(
         self, mock_input, mock_take, mock_load, mock_save
     ):
-        assessment.create_assessment()
+        manage_assessment.create_assessment()
         mock_save.assert_called_once()
 
 
     #Loop testing for assessment functions with one question
-    @patch("assessment.save_custom_assessments")
-    @patch("assessment.load_custom_assessments", return_value=[])
+    @patch("manage_assessment.save_custom_assessments")
+    @patch("manage_assessment.load_custom_assessments", return_value=[])
     @patch("mcq_types.take_quiz")
     @patch(
         "builtins.input",
@@ -206,16 +206,16 @@ class TestAssessmentLoops(unittest.TestCase):
     def test_create_assessment_one_question(
         self, mock_input, mock_take, mock_load, mock_save
     ):
-        assessment.create_assessment()
+        manage_assessment.create_assessment()
         mock_save.assert_called_once()
 
 
     #Loop testing for add question option functions
     @patch(
-        "assessment.list_assessments",
+        "manage_assessment.list_assessments",
         return_value=[{"name": "A", "questions": [], "options": [], "answers": []}],
     )
-    @patch("assessment.save_custom_assessments")
+    @patch("manage_assessment.save_custom_assessments")
     @patch(
         "builtins.input",
         side_effect=[
@@ -228,12 +228,12 @@ class TestAssessmentLoops(unittest.TestCase):
     def test_add_question_option_loop(
         self, mock_input, mock_save, mock_list
     ):
-        assessment.add_question_to_assessment()
+        manage_assessment.add_question_to_assessment()
         mock_save.assert_called_once()
 
 
     @patch(
-        "assessment.load_custom_assessments",
+        "manage_assessment.load_custom_assessments",
         return_value=[{
             "name": "A",
             "questions": ["Q1", "Q2"],
@@ -250,7 +250,7 @@ class TestAssessmentLoops(unittest.TestCase):
         self, mock_input, mock_stdout, mock_load
     ):
     #loops over multiple questions when viewing
-        assessment.view_questions_in_assessment()
+        manage_assessment.view_questions_in_assessment()
         out = mock_stdout.getvalue()
         self.assertIn("Q1", out)
         self.assertIn("Q2", out)

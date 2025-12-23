@@ -2,8 +2,7 @@ import unittest
 from unittest.mock import patch, mock_open
 import sys
 import mcq_types
-import assessment
-import storage
+import manage_assessment
 
 
 class TestTakeQuizStatements(unittest.TestCase):
@@ -14,7 +13,6 @@ class TestTakeQuizStatements(unittest.TestCase):
         questions = ["Q1"]
         options = [("A. 1", "B. 2", "C. 3", "D. 4")]
         answers = ["A"]
-
         mcq_types.take_quiz(questions, options, answers, name=None, timed=False)
 
 
@@ -29,9 +27,7 @@ class TestTakeQuizStatements(unittest.TestCase):
         questions = ["Q1"]
         options = [("A. 1", "B. 2", "C. 3", "D. 4")]
         answers = ["A"]
-
         mcq_types.take_quiz(questions, options, answers, name="Alice", timed=False)
-
         mock_save.assert_called_once()
 
 
@@ -42,7 +38,6 @@ class TestTakeQuizStatements(unittest.TestCase):
         questions = ["Q1"]
         options = [("A. 1", "B. 2", "C. 3", "D. 4")]
         answers = ["A"]
-
         mcq_types.take_quiz(questions, options, answers, name=None, timed=True)
 
 
@@ -53,11 +48,11 @@ class TestTakeQuizStatements(unittest.TestCase):
         questions = ["Q1"]
         options = [("A. 1", "B. 2", "C. 3", "D. 4")]
         answers = ["A"]
-
         mcq_types.take_quiz(questions, options, answers, name=None, timed=True)
 
 
 class TestTimedQuizStatements(unittest.TestCase):
+
     #Tests the non-windows path behaves correctly when input arrives before timeout
     @patch.object(sys, "platform", "darwin")
     @patch("sys.stdin.readline", return_value="A\n")
@@ -86,7 +81,6 @@ class TestNegativeMarkStatements(unittest.TestCase):
         questions = ["Q1", "Q2", "Q3"]
         options = [("A.1", "B.2", "C.3", "D.4")] * 3
         answers = ["A", "A", "A"]
-
         mcq_types.take_negative_mark_quiz(questions, options, answers, name=None)
 
     #Tests negative mark mode saves score when a name is provided
@@ -98,7 +92,6 @@ class TestNegativeMarkStatements(unittest.TestCase):
         questions = ["Q1"]
         options = [("A.1", "B.2", "C.3", "D.4")]
         answers = ["A"]
-
         mcq_types.take_negative_mark_quiz(questions, options, answers, name="Bob")
         mock_save.assert_called_once()
 
@@ -114,13 +107,12 @@ class TestChallengeModeStatements(unittest.TestCase):
         questions = ["Q1"]
         options = [("A.1", "B.2", "C.3", "D.4")]
         answers = ["A"]
-
         mcq_types.take_quiz_challenge(questions, options, answers, name=None)
 
 
     #Tests challenge mode when exactly one question is answered before time runs out and score is saved
-    @patch("storage.save_scores")
-    @patch("storage.load_scores", return_value=[])
+    @patch("mcq_types.save_scores")
+    @patch("mcq_types.load_scores", return_value=[])
     @patch("mcq_types.random.shuffle", side_effect=lambda lst: None)
     @patch("mcq_types.timed_quiz", return_value="A")
     @patch("mcq_types.time.time", side_effect=[0, 0, 9999])
@@ -139,12 +131,12 @@ class TestChallengeModeStatements(unittest.TestCase):
         questions = ["Q1", "Q2"]
         options = [("A.1", "B.2", "C.3", "D.4")] * 2
         answers = ["A", "B"]
-
         mcq_types.take_quiz_challenge(questions, options, answers, name="Carol")
         mock_save.assert_called_once()
 
 
 class TestStreakModeStatements(unittest.TestCase):
+
     #Tests streak mode ending immediately when user provides blank input
     @patch("mcq_types.random.shuffle", side_effect=lambda lst: None)
     @patch("mcq_types.print")
@@ -153,7 +145,6 @@ class TestStreakModeStatements(unittest.TestCase):
         questions = ["Q1"]
         options = [("A.1", "B.2", "C.3", "D.4")]
         answers = ["A"]
-
         mcq_types.take_quiz_until_wrong(questions, options, answers, name=None)
 
 
@@ -169,7 +160,6 @@ class TestStreakModeStatements(unittest.TestCase):
         questions = ["Q1", "Q2"]
         options = [("A.1", "B.2", "C.3", "D.4")] * 2
         answers = ["A", "B"]
-
         mcq_types.take_quiz_until_wrong(questions, options, answers, name="Dave")
         mock_save.assert_called_once()
 
@@ -182,7 +172,6 @@ class TestLearningModeStatements(unittest.TestCase):
     def test_learning_mode_quit_immediately(self, mock_input, mock_print, mock_shuffle):
         questions = ["Q1"]
         answers = ["A1"]
-
         mcq_types.learning_mode(questions, answers)
 
 
@@ -193,7 +182,6 @@ class TestLearningModeStatements(unittest.TestCase):
     def test_learning_mode_y_and_n(self, mock_input, mock_print, mock_shuffle):
         questions = ["Q1", "Q2"]
         answers = ["A1", "A2"]
-
         mcq_types.learning_mode(questions, answers)
 
 
@@ -202,7 +190,6 @@ class TestAssessmentStatements(unittest.TestCase):
     @patch("assessment_storage.os.path.exists", return_value=False)
     def test_load_custom_assessments_no_file(self, mock_exists):
         from assessment_storage import load_custom_assessments as storage_load
-
         self.assertEqual(storage_load(), [])
 
 
@@ -211,7 +198,6 @@ class TestAssessmentStatements(unittest.TestCase):
     @patch("assessment_storage.open", new_callable=mock_open, read_data='[{"name": "A"}]')
     def test_load_custom_assessments_with_file(self, mock_file, mock_exists):
         from assessment_storage import load_custom_assessments as storage_load
-
         data = storage_load()
         self.assertEqual(data, [{"name": "A"}])
 
@@ -220,123 +206,94 @@ class TestAssessmentStatements(unittest.TestCase):
     @patch("assessment_storage.open", new_callable=mock_open)
     def test_save_custom_assessments(self, mock_file):
         from assessment_storage import save_custom_assessments as storage_save
-
         storage_save([{"name": "A"}])
         mock_file.assert_called_once()
 
 
     #Tests creating an assessment from user inputs and ensures it is saved
-    @patch("assessment.save_custom_assessments")
-    @patch("assessment.load_custom_assessments", return_value=[])
-    @patch(
-        "assessment.input",
-        side_effect=[
-            "MyTest", "1", "Q1", "1", "2", "3", "4", "A", "n"
-        ],
-    )
-    @patch("assessment.print")
+    @patch("manage_assessment.save_custom_assessments")
+    @patch("manage_assessment.load_custom_assessments", return_value=[])
+    @patch("manage_assessment.input", side_effect=["MyTest", "1", "Q1", "1", "2", "3", "4", "A", "n"])
+    @patch("manage_assessment.print")
     def test_create_assessment(self, mock_print, mock_input, mock_load, mock_save):
-        assessment.create_assessment()
+        manage_assessment.create_assessment()
         mock_save.assert_called_once()
 
 
     #Ensures that listing assessments returns None when there are no stored assessments
-    @patch("assessment.print")
-    @patch("assessment.load_custom_assessments", return_value=[])
+    @patch("manage_assessment.print")
+    @patch("manage_assessment.load_custom_assessments", return_value=[])
     def test_list_assessments_empty(self, mock_load, mock_print):
-        result = assessment.list_assessments()
+        result = manage_assessment.list_assessments()
         self.assertIsNone(result)
 
 
     #testing list_assessments returns a list when assessments exist
-    @patch("assessment.print")
-    @patch(
-        "assessment.load_custom_assessments",
-        return_value=[{"name": "A", "questions": [], "options": [], "answers": []}],
-    )
+    @patch("manage_assessment.print")
+    @patch("manage_assessment.load_custom_assessments", return_value=[{"name": "A", "questions": [], "options": [], "answers": []}])
     def test_list_assessments_non_empty(self, mock_load, mock_print):
-        result = assessment.list_assessments()
+        result = manage_assessment.list_assessments()
         self.assertIsInstance(result, list)
         self.assertEqual(len(result), 1)
 
 
     #To test whether adding a question updates the assessment and triggers save
-    @patch("assessment.save_custom_assessments")
-    @patch(
-        "assessment.list_assessments",
-        return_value=[{"name": "A", "questions": [], "options": [], "answers": []}],
-    )
-    @patch(
-        "assessment.input",
-        side_effect=["1", "New Q?", "1", "2", "3", "4", "A"],
-    )
-    @patch("assessment.print")
-    def test_add_question_to_assessment(
-        self, mock_print, mock_input, mock_list, mock_save
-    ):
-        assessment.add_question_to_assessment()
+    @patch("manage_assessment.save_custom_assessments")
+    @patch("manage_assessment.list_assessments",return_value=[{"name": "A", "questions": [], "options": [], "answers": []}])
+    @patch("manage_assessment.input",side_effect=["1", "New Q?", "1", "2", "3", "4", "A"])
+    @patch("manage_assessment.print")
+    def test_add_question_to_assessment(self, mock_print, mock_input, mock_list, mock_save):
+        manage_assessment.add_question_to_assessment()
         mock_save.assert_called_once()
 
 
     #To test editing a question updates the assessment and triggers save
-    @patch("assessment.save_custom_assessments")
-    @patch(
-        "assessment.list_assessments",
+    @patch("manage_assessment.save_custom_assessments")
+    @patch("manage_assessment.list_assessments",
         return_value=[{
             "name": "A",
             "questions": ["Q1"],
             "options": [("A.1", "B.2", "C.3", "D.4")],
-            "answers": ["A"],
+            "answers": ["A"]
         }],
     )
-    @patch(
-        "assessment.input",
-        side_effect=["1", "1", "", "", "", "", "", ""],
-    )
-    @patch("assessment.print")
-    def test_edit_question_in_assessment(
-        self, mock_print, mock_input, mock_list, mock_save
-    ):
-        assessment.edit_question_in_assessment()
+    @patch("manage_assessment.input",side_effect=["1", "1", "", "", "", "", "", ""])
+    @patch("manage_assessment.print")
+    def test_edit_question_in_assessment(self, mock_print, mock_input, mock_list, mock_save):
+        manage_assessment.edit_question_in_assessment()
         mock_save.assert_called_once()
 
 
     #To test deleting a question removes it and triggers save
-    @patch("assessment.save_custom_assessments")
-    @patch(
-        "assessment.list_assessments",
+    @patch("manage_assessment.save_custom_assessments")
+    @patch("manage_assessment.list_assessments",
         return_value=[{
             "name": "A",
             "questions": ["Q1"],
             "options": [("A.1", "B.2", "C.3", "D.4")],
-            "answers": ["A"],
+            "answers": ["A"]
         }],
     )
-    @patch("assessment.input", side_effect=["1", "1"])
-    @patch("assessment.print")
-    def test_delete_question_from_assessment(
-        self, mock_print, mock_input, mock_list, mock_save
-    ):
-        assessment.delete_question_from_assessment()
+    @patch("manage_assessment.input", side_effect=["1", "1"])
+    @patch("manage_assessment.print")
+    def test_delete_question_from_assessment(elf, mock_print, mock_input, mock_list, mock_save):
+        manage_assessment.delete_question_from_assessment()
         mock_save.assert_called_once()
 
 
     #To check view_questions_in_assessment displays questions correctly
-    @patch(
-        "assessment.load_custom_assessments",
+    @patch("manage_assessment.load_custom_assessments",
         return_value=[{
             "name": "A",
             "questions": ["Q1"],
             "options": [("A.1", "B.2", "C.3", "D.4")],
-            "answers": ["A"],
+            "answers": ["A"]
         }],
     )
-    @patch("assessment.input", side_effect=["1"])
-    @patch("assessment.print")
-    def test_view_questions_in_assessment(
-        self, mock_print, mock_input, mock_load
-    ):
-        assessment.view_questions_in_assessment()
+    @patch("manage_assessment.input", side_effect=["1"])
+    @patch("manage_assessment.print")
+    def test_view_questions_in_assessment(self, mock_print, mock_input, mock_load):
+        manage_assessment.view_questions_in_assessment()
 
 
 if __name__ == "__main__":

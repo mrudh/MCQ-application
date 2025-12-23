@@ -1,9 +1,8 @@
 import sys
 import time
 import random
-from storage import load_scores, save_scores
 from mcq_types import take_quiz, timed_quiz
-from utils import print_results
+from utils import print_results, load_scores, save_scores
 
 def _normalize_text(s: str) -> str:
     return " ".join(s.strip().lower().split())

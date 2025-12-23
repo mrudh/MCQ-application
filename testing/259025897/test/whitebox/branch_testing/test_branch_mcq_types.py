@@ -148,8 +148,8 @@ class TestNegativeMark_Branches(unittest.TestCase):
 class TestChallenge_Branches(unittest.TestCase):
 
     #Checks challenge mode branch where time runs out immediately and the score is still saved for a named user
-    @patch("storage.save_scores")
-    @patch("storage.load_scores", return_value=[])
+    @patch("mcq_types.save_scores")
+    @patch("mcq_types.load_scores", return_value=[])
     @patch("mcq_types.random.shuffle", side_effect=lambda x: None)
     @patch("builtins.input", side_effect=["3"])
     @patch("mcq_types.time.time", side_effect=[0, 9999])
@@ -164,8 +164,8 @@ class TestChallenge_Branches(unittest.TestCase):
 
 
     #Checks challenge mode branch where timed_quiz returns None mid-question and the score is still saved
-    @patch("storage.save_scores")
-    @patch("storage.load_scores", return_value=[])
+    @patch("mcq_types.save_scores")
+    @patch("mcq_types.load_scores", return_value=[])
     @patch("mcq_types.random.shuffle", side_effect=lambda x: None)
     @patch("mcq_types.timed_quiz", return_value=None)
     @patch("builtins.input", side_effect=["3"])
@@ -181,8 +181,8 @@ class TestChallenge_Branches(unittest.TestCase):
 
 
     #Checks challenge mode validation loop where invalid minutes are rejected until a valid value is entered
-    @patch("storage.save_scores")
-    @patch("storage.load_scores", return_value=[])
+    @patch("mcq_types.save_scores")
+    @patch("mcq_types.load_scores", return_value=[])
     @patch("mcq_types.timed_quiz", return_value=None)
     @patch("builtins.input", side_effect=["10", "abc", "3"])
     @patch("mcq_types.time.time", side_effect=[0, 0, 1])

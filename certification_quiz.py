@@ -4,7 +4,7 @@ import random
 from datetime import date, datetime
 
 from quiz_data import ALL_QUIZ_DATA
-from storage import load_scores, save_scores   
+from utils import load_scores, save_scores
 
 CERT_ATTEMPT_FILE = "cert_attempts.json"
 MAX_CERT_ATTEMPTS_PER_DAY = 1   
