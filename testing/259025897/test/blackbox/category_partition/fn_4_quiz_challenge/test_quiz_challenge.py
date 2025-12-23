@@ -22,8 +22,8 @@ class TestTakeQuizChallengeFromFrames(unittest.TestCase):
 
     #If the user enters minutes below the allowed range, the function should reprompt and accept a valid value
     @patch("builtins.print")
-    @patch("storage.save_scores")
-    @patch("storage.load_scores", return_value=[])
+    @patch("mcq_types.save_scores")
+    @patch("mcq_types.load_scores", return_value=[])
     @patch("mcq_types.timed_quiz", return_value=None)
     def test_frame_2_below_then_valid_minutes(
             self,
@@ -46,8 +46,8 @@ class TestTakeQuizChallengeFromFrames(unittest.TestCase):
 
     #If the user enters minutes above the allowed range, the function should reprompt and accept a valid value
     @patch("builtins.print")
-    @patch("storage.save_scores")
-    @patch("storage.load_scores", return_value=[])
+    @patch("mcq_types.save_scores")
+    @patch("mcq_types.load_scores", return_value=[])
     @patch("mcq_types.timed_quiz", return_value=None)
     def test_frame_3_above_then_valid_minutes(
             self,
@@ -70,8 +70,8 @@ class TestTakeQuizChallengeFromFrames(unittest.TestCase):
 
     #A valid minimum duration of 2 minutes should run and save a result for a named user
     @patch("builtins.print")
-    @patch("storage.save_scores")
-    @patch("storage.load_scores", return_value=[])
+    @patch("mcq_types.save_scores")
+    @patch("mcq_types.load_scores", return_value=[])
     @patch("mcq_types.timed_quiz", return_value=None)
     def test_frame_4_non_zero_valid_2(
             self,
@@ -94,8 +94,8 @@ class TestTakeQuizChallengeFromFrames(unittest.TestCase):
 
     #A valid maximum duration of 5 minutes should run and save a result for a named user.
     @patch("builtins.print")
-    @patch("storage.save_scores")
-    @patch("storage.load_scores", return_value=[])
+    @patch("mcq_types.save_scores")
+    @patch("mcq_types.load_scores", return_value=[])
     @patch("mcq_types.timed_quiz", return_value=None)
     def test_frame_5_non_zero_valid_5(
             self,
