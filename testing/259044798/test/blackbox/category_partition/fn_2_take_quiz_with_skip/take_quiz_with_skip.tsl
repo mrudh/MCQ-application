@@ -1,0 +1,22 @@
+|--------------------------------------|
+| take_quiz_with_skip - MINIMAL SET    |
+|--------------------------------------|
+
+Scenarios:
+    
+    empty questions, name none.                 [single]
+    empty questions, name provided.             [single]
+
+    
+    options length mismatch.                    [single] [error]
+    answers length mismatch.                    [single] [error]
+    answers contain non A-D.                    [single] [error]
+
+    
+    valid answer immediately, correct, no skip. [single]
+    valid answer immediately, incorrect.        [single]
+    skip using S (some skipped).                [single]
+    skip using Enter (some skipped).            [single]
+    invalid then valid.                         [single]
+    invalid then skip.                          [single]
+    all skipped (answered=0 => percent=0).      [single]
