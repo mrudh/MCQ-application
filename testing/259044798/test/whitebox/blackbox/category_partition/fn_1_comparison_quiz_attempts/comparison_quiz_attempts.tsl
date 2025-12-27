@@ -1,0 +1,24 @@
+Parameters:
+    UserName:
+        existing_user.              [property UserExists]
+        unknown_user.               [property UserUnknown]
+
+Attempts:
+    AttemptList:
+        empty_attempts.   [single] [property NoAttempts]
+        has_attempts.     [property HasAttempts]
+
+
+Scores:
+    FirstScoreField:
+        first_score_present.        [if HasAttempts] [property FirstScorePresent]
+        first_score_missing.        [if HasAttempts] [property FirstScoreMissing]
+
+    LatestScoreField:
+        latest_score_present.       [if HasAttempts] [property LatestScorePresent]
+        latest_score_missing.       [if HasAttempts] [property LatestScoreMissing]
+
+    ScoreDifference:
+        diff_positive.              [if HasAttempts] [property DiffPositive]
+        diff_negative.              [if HasAttempts] [property DiffNegative]
+        diff_zero.                  [if HasAttempts] [property DiffZero]
