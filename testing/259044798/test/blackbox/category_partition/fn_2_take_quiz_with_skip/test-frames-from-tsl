@@ -1,0 +1,52 @@
+
+Test Case 1  		<single>
+   Scenarios :  empty questions, name none
+
+
+Test Case 2  		<single>
+   Scenarios :  empty questions, name provided
+
+
+Test Case 3  		<error>
+   Scenarios :  options length mismatch
+
+
+Test Case 4  		<error>
+   Scenarios :  answers length mismatch
+
+
+Test Case 5  		<error>
+   Scenarios :  answers contain non A-D
+
+
+Test Case 6  		<single>
+   Scenarios :  valid answer immediately, correct, no skip
+
+
+Test Case 7  		<single>
+   Scenarios :  valid answer immediately, incorrect
+
+
+Test Case 8  		<single>
+   Scenarios :  skip using S (some skipped)
+
+
+Test Case 9  		<single>
+   Scenarios :  skip using Enter (some skipped)
+
+
+Test Case 10 		<single>
+   Scenarios :  invalid then valid
+
+
+Test Case 11 		<single>
+   Scenarios :  invalid then skip
+
+
+Test Case 12 		<single>
+   Scenarios :  all skipped (answered=0 => percent=0)
+
+
+Test Case 13 		(Key = 0.)
+   Scenarios :  <n/a>
+
