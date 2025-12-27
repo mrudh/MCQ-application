@@ -1,0 +1,14 @@
+Test frame:
+
+    MCQ list empty.                               [single]
+    Fill-in list empty.                           [single]
+
+    MCQ has one question; answer matches option.   [single]
+    MCQ has one question; answer NOT found.        [single]
+    MCQ answer has spaces/case; still matches.     [single]
+    MCQ item missing required key.                [error]
+
+    Fill-in one question; single answer.          [single]
+    Fill-in one question; multiple answers pipe.  [single]
+    Fill-in answers messy pipes/spaces.           [single]
+    Fill-in item missing required key.            [error]
