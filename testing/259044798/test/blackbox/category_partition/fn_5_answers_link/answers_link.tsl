@@ -1,0 +1,43 @@
+Parameters:
+    Scenario:
+        Load: file missing -> {}.                 [single] [property OpLoad FileMissing OutEmptyDict]
+        Load: invalid JSON -> {}.                 [single] [property OpLoad FileExists JsonInvalid OutEmptyDict]
+        Load: valid JSON -> dict.                 [single] [property OpLoad FileExists JsonValid OutLoadedDict]
+
+        Save: writes json file.                   [single] [property OpSave OutWritesFile]
+
+        Get MCQ: defaults only.                   [single] [property OpGet IsMCQ IndexValid NoUserLinks DefaultsNonEmpty OutDefaultsOnly]
+        Get MCQ: no links at all.                 [single] [property OpGet IsMCQ IndexValid NoUserLinks DefaultsEmpty OutNoLinks]
+        Get MCQ: merged defaults + user.          [single] [property OpGet IsMCQ IndexValid HasUserLinks DefaultsNonEmpty OutMerged]
+
+        Get Fill: defaults only.                  [single] [property OpGet IsFill IndexValid NoUserLinks DefaultsNonEmpty OutDefaultsOnly]
+        Get Fill: no links at all.                [single] [property OpGet IsFill IndexValid NoUserLinks DefaultsEmpty OutNoLinks]
+        Get Fill: merged defaults + user.         [single] [property OpGet IsFill IndexValid HasUserLinks DefaultsNonEmpty OutMerged]
+
+        Add MCQ: empty link -> no change.         [single] [property OpAdd IsMCQ LinkEmpty OutNoChange OutNoWrite]
+        Add MCQ: duplicate link -> no change.     [single] [property OpAdd IsMCQ LinkNonEmpty LinkDup OutNoChange]
+        Add MCQ: new link -> append + save.       [single] [property OpAdd IsMCQ LinkNonEmpty LinkNew OutAppend OutWritesFile]
+
+        Add Fill: empty link -> no change.        [single] [property OpAdd IsFill LinkEmpty OutNoChange OutNoWrite]
+        Add Fill: duplicate link -> no change.    [single] [property OpAdd IsFill LinkNonEmpty LinkDup OutNoChange]
+        Add Fill: new link -> append + save.      [single] [property OpAdd IsFill LinkNonEmpty LinkNew OutAppend OutWritesFile]
+
+        Show MCQ: invalid index message.          [single] [property OpShow IsMCQ IndexInvalid OutInvalidIndexMsg]
+        Show MCQ: prints answer + links.          [single] [property OpShow IsMCQ IndexValid OutPrintsAnswerLinks]
+
+        Show Fill: invalid index message.         [single] [property OpShow IsFill IndexInvalid OutInvalidIndexMsg]
+        Show Fill: prints answer + links.         [single] [property OpShow IsFill IndexValid OutPrintsAnswerLinks]
+
+Environments:
+    Outcomes:
+        empty dict returned.                      [property OutEmptyDict]
+        loaded dict returned.                     [property OutLoadedDict]
+        file written.                             [property OutWritesFile]
+        no write.                                 [property OutNoWrite]
+        merged list returned.                     [property OutMerged]
+        defaults only returned.                   [property OutDefaultsOnly]
+        no links returned.                        [property OutNoLinks]
+        link appended.                            [property OutAppend]
+        no change.                                [property OutNoChange]
+        invalid index printed.                    [property OutInvalidIndexMsg]
+        answer + links printed.                   [property OutPrintsAnswerLinks]
