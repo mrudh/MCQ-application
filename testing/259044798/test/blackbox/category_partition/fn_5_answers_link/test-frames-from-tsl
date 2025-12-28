@@ -1,0 +1,194 @@
+
+Test Case 1  		<single>
+   Load :  file missing -> {}
+
+
+Test Case 2  		<single>
+   Load :  invalid JSON -> {}
+
+
+Test Case 3  		<single>
+   Load :  valid JSON -> dict
+
+
+Test Case 4  		<single>
+   Save :  writes json file
+
+
+Test Case 5  		<single>
+   Get MCQ :  defaults only
+
+
+Test Case 6  		<single>
+   Get MCQ :  no links at all
+
+
+Test Case 7  		<single>
+   Get MCQ :  merged defaults + user
+
+
+Test Case 8  		<single>
+   Get Fill :  defaults only
+
+
+Test Case 9  		<single>
+   Get Fill :  no links at all
+
+
+Test Case 10 		<single>
+   Get Fill :  merged defaults + user
+
+
+Test Case 11 		<single>
+   Add MCQ :  empty link -> no change
+
+
+Test Case 12 		<single>
+   Add MCQ :  duplicate link -> no change
+
+
+Test Case 13 		<single>
+   Add MCQ :  new link -> append + save
+
+
+Test Case 14 		<single>
+   Add Fill :  empty link -> no change
+
+
+Test Case 15 		<single>
+   Add Fill :  duplicate link -> no change
+
+
+Test Case 16 		<single>
+   Add Fill :  new link -> append + save
+
+
+Test Case 17 		<single>
+   Show MCQ :  invalid index message
+
+
+Test Case 18 		<single>
+   Show MCQ :  prints answer + links
+
+
+Test Case 19 		<single>
+   Show Fill :  invalid index message
+
+
+Test Case 20 		<single>
+   Show Fill :  prints answer + links
+
+
+Test Case 21 		(Key = 0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.1.)
+   Load         :  <n/a>
+   Load         :  <n/a>
+   Load         :  <n/a>
+   Save         :  <n/a>
+   Get MCQ      :  <n/a>
+   Get MCQ      :  <n/a>
+   Get MCQ      :  <n/a>
+   Get Fill     :  <n/a>
+   Get Fill     :  <n/a>
+   Get Fill     :  <n/a>
+   Add MCQ      :  <n/a>
+   Add MCQ      :  <n/a>
+   Add MCQ      :  <n/a>
+   Add Fill     :  <n/a>
+   Add Fill     :  <n/a>
+   Add Fill     :  <n/a>
+   Show MCQ     :  <n/a>
+   Show MCQ     :  <n/a>
+   Show Fill    :  <n/a>
+   Show Fill    :  <n/a>
+   Outcomes     :  empty dict returned
+
+
+Test Case 22 		(Key = 0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2.)
+   Load         :  <n/a>
+   Load         :  <n/a>
+   Load         :  <n/a>
+   Save         :  <n/a>
+   Get MCQ      :  <n/a>
+   Get MCQ      :  <n/a>
+   Get MCQ      :  <n/a>
+   Get Fill     :  <n/a>
+   Get Fill     :  <n/a>
+   Get Fill     :  <n/a>
+   Add MCQ      :  <n/a>
+   Add MCQ      :  <n/a>
+   Add MCQ      :  <n/a>
+   Add Fill     :  <n/a>
+   Add Fill     :  <n/a>
+   Add Fill     :  <n/a>
+   Show MCQ     :  <n/a>
+   Show MCQ     :  <n/a>
+   Show Fill    :  <n/a>
+   Show Fill    :  <n/a>
+   Outcomes     :  loaded dict returned
+
+
+Test Case 23 		(Key = 0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.3.)
+   Load         :  <n/a>
+   Load         :  <n/a>
+   Load         :  <n/a>
+   Save         :  <n/a>
+   Get MCQ      :  <n/a>
+   Get MCQ      :  <n/a>
+   Get MCQ      :  <n/a>
+   Get Fill     :  <n/a>
+   Get Fill     :  <n/a>
+   Get Fill     :  <n/a>
+   Add MCQ      :  <n/a>
+   Add MCQ      :  <n/a>
+   Add MCQ      :  <n/a>
+   Add Fill     :  <n/a>
+   Add Fill     :  <n/a>
+   Add Fill     :  <n/a>
+   Show MCQ     :  <n/a>
+   Show MCQ     :  <n/a>
+   Show Fill    :  <n/a>
+   Show Fill    :  <n/a>
+   Outcomes     :  file written
+
+
+Test Case 24 		(Key = 0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.4.)
+   Load         :  <n/a>
+   Load         :  <n/a>
+   Load         :  <n/a>
+   Save         :  <n/a>
+   Get MCQ      :  <n/a>
+   Get MCQ      :  <n/a>
+   Get MCQ      :  <n/a>
+   Get Fill     :  <n/a>
+   Get Fill     :  <n/a>
+   Get Fill     :  <n/a>
+   Add MCQ      :  <n/a>
+   Add MCQ      :  <n/a>
+   Add MCQ      :  <n/a>
+   Add Fill     :  <n/a>
+   Add Fill     :  <n/a>
+   Add Fill     :  <n/a>
+   Show MCQ     :  <n/a>
+   Show MCQ     :  <n/a>
+   Show Fill    :  <n/a>
+   Show Fill    :  <n/a>
+   Outcomes     :  no write
+
+
+Test Case 25 		(Key = 0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.5.)
+   Load         :  <n/a>
+   Load         :  <n/a>
+   Load         :  <n/a>
+   Save         :  <n/a>
+   Get MCQ      :  <n/a>
+   Get MCQ      :  <n/a>
+   Get MCQ      :  <n/a>
+   Get Fill     :  <n/a>
+   Get Fill     :  <n/a>
+   Get Fill     :  <n/a>
+   Add MCQ      :  <n/a>
+   Add MCQ      :  <n/a>
+   Add MCQ      :  <n/a>
+   Add Fill     :  <n/a>
+   Add Fill     :  <n/a>
+   Add Fill     :  

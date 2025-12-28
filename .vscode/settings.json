@@ -1,0 +1,5 @@
+{
+    "python.analysis.extraPaths": [
+        "./testing/259044798/test/blackbox/category_partition/fn_2_take_quiz_with_skip/test_"
+    ]
+}
