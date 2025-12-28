@@ -1,0 +1,41 @@
+Parameters:
+    Age input:
+        valid integer 10 or less.                [property AgeValid, AgeLE10]
+        valid integer 11 to 14.                  [property AgeValid, Age11to14]
+        valid integer 15 or more.                [property AgeValid, AgeGE15]
+        invalid age (ValueError) gives age None. [property AgeInvalid, AgeNone]
+
+
+    Allowed difficulties derived from age:
+        age is None gives Easy Medium Hard.      [if AgeNone]   [property AllowedAll]
+        age 10 or less gives Easy only.          [if AgeLE10]   [property AllowedEasy]
+        age 11 to 14 gives Easy and Medium.      [if Age11to14] [property AllowedEasyMedium]
+        age 15 or more gives Easy Medium Hard.   [if AgeGE15]   [property AllowedAll]
+
+    Filter result:
+        there is at least one matching question. [property HasFilteredQuestions]
+        there are no matching questions.         [property NoFilteredQuestions]
+
+Environments:
+    Filtered question count max_q:
+        max_q equals 0.                          [if NoFilteredQuestions] [property MaxQZero]
+        max_q at least 1.                        [if HasFilteredQuestions] [property MaxQPositive]
+
+    When max_q equals 0:
+        no questions available and return.       [if MaxQZero] [single] [property EarlyReturn]
+
+    total_questions input parsing:
+        valid integer within range.              [if MaxQPositive] [property TQValidInRange]
+        valid integer but out of range.          [if MaxQPositive] [property TQValidOutOfRange]
+        invalid total_questions input.           [if MaxQPositive] [property TQInvalid]
+
+    total_questions final value:
+        uses user value in range.                [if TQValidInRange] [property TQFinalUser]
+        defaults to max_q when out of range.     [if TQValidOutOfRange] [property TQFinalMaxQ_OutOfRange]
+        defaults to max_q when invalid input.    [if TQInvalid] [property TQFinalMaxQ_Invalid]
+
+    Sampling:
+        sample size equals total_questions.      [if MaxQPositive] [property SampleSizeOK]
+
+    Quiz call:
+        take_quiz called with matching sizes.    [if MaxQPositive] [property TakeQuizCalled]

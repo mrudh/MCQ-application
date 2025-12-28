@@ -1,0 +1,151 @@
+
+Test Case 1  		<single>  (follows [if])
+   When max_q equals 0 :  no questions available and return
+
+
+Test Case 2  		(Key = 1.2.1.2.0.1.1.1.1.)
+   Age input                             :  valid integer 10 or less
+   Allowed difficulties derived from age :  age 10 or less gives Easy only
+   Filter result                         :  there is at least one matching question
+   Filtered question count max_q         :  max_q at least 1
+   When max_q equals 0                   :  <n/a>
+   total_questions input parsing         :  valid integer within range
+   total_questions final value           :  uses user value in range
+   Sampling                              :  sample size equals total_questions
+   Quiz call                             :  take_quiz called with matching sizes
+
+
+Test Case 3  		(Key = 1.2.1.2.0.2.2.1.1.)
+   Age input                             :  valid integer 10 or less
+   Allowed difficulties derived from age :  age 10 or less gives Easy only
+   Filter result                         :  there is at least one matching question
+   Filtered question count max_q         :  max_q at least 1
+   When max_q equals 0                   :  <n/a>
+   total_questions input parsing         :  valid integer but out of range
+   total_questions final value           :  defaults to max_q when out of range
+   Sampling                              :  sample size equals total_questions
+   Quiz call                             :  take_quiz called with matching sizes
+
+
+Test Case 4  		(Key = 1.2.1.2.0.3.3.1.1.)
+   Age input                             :  valid integer 10 or less
+   Allowed difficulties derived from age :  age 10 or less gives Easy only
+   Filter result                         :  there is at least one matching question
+   Filtered question count max_q         :  max_q at least 1
+   When max_q equals 0                   :  <n/a>
+   total_questions input parsing         :  invalid total_questions input
+   total_questions final value           :  defaults to max_q when invalid input
+   Sampling                              :  sample size equals total_questions
+   Quiz call                             :  take_quiz called with matching sizes
+
+
+Test Case 5  		(Key = 1.2.2.1.0.0.0.0.0.)
+   Age input                             :  valid integer 10 or less
+   Allowed difficulties derived from age :  age 10 or less gives Easy only
+   Filter result                         :  there are no matching questions
+   Filtered question count max_q         :  max_q equals 0
+   When max_q equals 0                   :  <n/a>
+   total_questions input parsing         :  <n/a>
+   total_questions final value           :  <n/a>
+   Sampling                              :  <n/a>
+   Quiz call                             :  <n/a>
+
+
+Test Case 6  		(Key = 2.3.1.2.0.1.1.1.1.)
+   Age input                             :  valid integer 11 to 14
+   Allowed difficulties derived from age :  age 11 to 14 gives Easy and Medium
+   Filter result                         :  there is at least one matching question
+   Filtered question count max_q         :  max_q at least 1
+   When max_q equals 0                   :  <n/a>
+   total_questions input parsing         :  valid integer within range
+   total_questions final value           :  uses user value in range
+   Sampling                              :  sample size equals total_questions
+   Quiz call                             :  take_quiz called with matching sizes
+
+
+Test Case 7  		(Key = 2.3.1.2.0.2.2.1.1.)
+   Age input                             :  valid integer 11 to 14
+   Allowed difficulties derived from age :  age 11 to 14 gives Easy and Medium
+   Filter result                         :  there is at least one matching question
+   Filtered question count max_q         :  max_q at least 1
+   When max_q equals 0                   :  <n/a>
+   total_questions input parsing         :  valid integer but out of range
+   total_questions final value           :  defaults to max_q when out of range
+   Sampling                              :  sample size equals total_questions
+   Quiz call                             :  take_quiz called with matching sizes
+
+
+Test Case 8  		(Key = 2.3.1.2.0.3.3.1.1.)
+   Age input                             :  valid integer 11 to 14
+   Allowed difficulties derived from age :  age 11 to 14 gives Easy and Medium
+   Filter result                         :  there is at least one matching question
+   Filtered question count max_q         :  max_q at least 1
+   When max_q equals 0                   :  <n/a>
+   total_questions input parsing         :  invalid total_questions input
+   total_questions final value           :  defaults to max_q when invalid input
+   Sampling                              :  sample size equals total_questions
+   Quiz call                             :  take_quiz called with matching sizes
+
+
+Test Case 9  		(Key = 2.3.2.1.0.0.0.0.0.)
+   Age input                             :  valid integer 11 to 14
+   Allowed difficulties derived from age :  age 11 to 14 gives Easy and Medium
+   Filter result                         :  there are no matching questions
+   Filtered question count max_q         :  max_q equals 0
+   When max_q equals 0                   :  <n/a>
+   total_questions input parsing         :  <n/a>
+   total_questions final value           :  <n/a>
+   Sampling                              :  <n/a>
+   Quiz call                             :  <n/a>
+
+
+Test Case 10 		(Key = 3.4.1.2.0.1.1.1.1.)
+   Age input                             :  valid integer 15 or more
+   Allowed difficulties derived from age :  age 15 or more gives Easy Medium Hard
+   Filter result                         :  there is at least one matching question
+   Filtered question count max_q         :  max_q at least 1
+   When max_q equals 0                   :  <n/a>
+   total_questions input parsing         :  valid integer within range
+   total_questions final value           :  uses user value in range
+   Sampling                              :  sample size equals total_questions
+   Quiz call                             :  take_quiz called with matching sizes
+
+
+Test Case 11 		(Key = 3.4.1.2.0.2.2.1.1.)
+   Age input                             :  valid integer 15 or more
+   Allowed difficulties derived from age :  age 15 or more gives Easy Medium Hard
+   Filter result                         :  there is at least one matching question
+   Filtered question count max_q         :  max_q at least 1
+   When max_q equals 0                   :  <n/a>
+   total_questions input parsing         :  valid integer but out of range
+   total_questions final value           :  defaults to max_q when out of range
+   Sampling                              :  sample size equals total_questions
+   Quiz call                             :  take_quiz called with matching sizes
+
+
+Test Case 12 		(Key = 3.4.1.2.0.3.3.1.1.)
+   Age input                             :  valid integer 15 or more
+   Allowed difficulties derived from age :  age 15 or more gives Easy Medium Hard
+   Filter result                         :  there is at least one matching question
+   Filtered question count max_q         :  max_q at least 1
+   When max_q equals 0                   :  <n/a>
+   total_questions input parsing         :  invalid total_questions input
+   total_questions final value           :  defaults to max_q when invalid input
+   Sampling                              :  sample size equals total_questions
+   Quiz call                             :  take_quiz called with matching sizes
+
+
+Test Case 13 		(Key = 3.4.2.1.0.0.0.0.0.)
+   Age input                             :  valid integer 15 or more
+   Allowed difficulties derived from age :  age 15 or more gives Easy Medium Hard
+   Filter result                         :  there are no matching questions
+   Filtered question count max_q         :  max_q equals 0
+   When max_q equals 0                   :  <n/a>
+   total_questions input parsing         :  <n/a>
+   total_questions final value           :  <n/a>
+   Sampling                              :  <n/a>
+   Quiz call                             :  <n/a>
+
+
+Test Case 14 		(Key = 4.1.1.2.0.1.1.1.1.)
+   Age input                             :  invalid age
