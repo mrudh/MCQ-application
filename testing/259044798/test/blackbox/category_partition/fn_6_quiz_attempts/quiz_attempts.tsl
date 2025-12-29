@@ -1,0 +1,25 @@
+Parameters:
+
+    Operation:
+        get_attempts_left.   [property OpGet]
+        can_attempt_quiz.    [property OpCan]
+
+    Name:
+        empty.               [property NameEmpty]
+        nonempty.            [property NameNonEmpty]
+
+Environments:
+
+    AttemptFile:
+        missing.             [property FileMissing]
+        exists.              [property FileExists]
+
+Expected outcome:
+
+    get operation frame.
+        [if OpGet]
+        [property GetFrame]
+
+    can operation frame.
+        [if OpCan]
+        [property CanFrame]
