@@ -1,0 +1,62 @@
+
+Test Case 1  		<error>
+   06) Error :  illegal filename
+
+
+Test Case 2  		<error>
+   07) Error :  cannot write output file (permission/IO)
+
+
+Test Case 3  		<error>
+   08) Error :  json missing/not imported
+
+
+Test Case 4  		<single>
+   09) Single :  wrong entrypoint (__name__ == "_main_")
+
+
+Test Case 5  		<error>
+   18) Error :  Fill-in data not iterable/missing
+
+
+Test Case 6  		(Key = 1.1.1.1.1.0.0.0.0.1.1.1.1.1.1.1.1.0.)
+   01) Happy path :  default filename (Enter)
+   02) Happy path :  custom filename
+   03) Happy path :  filename contains spaces
+   04) Happy path :  path with folders provided
+   05) Happy path :  whitespace-only input -> default used
+   06) Error      :  <n/a>
+   07) Error      :  <n/a>
+   08) Error      :  <n/a>
+   09) Single     :  <n/a>
+   10) Edge       :  MCQ data present but empty
+   11) Edge       :  Fill-in data present but empty
+   12) Edge       :  MCQ answer letter present but option not found
+   13) Edge       :  MCQ answer blank/missing
+   14) Edge       :  MCQ options missing/None
+   15) Edge       :  MCQ option prefix uses "A)" not "A
+   16) Edge       :  Fill-in answer has alternatives with '|'
+   17) Edge       :  Fill-in answer is blank/empty
+   18) Error      :  <n/a>
+
+
+Test Case 7  		(Key = 1.1.1.1.1.0.0.0.0.1.1.1.1.1.2.1.1.0.)
+   01) Happy path :  default filename (Enter)
+   02) Happy path :  custom filename
+   03) Happy path :  filename contains spaces
+   04) Happy path :  path with folders provided
+   05) Happy path :  whitespace-only input -> default used
+   06) Error      :  <n/a>
+   07) Error      :  <n/a>
+   08) Error      :  <n/a>
+   09) Single     :  <n/a>
+   10) Edge       :  MCQ data present but empty
+   11) Edge       :  Fill-in data present but empty
+   12) Edge       :  MCQ answer letter present but option not found
+   13) Edge       :  MCQ answer blank/missing
+   14) Edge       :  MCQ options missing/None
+   15) Edge       :  "
+   16) Edge       :  Fill-in answer has alternatives with '|'
+   17) Edge       :  Fill-in answer is blank/empty
+   18) Error      :  <n/a>
+
