@@ -1,0 +1,56 @@
+
+Test Case 1  		(Key = 1.1.1.1.)
+   Operation        :  get_attempts_left
+   Name             :  empty
+   AttemptFile      :  missing
+   Expected outcome :  get operation frame
+
+
+Test Case 2  		(Key = 1.1.2.1.)
+   Operation        :  get_attempts_left
+   Name             :  empty
+   AttemptFile      :  exists
+   Expected outcome :  get operation frame
+
+
+Test Case 3  		(Key = 1.2.1.1.)
+   Operation        :  get_attempts_left
+   Name             :  nonempty
+   AttemptFile      :  missing
+   Expected outcome :  get operation frame
+
+
+Test Case 4  		(Key = 1.2.2.1.)
+   Operation        :  get_attempts_left
+   Name             :  nonempty
+   AttemptFile      :  exists
+   Expected outcome :  get operation frame
+
+
+Test Case 5  		(Key = 2.1.1.2.)
+   Operation        :  can_attempt_quiz
+   Name             :  empty
+   AttemptFile      :  missing
+   Expected outcome :  can operation frame
+
+
+Test Case 6  		(Key = 2.1.2.2.)
+   Operation        :  can_attempt_quiz
+   Name             :  empty
+   AttemptFile      :  exists
+   Expected outcome :  can operation frame
+
+
+Test Case 7  		(Key = 2.2.1.2.)
+   Operation        :  can_attempt_quiz
+   Name             :  nonempty
+   AttemptFile      :  missing
+   Expected outcome :  can operation frame
+
+
+Test Case 8  		(Key = 2.2.2.2.)
+   Operation        :  can_attempt_quiz
+   Name             :  nonempty
+   AttemptFile      :  exists
+   Expected outcome :  can operation frame
+
