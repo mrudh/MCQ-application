@@ -1,0 +1,292 @@
+
+Test Case 1  		<error>  (follows [if])
+   Answers length :  shorter than questions
+
+
+Test Case 2  		(Key = 1.1.1.1.1.0.)
+   Questions       :  empty
+   Answers length  :  same as questions
+   Answer variants :  single
+   User input      :  correct
+   Name            :  None
+   Constraints     :  <n/a>
+
+
+Test Case 3  		(Key = 1.1.1.1.2.1.)
+   Questions       :  empty
+   Answers length  :  same as questions
+   Answer variants :  single
+   User input      :  correct
+   Name            :  provided
+   Constraints     :  persistence only when name provided
+
+
+Test Case 4  		(Key = 1.1.1.2.1.0.)
+   Questions       :  empty
+   Answers length  :  same as questions
+   Answer variants :  single
+   User input      :  incorrect
+   Name            :  None
+   Constraints     :  <n/a>
+
+
+Test Case 5  		(Key = 1.1.1.2.2.1.)
+   Questions       :  empty
+   Answers length  :  same as questions
+   Answer variants :  single
+   User input      :  incorrect
+   Name            :  provided
+   Constraints     :  persistence only when name provided
+
+
+Test Case 6  		(Key = 1.1.2.1.1.0.)
+   Questions       :  empty
+   Answers length  :  same as questions
+   Answer variants :  multiple with '|'
+   User input      :  correct
+   Name            :  None
+   Constraints     :  <n/a>
+
+
+Test Case 7  		(Key = 1.1.2.1.2.1.)
+   Questions       :  empty
+   Answers length  :  same as questions
+   Answer variants :  multiple with '|'
+   User input      :  correct
+   Name            :  provided
+   Constraints     :  persistence only when name provided
+
+
+Test Case 8  		(Key = 1.1.2.2.1.0.)
+   Questions       :  empty
+   Answers length  :  same as questions
+   Answer variants :  multiple with '|'
+   User input      :  incorrect
+   Name            :  None
+   Constraints     :  <n/a>
+
+
+Test Case 9  		(Key = 1.1.2.2.2.1.)
+   Questions       :  empty
+   Answers length  :  same as questions
+   Answer variants :  multiple with '|'
+   User input      :  incorrect
+   Name            :  provided
+   Constraints     :  persistence only when name provided
+
+
+Test Case 10 		(Key = 1.3.1.1.1.0.)
+   Questions       :  empty
+   Answers length  :  longer than questions
+   Answer variants :  single
+   User input      :  correct
+   Name            :  None
+   Constraints     :  <n/a>
+
+
+Test Case 11 		(Key = 1.3.1.1.2.1.)
+   Questions       :  empty
+   Answers length  :  longer than questions
+   Answer variants :  single
+   User input      :  correct
+   Name            :  provided
+   Constraints     :  persistence only when name provided
+
+
+Test Case 12 		(Key = 1.3.1.2.1.0.)
+   Questions       :  empty
+   Answers length  :  longer than questions
+   Answer variants :  single
+   User input      :  incorrect
+   Name            :  None
+   Constraints     :  <n/a>
+
+
+Test Case 13 		(Key = 1.3.1.2.2.1.)
+   Questions       :  empty
+   Answers length  :  longer than questions
+   Answer variants :  single
+   User input      :  incorrect
+   Name            :  provided
+   Constraints     :  persistence only when name provided
+
+
+Test Case 14 		(Key = 1.3.2.1.1.0.)
+   Questions       :  empty
+   Answers length  :  longer than questions
+   Answer variants :  multiple with '|'
+   User input      :  correct
+   Name            :  None
+   Constraints     :  <n/a>
+
+
+Test Case 15 		(Key = 1.3.2.1.2.1.)
+   Questions       :  empty
+   Answers length  :  longer than questions
+   Answer variants :  multiple with '|'
+   User input      :  correct
+   Name            :  provided
+   Constraints     :  persistence only when name provided
+
+
+Test Case 16 		(Key = 1.3.2.2.1.0.)
+   Questions       :  empty
+   Answers length  :  longer than questions
+   Answer variants :  multiple with '|'
+   User input      :  incorrect
+   Name            :  None
+   Constraints     :  <n/a>
+
+
+Test Case 17 		(Key = 1.3.2.2.2.1.)
+   Questions       :  empty
+   Answers length  :  longer than questions
+   Answer variants :  multiple with '|'
+   User input      :  incorrect
+   Name            :  provided
+   Constraints     :  persistence only when name provided
+
+
+Test Case 18 		(Key = 2.1.1.1.1.0.)
+   Questions       :  non-empty
+   Answers length  :  same as questions
+   Answer variants :  single
+   User input      :  correct
+   Name            :  None
+   Constraints     :  <n/a>
+
+
+Test Case 19 		(Key = 2.1.1.1.2.1.)
+   Questions       :  non-empty
+   Answers length  :  same as questions
+   Answer variants :  single
+   User input      :  correct
+   Name            :  provided
+   Constraints     :  persistence only when name provided
+
+
+Test Case 20 		(Key = 2.1.1.2.1.0.)
+   Questions       :  non-empty
+   Answers length  :  same as questions
+   Answer variants :  single
+   User input      :  incorrect
+   Name            :  None
+   Constraints     :  <n/a>
+
+
+Test Case 21 		(Key = 2.1.1.2.2.1.)
+   Questions       :  non-empty
+   Answers length  :  same as questions
+   Answer variants :  single
+   User input      :  incorrect
+   Name            :  provided
+   Constraints     :  persistence only when name provided
+
+
+Test Case 22 		(Key = 2.1.2.1.1.0.)
+   Questions       :  non-empty
+   Answers length  :  same as questions
+   Answer variants :  multiple with '|'
+   User input      :  correct
+   Name            :  None
+   Constraints     :  <n/a>
+
+
+Test Case 23 		(Key = 2.1.2.1.2.1.)
+   Questions       :  non-empty
+   Answers length  :  same as questions
+   Answer variants :  multiple with '|'
+   User input      :  correct
+   Name            :  provided
+   Constraints     :  persistence only when name provided
+
+
+Test Case 24 		(Key = 2.1.2.2.1.0.)
+   Questions       :  non-empty
+   Answers length  :  same as questions
+   Answer variants :  multiple with '|'
+   User input      :  incorrect
+   Name            :  None
+   Constraints     :  <n/a>
+
+
+Test Case 25 		(Key = 2.1.2.2.2.1.)
+   Questions       :  non-empty
+   Answers length  :  same as questions
+   Answer variants :  multiple with '|'
+   User input      :  incorrect
+   Name            :  provided
+   Constraints     :  persistence only when name provided
+
+
+Test Case 26 		(Key = 2.3.1.1.1.0.)
+   Questions       :  non-empty
+   Answers length  :  longer than questions
+   Answer variants :  single
+   User input      :  correct
+   Name            :  None
+   Constraints     :  <n/a>
+
+
+Test Case 27 		(Key = 2.3.1.1.2.1.)
+   Questions       :  non-empty
+   Answers length  :  longer than questions
+   Answer variants :  single
+   User input      :  correct
+   Name            :  provided
+   Constraints     :  persistence only when name provided
+
+
+Test Case 28 		(Key = 2.3.1.2.1.0.)
+   Questions       :  non-empty
+   Answers length  :  longer than questions
+   Answer variants :  single
+   User input      :  incorrect
+   Name            :  None
+   Constraints     :  <n/a>
+
+
+Test Case 29 		(Key = 2.3.1.2.2.1.)
+   Questions       :  non-empty
+   Answers length  :  longer than questions
+   Answer variants :  single
+   User input      :  incorrect
+   Name            :  provided
+   Constraints     :  persistence only when name provided
+
+
+Test Case 30 		(Key = 2.3.2.1.1.0.)
+   Questions       :  non-empty
+   Answers length  :  longer than questions
+   Answer variants :  multiple with '|'
+   User input      :  correct
+   Name            :  None
+   Constraints     :  <n/a>
+
+
+Test Case 31 		(Key = 2.3.2.1.2.1.)
+   Questions       :  non-empty
+   Answers length  :  longer than questions
+   Answer variants :  multiple with '|'
+   User input      :  correct
+   Name            :  provided
+   Constraints     :  persistence only when name provided
+
+
+Test Case 32 		(Key = 2.3.2.2.1.0.)
+   Questions       :  non-empty
+   Answers length  :  longer than questions
+   Answer variants :  multiple with '|'
+   User input      :  incorrect
+   Name            :  None
+   Constraints     :  <n/a>
+
+
+Test Case 33 		(Key = 2.3.2.2.2.1.)
+   Questions       :  non-empty
+   Answers length  :  longer than questions
+   Answer variants :  multiple with '|'
+   User input      :  incorrect
+   Name            :  provided
+   Constraints     :  persistence only when name provided
+
