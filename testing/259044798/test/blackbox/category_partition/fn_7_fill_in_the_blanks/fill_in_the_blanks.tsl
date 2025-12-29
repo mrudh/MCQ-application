@@ -1,0 +1,36 @@
+Parameters:
+    Questions:
+        empty.
+            [property Q_Empty]
+        non-empty.
+            [property Q_NonEmpty]
+
+    Answers length:
+        same as questions.
+            [property A_Match]
+        shorter than questions.
+            [if Q_NonEmpty] [error]
+        longer than questions.
+            [property A_Long]
+
+    Answer variants:
+        single.
+            [property Var_Single]
+        multiple with '|'.
+            [property Var_Multi]
+
+    User input:
+        correct.
+            [property In_Correct]
+        incorrect.
+            [property In_Incorrect]
+
+    Name:
+        None.
+            [property Name_None]
+        provided.
+            [property Name_Given]
+
+Constraints:
+    persistence only when name provided.
+        [if Name_Given] [property Persist]
