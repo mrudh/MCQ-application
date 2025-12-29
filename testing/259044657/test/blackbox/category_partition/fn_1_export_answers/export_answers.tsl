@@ -1,0 +1,23 @@
+Scenarios:
+    01) Happy path: default filename (Enter).                 [property DefaultFilename, CanWrite, HasJSON, HasMCQ, HasFillIn, CorrectMain, ExportAttempted]
+    02) Happy path: custom filename.                          [property CustomFilename, CanWrite, HasJSON, HasMCQ, HasFillIn, CorrectMain, ExportAttempted]
+    03) Happy path: filename contains spaces.                 [property CustomFilename, CanWrite, HasJSON, HasMCQ, HasFillIn, CorrectMain, ExportAttempted]
+    04) Happy path: path with folders provided.               [property PathProvided, CanWrite, HasJSON, HasMCQ, HasFillIn, CorrectMain, ExportAttempted]
+    05) Happy path: whitespace-only input -> default used.    [property DefaultFilename, CanWrite, HasJSON, HasMCQ, HasFillIn, CorrectMain, ExportAttempted]
+
+    06) Error: illegal filename.                              [property IllegalFilename] [error]
+    07) Error: cannot write output file (permission/IO).      [property CannotWrite] [error]
+    08) Error: json missing/not imported.                     [property NoJSON] [error]
+    09) Single: wrong entrypoint (__name__ == "_main_").      [property WrongMain] [single]
+
+    10) Edge: MCQ data present but empty.                     [property HasMCQEmpty, HasFillIn, CanWrite, HasJSON, CorrectMain, ExportAttempted]
+    11) Edge: Fill-in data present but empty.                 [property HasMCQ, HasFillInEmpty, CanWrite, HasJSON, CorrectMain, ExportAttempted]
+
+    12) Edge: MCQ answer letter present but option not found. [property MCQAnswerNotFound, MCQHasOptions, CanWrite, HasJSON, HasMCQ, CorrectMain, ExportAttempted]
+    13) Edge: MCQ answer blank/missing.                       [property MCQAnswerBlank, MCQHasOptions, CanWrite, HasJSON, HasMCQ, CorrectMain, ExportAttempted]
+    14) Edge: MCQ options missing/None.                       [property MCQNoOptions, CanWrite, HasJSON, HasMCQ, CorrectMain, ExportAttempted]
+    15) Edge: MCQ option prefix uses "A)" not "A.".           [property OptionWrongPrefix, MCQHasOptions, CanWrite, HasJSON, HasMCQ, CorrectMain, ExportAttempted]
+
+    16) Edge: Fill-in answer has alternatives with '|'.       [property FillAlternatives, HasFillIn, CanWrite, HasJSON, CorrectMain, ExportAttempted]
+    17) Edge: Fill-in answer is blank/empty.                  [property FillBlank, HasFillIn, CanWrite, HasJSON, CorrectMain, ExportAttempted]
+    18) Error: Fill-in data not iterable/missing.             [property FillInNotIterable] [error]
