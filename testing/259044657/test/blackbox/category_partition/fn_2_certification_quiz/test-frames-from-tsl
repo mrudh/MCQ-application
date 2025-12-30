@@ -1,0 +1,26 @@
+
+Test Case 1  		<single>
+   Quiz data :  missing
+
+
+Test Case 2  		<single>
+   Candidate name :  empty
+
+
+Test Case 3  		<single>
+   Attempts :  exhausted
+
+
+Test Case 4  		(Key = 1.1.1.1.)
+   Quiz data      :  present
+   Candidate name :  non-empty
+   Attempts       :  remaining
+   Timing         :  timed
+
+
+Test Case 5  		(Key = 1.1.1.2.)
+   Quiz data      :  present
+   Candidate name :  non-empty
+   Attempts       :  remaining
+   Timing         :  not timed
+
