@@ -1,0 +1,17 @@
+Parameters:
+
+    Quiz data:
+        present.        [property HasQuizData]
+        missing.        [single] [property NoQuizData]
+
+    Candidate name:
+        non-empty.      [property NameNonEmpty]
+        empty.          [single] [property NameEmpty]
+
+    Attempts:
+        remaining.      [property AttemptsLeft]
+        exhausted.      [single] [property NoAttemptsLeft]
+
+    Timing:
+        timed.          [property Timed]
+        not timed.      [property NotTimed]
