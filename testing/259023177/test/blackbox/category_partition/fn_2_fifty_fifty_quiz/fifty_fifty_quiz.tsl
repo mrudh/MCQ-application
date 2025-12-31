@@ -1,0 +1,19 @@
+Lifeline choice:
+    Lifeline not used.
+    Lifeline used.
+
+Options configuration:
+    Four options present.
+    Less than four options present.
+
+Correct option detection:
+    Correct option found.
+    Correct option missing.
+
+User guess:
+    Guess is correct.
+    Guess is incorrect.
+
+Player name:
+    Name not provided.
+    Name provided.
