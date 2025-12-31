@@ -1,0 +1,16 @@
+Assessments state:
+    No assessments saved.
+    At least one assessment saved.
+
+Assessment selection input:
+    Non-integer selection.
+    Integer but out of range.
+    Valid assessment number.
+
+User name input:
+    Empty name.
+    Non-empty name.
+
+Attempts status:
+    No attempts left today.
+    Attempts remaining today.
