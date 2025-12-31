@@ -1,0 +1,35 @@
+Parameters:
+
+    Comparison menu choice:
+        choose option 1 (type a name).      [property CM1]
+        choose option 2 (pick from list).   [property CM2]
+        choose option 0 (back).             [single] [property CM0]
+        choose invalid option.              [single] [property CMInvalid]
+
+    Name entered (only if option 1 chosen):
+        name empty.                         [if CM1] [single] [property NameEmpty]
+        name non-empty.                     [if CM1] [property NameNonEmpty]
+
+    Topic list availability (quiz_by_topic):
+        no topics found.                    [single] [property NoTopics]
+        topics exist.                       [property HasTopics]
+
+    Topic selection input (only if topics exist):
+        input not an integer.               [if HasTopics] [single] [property TopicNonInteger]
+        selection out of range.             [if HasTopics] [single] [property TopicOutOfRange]
+        valid topic selected.               [if HasTopics] [property TopicValid]
+
+    Questions viewer menu choice:
+        view MCQ only.                      [property QV1]
+        view fill-in only.                  [property QV2]
+        view all questions.                 [property QV3]
+        back from viewer.                   [single] [property QV0]
+        invalid viewer option.              [single] [property QVInvalid]
+
+Environments:
+
+    Question banks availability:
+        MCQ list has questions.             [property HasMCQ]
+        MCQ list empty.                     [property NoMCQ]
+        Fill-in list has questions.         [property HasFill]
+        Fill-in list empty.                 [property NoFill]

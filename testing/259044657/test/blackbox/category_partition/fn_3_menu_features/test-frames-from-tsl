@@ -1,0 +1,179 @@
+
+Test Case 1  		<single>
+   Comparison menu choice :  choose option 0 (back)
+
+
+Test Case 2  		<single>
+   Comparison menu choice :  choose invalid option
+
+
+Test Case 3  		<single>  (follows [if])
+   Name entered (only if option 1 chosen) :  name empty
+
+
+Test Case 4  		<single>
+   Topic list availability (quiz_by_topic) :  no topics found
+
+
+Test Case 5  		<single>  (follows [if])
+   Topic selection input (only if topics exist) :  input not an integer
+
+
+Test Case 6  		<single>  (follows [if])
+   Topic selection input (only if topics exist) :  selection out of range
+
+
+Test Case 7  		<single>
+   Questions viewer menu choice :  back from viewer
+
+
+Test Case 8  		<single>
+   Questions viewer menu choice :  invalid viewer option
+
+
+Test Case 9  		(Key = 1.2.2.3.1.1.)
+   Comparison menu choice                       :  choose option 1 (type a name)
+   Name entered (only if option 1 chosen)       :  name non-empty
+   Topic list availability (quiz_by_topic)      :  topics exist
+   Topic selection input (only if topics exist) :  valid topic selected
+   Questions viewer menu choice                 :  view MCQ only
+   Question banks availability                  :  MCQ list has questions
+
+
+Test Case 10 		(Key = 1.2.2.3.1.2.)
+   Comparison menu choice                       :  choose option 1 (type a name)
+   Name entered (only if option 1 chosen)       :  name non-empty
+   Topic list availability (quiz_by_topic)      :  topics exist
+   Topic selection input (only if topics exist) :  valid topic selected
+   Questions viewer menu choice                 :  view MCQ only
+   Question banks availability                  :  MCQ list empty
+
+
+Test Case 11 		(Key = 1.2.2.3.1.3.)
+   Comparison menu choice                       :  choose option 1 (type a name)
+   Name entered (only if option 1 chosen)       :  name non-empty
+   Topic list availability (quiz_by_topic)      :  topics exist
+   Topic selection input (only if topics exist) :  valid topic selected
+   Questions viewer menu choice                 :  view MCQ only
+   Question banks availability                  :  Fill-in list has questions
+
+
+Test Case 12 		(Key = 1.2.2.3.1.4.)
+   Comparison menu choice                       :  choose option 1 (type a name)
+   Name entered (only if option 1 chosen)       :  name non-empty
+   Topic list availability (quiz_by_topic)      :  topics exist
+   Topic selection input (only if topics exist) :  valid topic selected
+   Questions viewer menu choice                 :  view MCQ only
+   Question banks availability                  :  Fill-in list empty
+
+
+Test Case 13 		(Key = 1.2.2.3.2.1.)
+   Comparison menu choice                       :  choose option 1 (type a name)
+   Name entered (only if option 1 chosen)       :  name non-empty
+   Topic list availability (quiz_by_topic)      :  topics exist
+   Topic selection input (only if topics exist) :  valid topic selected
+   Questions viewer menu choice                 :  view fill-in only
+   Question banks availability                  :  MCQ list has questions
+
+
+Test Case 14 		(Key = 1.2.2.3.2.2.)
+   Comparison menu choice                       :  choose option 1 (type a name)
+   Name entered (only if option 1 chosen)       :  name non-empty
+   Topic list availability (quiz_by_topic)      :  topics exist
+   Topic selection input (only if topics exist) :  valid topic selected
+   Questions viewer menu choice                 :  view fill-in only
+   Question banks availability                  :  MCQ list empty
+
+
+Test Case 15 		(Key = 1.2.2.3.2.3.)
+   Comparison menu choice                       :  choose option 1 (type a name)
+   Name entered (only if option 1 chosen)       :  name non-empty
+   Topic list availability (quiz_by_topic)      :  topics exist
+   Topic selection input (only if topics exist) :  valid topic selected
+   Questions viewer menu choice                 :  view fill-in only
+   Question banks availability                  :  Fill-in list has questions
+
+
+Test Case 16 		(Key = 1.2.2.3.2.4.)
+   Comparison menu choice                       :  choose option 1 (type a name)
+   Name entered (only if option 1 chosen)       :  name non-empty
+   Topic list availability (quiz_by_topic)      :  topics exist
+   Topic selection input (only if topics exist) :  valid topic selected
+   Questions viewer menu choice                 :  view fill-in only
+   Question banks availability                  :  Fill-in list empty
+
+
+Test Case 17 		(Key = 1.2.2.3.3.1.)
+   Comparison menu choice                       :  choose option 1 (type a name)
+   Name entered (only if option 1 chosen)       :  name non-empty
+   Topic list availability (quiz_by_topic)      :  topics exist
+   Topic selection input (only if topics exist) :  valid topic selected
+   Questions viewer menu choice                 :  view all questions
+   Question banks availability                  :  MCQ list has questions
+
+
+Test Case 18 		(Key = 1.2.2.3.3.2.)
+   Comparison menu choice                       :  choose option 1 (type a name)
+   Name entered (only if option 1 chosen)       :  name non-empty
+   Topic list availability (quiz_by_topic)      :  topics exist
+   Topic selection input (only if topics exist) :  valid topic selected
+   Questions viewer menu choice                 :  view all questions
+   Question banks availability                  :  MCQ list empty
+
+
+Test Case 19 		(Key = 1.2.2.3.3.3.)
+   Comparison menu choice                       :  choose option 1 (type a name)
+   Name entered (only if option 1 chosen)       :  name non-empty
+   Topic list availability (quiz_by_topic)      :  topics exist
+   Topic selection input (only if topics exist) :  valid topic selected
+   Questions viewer menu choice                 :  view all questions
+   Question banks availability                  :  Fill-in list has questions
+
+
+Test Case 20 		(Key = 1.2.2.3.3.4.)
+   Comparison menu choice                       :  choose option 1 (type a name)
+   Name entered (only if option 1 chosen)       :  name non-empty
+   Topic list availability (quiz_by_topic)      :  topics exist
+   Topic selection input (only if topics exist) :  valid topic selected
+   Questions viewer menu choice                 :  view all questions
+   Question banks availability                  :  Fill-in list empty
+
+
+Test Case 21 		(Key = 2.0.2.3.1.1.)
+   Comparison menu choice                       :  choose option 2 (pick from list)
+   Name entered (only if option 1 chosen)       :  <n/a>
+   Topic list availability (quiz_by_topic)      :  topics exist
+   Topic selection input (only if topics exist) :  valid topic selected
+   Questions viewer menu choice                 :  view MCQ only
+   Question banks availability                  :  MCQ list has questions
+
+
+Test Case 22 		(Key = 2.0.2.3.1.2.)
+   Comparison menu choice                       :  choose option 2 (pick from list)
+   Name entered (only if option 1 chosen)       :  <n/a>
+   Topic list availability (quiz_by_topic)      :  topics exist
+   Topic selection input (only if topics exist) :  valid topic selected
+   Questions viewer menu choice                 :  view MCQ only
+   Question banks availability                  :  MCQ list empty
+
+
+Test Case 23 		(Key = 2.0.2.3.1.3.)
+   Comparison menu choice                       :  choose option 2 (pick from list)
+   Name entered (only if option 1 chosen)       :  <n/a>
+   Topic list availability (quiz_by_topic)      :  topics exist
+   Topic selection input (only if topics exist) :  valid topic selected
+   Questions viewer menu choice                 :  view MCQ only
+   Question banks availability                  :  Fill-in list has questions
+
+
+Test Case 24 		(Key = 2.0.2.3.1.4.)
+   Comparison menu choice                       :  choose option 2 (pick from list)
+   Name entered (only if option 1 chosen)       :  <n/a>
+   Topic list availability (quiz_by_topic)      :  topics exist
+   Topic selection input (only if topics exist) :  valid topic selected
+   Questions viewer menu choice                 :  view MCQ only
+   Question banks availability                  :  Fill-in list empty
+
+
+Test Case 25 		(Key = 2.0.2.3.2.1.)
+   Comparison menu choice                       :  choose option 2 (pick from list)
