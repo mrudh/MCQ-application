@@ -1,0 +1,43 @@
+Parameters:
+    Quiz data availability:
+        ALL_QUIZ_DATA is empty.     [single] [property NoQuestions]
+        ALL_QUIZ_DATA has entries.  [property HasQuestions]
+
+    Name entry:
+        Name parameter provided (non-None).                  [if HasQuestions] [property NameProvided, NameNotNone]
+        Name parameter not provided; user enters blank -> None. [if HasQuestions] [property NameNone]
+        Name parameter not provided; user enters non-blank.     [if HasQuestions] [property NamePrompted, NameNotNone]
+
+
+    Number of questions requested:
+        User enters valid integer in range.   [if HasQuestions] [property CountValid]
+        User enters non-integer first (ValueError) then valid.  [if HasQuestions] [property CountValueErrorThenValid]
+        User enters out-of-range first then valid.              [if HasQuestions] [property CountRangeErrorThenValid]
+
+Environments:
+    Question selection (random indices):
+        Random shuffle produces distinct indices.  [if HasQuestions] [property IndicesDistinct]
+        Random shuffle edge: request equals total_available. [if HasQuestions] [property CountEqualsTotal]
+
+    Real answer normalization:
+        Answer already uppercase A-D.   [if HasQuestions] [property AnswerUpper]
+        Answer needs strip/upper.       [if HasQuestions] [property AnswerNormalized]
+
+    Option formatting:
+        Options list contains 4 choices A-D.  [if HasQuestions] [property FourOptions]
+
+    Guess input validation loop:
+        User guess valid immediately (A/B/C/D).          [if HasQuestions] [property GuessValidImmediate]
+        User guess invalid then valid (loop repeats).    [if HasQuestions] [property GuessInvalidThenValid]
+
+    Guess outcome per question:
+        User picks the REAL correct answer (mistake).    [if HasQuestions] [property GuessEqualsReal]
+        User avoids the real answer (scores +1).         [if HasQuestions] [property GuessNotReal]
+
+    Summary and score:
+        Mode score computed over all questions.          [if HasQuestions] [property SummaryPrinted]
+
+    Score persistence:
+        Name is None -> do NOT save.      [if NameNone]     [property NoSave]
+        Name not None -> save percent score. [if NameNotNone] [property SaveScore]
+
