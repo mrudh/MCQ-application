@@ -1,0 +1,1003 @@
+
+Test Case 1  		<single>
+   Quiz data availability :  ALL_QUIZ_DATA is empty
+
+
+Test Case 2  		(Key = 2.1.1.1.1.1.1.1.1.1.2.)
+   Quiz data availability              :  ALL_QUIZ_DATA has entries
+   Name entry                          :  Name parameter provided (non-None)
+   Number of questions requested       :  User enters valid integer in range
+   Question selection (random indices) :  Random shuffle produces distinct indices
+   Random shuffle edge                 :  request equals total_available
+   Real answer normalization           :  Answer already uppercase A-D
+   Option formatting                   :  Options list contains 4 choices A-D
+   Guess input validation loop         :  User guess valid immediately (A/B/C/D)
+   Guess outcome per question          :  User picks the REAL correct answer (mistake)
+   Summary and score                   :  Mode score computed over all questions
+   Score persistence                   :  Name not None -> save percent score
+
+
+Test Case 3  		(Key = 2.1.1.1.1.1.1.1.2.1.2.)
+   Quiz data availability              :  ALL_QUIZ_DATA has entries
+   Name entry                          :  Name parameter provided (non-None)
+   Number of questions requested       :  User enters valid integer in range
+   Question selection (random indices) :  Random shuffle produces distinct indices
+   Random shuffle edge                 :  request equals total_available
+   Real answer normalization           :  Answer already uppercase A-D
+   Option formatting                   :  Options list contains 4 choices A-D
+   Guess input validation loop         :  User guess valid immediately (A/B/C/D)
+   Guess outcome per question          :  User avoids the real answer (scores +1)
+   Summary and score                   :  Mode score computed over all questions
+   Score persistence                   :  Name not None -> save percent score
+
+
+Test Case 4  		(Key = 2.1.1.1.1.1.1.2.1.1.2.)
+   Quiz data availability              :  ALL_QUIZ_DATA has entries
+   Name entry                          :  Name parameter provided (non-None)
+   Number of questions requested       :  User enters valid integer in range
+   Question selection (random indices) :  Random shuffle produces distinct indices
+   Random shuffle edge                 :  request equals total_available
+   Real answer normalization           :  Answer already uppercase A-D
+   Option formatting                   :  Options list contains 4 choices A-D
+   Guess input validation loop         :  User guess invalid then valid (loop repeats)
+   Guess outcome per question          :  User picks the REAL correct answer (mistake)
+   Summary and score                   :  Mode score computed over all questions
+   Score persistence                   :  Name not None -> save percent score
+
+
+Test Case 5  		(Key = 2.1.1.1.1.1.1.2.2.1.2.)
+   Quiz data availability              :  ALL_QUIZ_DATA has entries
+   Name entry                          :  Name parameter provided (non-None)
+   Number of questions requested       :  User enters valid integer in range
+   Question selection (random indices) :  Random shuffle produces distinct indices
+   Random shuffle edge                 :  request equals total_available
+   Real answer normalization           :  Answer already uppercase A-D
+   Option formatting                   :  Options list contains 4 choices A-D
+   Guess input validation loop         :  User guess invalid then valid (loop repeats)
+   Guess outcome per question          :  User avoids the real answer (scores +1)
+   Summary and score                   :  Mode score computed over all questions
+   Score persistence                   :  Name not None -> save percent score
+
+
+Test Case 6  		(Key = 2.1.1.1.1.2.1.1.1.1.2.)
+   Quiz data availability              :  ALL_QUIZ_DATA has entries
+   Name entry                          :  Name parameter provided (non-None)
+   Number of questions requested       :  User enters valid integer in range
+   Question selection (random indices) :  Random shuffle produces distinct indices
+   Random shuffle edge                 :  request equals total_available
+   Real answer normalization           :  Answer needs strip/upper
+   Option formatting                   :  Options list contains 4 choices A-D
+   Guess input validation loop         :  User guess valid immediately (A/B/C/D)
+   Guess outcome per question          :  User picks the REAL correct answer (mistake)
+   Summary and score                   :  Mode score computed over all questions
+   Score persistence                   :  Name not None -> save percent score
+
+
+Test Case 7  		(Key = 2.1.1.1.1.2.1.1.2.1.2.)
+   Quiz data availability              :  ALL_QUIZ_DATA has entries
+   Name entry                          :  Name parameter provided (non-None)
+   Number of questions requested       :  User enters valid integer in range
+   Question selection (random indices) :  Random shuffle produces distinct indices
+   Random shuffle edge                 :  request equals total_available
+   Real answer normalization           :  Answer needs strip/upper
+   Option formatting                   :  Options list contains 4 choices A-D
+   Guess input validation loop         :  User guess valid immediately (A/B/C/D)
+   Guess outcome per question          :  User avoids the real answer (scores +1)
+   Summary and score                   :  Mode score computed over all questions
+   Score persistence                   :  Name not None -> save percent score
+
+
+Test Case 8  		(Key = 2.1.1.1.1.2.1.2.1.1.2.)
+   Quiz data availability              :  ALL_QUIZ_DATA has entries
+   Name entry                          :  Name parameter provided (non-None)
+   Number of questions requested       :  User enters valid integer in range
+   Question selection (random indices) :  Random shuffle produces distinct indices
+   Random shuffle edge                 :  request equals total_available
+   Real answer normalization           :  Answer needs strip/upper
+   Option formatting                   :  Options list contains 4 choices A-D
+   Guess input validation loop         :  User guess invalid then valid (loop repeats)
+   Guess outcome per question          :  User picks the REAL correct answer (mistake)
+   Summary and score                   :  Mode score computed over all questions
+   Score persistence                   :  Name not None -> save percent score
+
+
+Test Case 9  		(Key = 2.1.1.1.1.2.1.2.2.1.2.)
+   Quiz data availability              :  ALL_QUIZ_DATA has entries
+   Name entry                          :  Name parameter provided (non-None)
+   Number of questions requested       :  User enters valid integer in range
+   Question selection (random indices) :  Random shuffle produces distinct indices
+   Random shuffle edge                 :  request equals total_available
+   Real answer normalization           :  Answer needs strip/upper
+   Option formatting                   :  Options list contains 4 choices A-D
+   Guess input validation loop         :  User guess invalid then valid (loop repeats)
+   Guess outcome per question          :  User avoids the real answer (scores +1)
+   Summary and score                   :  Mode score computed over all questions
+   Score persistence                   :  Name not None -> save percent score
+
+
+Test Case 10 		(Key = 2.1.2.1.1.1.1.1.1.1.2.)
+   Quiz data availability              :  ALL_QUIZ_DATA has entries
+   Name entry                          :  Name parameter provided (non-None)
+   Number of questions requested       :  User enters non-integer first (ValueError) then valid
+   Question selection (random indices) :  Random shuffle produces distinct indices
+   Random shuffle edge                 :  request equals total_available
+   Real answer normalization           :  Answer already uppercase A-D
+   Option formatting                   :  Options list contains 4 choices A-D
+   Guess input validation loop         :  User guess valid immediately (A/B/C/D)
+   Guess outcome per question          :  User picks the REAL correct answer (mistake)
+   Summary and score                   :  Mode score computed over all questions
+   Score persistence                   :  Name not None -> save percent score
+
+
+Test Case 11 		(Key = 2.1.2.1.1.1.1.1.2.1.2.)
+   Quiz data availability              :  ALL_QUIZ_DATA has entries
+   Name entry                          :  Name parameter provided (non-None)
+   Number of questions requested       :  User enters non-integer first (ValueError) then valid
+   Question selection (random indices) :  Random shuffle produces distinct indices
+   Random shuffle edge                 :  request equals total_available
+   Real answer normalization           :  Answer already uppercase A-D
+   Option formatting                   :  Options list contains 4 choices A-D
+   Guess input validation loop         :  User guess valid immediately (A/B/C/D)
+   Guess outcome per question          :  User avoids the real answer (scores +1)
+   Summary and score                   :  Mode score computed over all questions
+   Score persistence                   :  Name not None -> save percent score
+
+
+Test Case 12 		(Key = 2.1.2.1.1.1.1.2.1.1.2.)
+   Quiz data availability              :  ALL_QUIZ_DATA has entries
+   Name entry                          :  Name parameter provided (non-None)
+   Number of questions requested       :  User enters non-integer first (ValueError) then valid
+   Question selection (random indices) :  Random shuffle produces distinct indices
+   Random shuffle edge                 :  request equals total_available
+   Real answer normalization           :  Answer already uppercase A-D
+   Option formatting                   :  Options list contains 4 choices A-D
+   Guess input validation loop         :  User guess invalid then valid (loop repeats)
+   Guess outcome per question          :  User picks the REAL correct answer (mistake)
+   Summary and score                   :  Mode score computed over all questions
+   Score persistence                   :  Name not None -> save percent score
+
+
+Test Case 13 		(Key = 2.1.2.1.1.1.1.2.2.1.2.)
+   Quiz data availability              :  ALL_QUIZ_DATA has entries
+   Name entry                          :  Name parameter provided (non-None)
+   Number of questions requested       :  User enters non-integer first (ValueError) then valid
+   Question selection (random indices) :  Random shuffle produces distinct indices
+   Random shuffle edge                 :  request equals total_available
+   Real answer normalization           :  Answer already uppercase A-D
+   Option formatting                   :  Options list contains 4 choices A-D
+   Guess input validation loop         :  User guess invalid then valid (loop repeats)
+   Guess outcome per question          :  User avoids the real answer (scores +1)
+   Summary and score                   :  Mode score computed over all questions
+   Score persistence                   :  Name not None -> save percent score
+
+
+Test Case 14 		(Key = 2.1.2.1.1.2.1.1.1.1.2.)
+   Quiz data availability              :  ALL_QUIZ_DATA has entries
+   Name entry                          :  Name parameter provided (non-None)
+   Number of questions requested       :  User enters non-integer first (ValueError) then valid
+   Question selection (random indices) :  Random shuffle produces distinct indices
+   Random shuffle edge                 :  request equals total_available
+   Real answer normalization           :  Answer needs strip/upper
+   Option formatting                   :  Options list contains 4 choices A-D
+   Guess input validation loop         :  User guess valid immediately (A/B/C/D)
+   Guess outcome per question          :  User picks the REAL correct answer (mistake)
+   Summary and score                   :  Mode score computed over all questions
+   Score persistence                   :  Name not None -> save percent score
+
+
+Test Case 15 		(Key = 2.1.2.1.1.2.1.1.2.1.2.)
+   Quiz data availability              :  ALL_QUIZ_DATA has entries
+   Name entry                          :  Name parameter provided (non-None)
+   Number of questions requested       :  User enters non-integer first (ValueError) then valid
+   Question selection (random indices) :  Random shuffle produces distinct indices
+   Random shuffle edge                 :  request equals total_available
+   Real answer normalization           :  Answer needs strip/upper
+   Option formatting                   :  Options list contains 4 choices A-D
+   Guess input validation loop         :  User guess valid immediately (A/B/C/D)
+   Guess outcome per question          :  User avoids the real answer (scores +1)
+   Summary and score                   :  Mode score computed over all questions
+   Score persistence                   :  Name not None -> save percent score
+
+
+Test Case 16 		(Key = 2.1.2.1.1.2.1.2.1.1.2.)
+   Quiz data availability              :  ALL_QUIZ_DATA has entries
+   Name entry                          :  Name parameter provided (non-None)
+   Number of questions requested       :  User enters non-integer first (ValueError) then valid
+   Question selection (random indices) :  Random shuffle produces distinct indices
+   Random shuffle edge                 :  request equals total_available
+   Real answer normalization           :  Answer needs strip/upper
+   Option formatting                   :  Options list contains 4 choices A-D
+   Guess input validation loop         :  User guess invalid then valid (loop repeats)
+   Guess outcome per question          :  User picks the REAL correct answer (mistake)
+   Summary and score                   :  Mode score computed over all questions
+   Score persistence                   :  Name not None -> save percent score
+
+
+Test Case 17 		(Key = 2.1.2.1.1.2.1.2.2.1.2.)
+   Quiz data availability              :  ALL_QUIZ_DATA has entries
+   Name entry                          :  Name parameter provided (non-None)
+   Number of questions requested       :  User enters non-integer first (ValueError) then valid
+   Question selection (random indices) :  Random shuffle produces distinct indices
+   Random shuffle edge                 :  request equals total_available
+   Real answer normalization           :  Answer needs strip/upper
+   Option formatting                   :  Options list contains 4 choices A-D
+   Guess input validation loop         :  User guess invalid then valid (loop repeats)
+   Guess outcome per question          :  User avoids the real answer (scores +1)
+   Summary and score                   :  Mode score computed over all questions
+   Score persistence                   :  Name not None -> save percent score
+
+
+Test Case 18 		(Key = 2.1.3.1.1.1.1.1.1.1.2.)
+   Quiz data availability              :  ALL_QUIZ_DATA has entries
+   Name entry                          :  Name parameter provided (non-None)
+   Number of questions requested       :  User enters out-of-range first then valid
+   Question selection (random indices) :  Random shuffle produces distinct indices
+   Random shuffle edge                 :  request equals total_available
+   Real answer normalization           :  Answer already uppercase A-D
+   Option formatting                   :  Options list contains 4 choices A-D
+   Guess input validation loop         :  User guess valid immediately (A/B/C/D)
+   Guess outcome per question          :  User picks the REAL correct answer (mistake)
+   Summary and score                   :  Mode score computed over all questions
+   Score persistence                   :  Name not None -> save percent score
+
+
+Test Case 19 		(Key = 2.1.3.1.1.1.1.1.2.1.2.)
+   Quiz data availability              :  ALL_QUIZ_DATA has entries
+   Name entry                          :  Name parameter provided (non-None)
+   Number of questions requested       :  User enters out-of-range first then valid
+   Question selection (random indices) :  Random shuffle produces distinct indices
+   Random shuffle edge                 :  request equals total_available
+   Real answer normalization           :  Answer already uppercase A-D
+   Option formatting                   :  Options list contains 4 choices A-D
+   Guess input validation loop         :  User guess valid immediately (A/B/C/D)
+   Guess outcome per question          :  User avoids the real answer (scores +1)
+   Summary and score                   :  Mode score computed over all questions
+   Score persistence                   :  Name not None -> save percent score
+
+
+Test Case 20 		(Key = 2.1.3.1.1.1.1.2.1.1.2.)
+   Quiz data availability              :  ALL_QUIZ_DATA has entries
+   Name entry                          :  Name parameter provided (non-None)
+   Number of questions requested       :  User enters out-of-range first then valid
+   Question selection (random indices) :  Random shuffle produces distinct indices
+   Random shuffle edge                 :  request equals total_available
+   Real answer normalization           :  Answer already uppercase A-D
+   Option formatting                   :  Options list contains 4 choices A-D
+   Guess input validation loop         :  User guess invalid then valid (loop repeats)
+   Guess outcome per question          :  User picks the REAL correct answer (mistake)
+   Summary and score                   :  Mode score computed over all questions
+   Score persistence                   :  Name not None -> save percent score
+
+
+Test Case 21 		(Key = 2.1.3.1.1.1.1.2.2.1.2.)
+   Quiz data availability              :  ALL_QUIZ_DATA has entries
+   Name entry                          :  Name parameter provided (non-None)
+   Number of questions requested       :  User enters out-of-range first then valid
+   Question selection (random indices) :  Random shuffle produces distinct indices
+   Random shuffle edge                 :  request equals total_available
+   Real answer normalization           :  Answer already uppercase A-D
+   Option formatting                   :  Options list contains 4 choices A-D
+   Guess input validation loop         :  User guess invalid then valid (loop repeats)
+   Guess outcome per question          :  User avoids the real answer (scores +1)
+   Summary and score                   :  Mode score computed over all questions
+   Score persistence                   :  Name not None -> save percent score
+
+
+Test Case 22 		(Key = 2.1.3.1.1.2.1.1.1.1.2.)
+   Quiz data availability              :  ALL_QUIZ_DATA has entries
+   Name entry                          :  Name parameter provided (non-None)
+   Number of questions requested       :  User enters out-of-range first then valid
+   Question selection (random indices) :  Random shuffle produces distinct indices
+   Random shuffle edge                 :  request equals total_available
+   Real answer normalization           :  Answer needs strip/upper
+   Option formatting                   :  Options list contains 4 choices A-D
+   Guess input validation loop         :  User guess valid immediately (A/B/C/D)
+   Guess outcome per question          :  User picks the REAL correct answer (mistake)
+   Summary and score                   :  Mode score computed over all questions
+   Score persistence                   :  Name not None -> save percent score
+
+
+Test Case 23 		(Key = 2.1.3.1.1.2.1.1.2.1.2.)
+   Quiz data availability              :  ALL_QUIZ_DATA has entries
+   Name entry                          :  Name parameter provided (non-None)
+   Number of questions requested       :  User enters out-of-range first then valid
+   Question selection (random indices) :  Random shuffle produces distinct indices
+   Random shuffle edge                 :  request equals total_available
+   Real answer normalization           :  Answer needs strip/upper
+   Option formatting                   :  Options list contains 4 choices A-D
+   Guess input validation loop         :  User guess valid immediately (A/B/C/D)
+   Guess outcome per question          :  User avoids the real answer (scores +1)
+   Summary and score                   :  Mode score computed over all questions
+   Score persistence                   :  Name not None -> save percent score
+
+
+Test Case 24 		(Key = 2.1.3.1.1.2.1.2.1.1.2.)
+   Quiz data availability              :  ALL_QUIZ_DATA has entries
+   Name entry                          :  Name parameter provided (non-None)
+   Number of questions requested       :  User enters out-of-range first then valid
+   Question selection (random indices) :  Random shuffle produces distinct indices
+   Random shuffle edge                 :  request equals total_available
+   Real answer normalization           :  Answer needs strip/upper
+   Option formatting                   :  Options list contains 4 choices A-D
+   Guess input validation loop         :  User guess invalid then valid (loop repeats)
+   Guess outcome per question          :  User picks the REAL correct answer (mistake)
+   Summary and score                   :  Mode score computed over all questions
+   Score persistence                   :  Name not None -> save percent score
+
+
+Test Case 25 		(Key = 2.1.3.1.1.2.1.2.2.1.2.)
+   Quiz data availability              :  ALL_QUIZ_DATA has entries
+   Name entry                          :  Name parameter provided (non-None)
+   Number of questions requested       :  User enters out-of-range first then valid
+   Question selection (random indices) :  Random shuffle produces distinct indices
+   Random shuffle edge                 :  request equals total_available
+   Real answer normalization           :  Answer needs strip/upper
+   Option formatting                   :  Options list contains 4 choices A-D
+   Guess input validation loop         :  User guess invalid then valid (loop repeats)
+   Guess outcome per question          :  User avoids the real answer (scores +1)
+   Summary and score                   :  Mode score computed over all questions
+   Score persistence                   :  Name not None -> save percent score
+
+
+Test Case 26 		(Key = 2.2.1.1.1.1.1.1.1.1.1.)
+   Quiz data availability              :  ALL_QUIZ_DATA has entries
+   Name entry                          :  Name parameter not provided; user enters blank -> None
+   Number of questions requested       :  User enters valid integer in range
+   Question selection (random indices) :  Random shuffle produces distinct indices
+   Random shuffle edge                 :  request equals total_available
+   Real answer normalization           :  Answer already uppercase A-D
+   Option formatting                   :  Options list contains 4 choices A-D
+   Guess input validation loop         :  User guess valid immediately (A/B/C/D)
+   Guess outcome per question          :  User picks the REAL correct answer (mistake)
+   Summary and score                   :  Mode score computed over all questions
+   Score persistence                   :  Name is None -> do NOT save
+
+
+Test Case 27 		(Key = 2.2.1.1.1.1.1.1.2.1.1.)
+   Quiz data availability              :  ALL_QUIZ_DATA has entries
+   Name entry                          :  Name parameter not provided; user enters blank -> None
+   Number of questions requested       :  User enters valid integer in range
+   Question selection (random indices) :  Random shuffle produces distinct indices
+   Random shuffle edge                 :  request equals total_available
+   Real answer normalization           :  Answer already uppercase A-D
+   Option formatting                   :  Options list contains 4 choices A-D
+   Guess input validation loop         :  User guess valid immediately (A/B/C/D)
+   Guess outcome per question          :  User avoids the real answer (scores +1)
+   Summary and score                   :  Mode score computed over all questions
+   Score persistence                   :  Name is None -> do NOT save
+
+
+Test Case 28 		(Key = 2.2.1.1.1.1.1.2.1.1.1.)
+   Quiz data availability              :  ALL_QUIZ_DATA has entries
+   Name entry                          :  Name parameter not provided; user enters blank -> None
+   Number of questions requested       :  User enters valid integer in range
+   Question selection (random indices) :  Random shuffle produces distinct indices
+   Random shuffle edge                 :  request equals total_available
+   Real answer normalization           :  Answer already uppercase A-D
+   Option formatting                   :  Options list contains 4 choices A-D
+   Guess input validation loop         :  User guess invalid then valid (loop repeats)
+   Guess outcome per question          :  User picks the REAL correct answer (mistake)
+   Summary and score                   :  Mode score computed over all questions
+   Score persistence                   :  Name is None -> do NOT save
+
+
+Test Case 29 		(Key = 2.2.1.1.1.1.1.2.2.1.1.)
+   Quiz data availability              :  ALL_QUIZ_DATA has entries
+   Name entry                          :  Name parameter not provided; user enters blank -> None
+   Number of questions requested       :  User enters valid integer in range
+   Question selection (random indices) :  Random shuffle produces distinct indices
+   Random shuffle edge                 :  request equals total_available
+   Real answer normalization           :  Answer already uppercase A-D
+   Option formatting                   :  Options list contains 4 choices A-D
+   Guess input validation loop         :  User guess invalid then valid (loop repeats)
+   Guess outcome per question          :  User avoids the real answer (scores +1)
+   Summary and score                   :  Mode score computed over all questions
+   Score persistence                   :  Name is None -> do NOT save
+
+
+Test Case 30 		(Key = 2.2.1.1.1.2.1.1.1.1.1.)
+   Quiz data availability              :  ALL_QUIZ_DATA has entries
+   Name entry                          :  Name parameter not provided; user enters blank -> None
+   Number of questions requested       :  User enters valid integer in range
+   Question selection (random indices) :  Random shuffle produces distinct indices
+   Random shuffle edge                 :  request equals total_available
+   Real answer normalization           :  Answer needs strip/upper
+   Option formatting                   :  Options list contains 4 choices A-D
+   Guess input validation loop         :  User guess valid immediately (A/B/C/D)
+   Guess outcome per question          :  User picks the REAL correct answer (mistake)
+   Summary and score                   :  Mode score computed over all questions
+   Score persistence                   :  Name is None -> do NOT save
+
+
+Test Case 31 		(Key = 2.2.1.1.1.2.1.1.2.1.1.)
+   Quiz data availability              :  ALL_QUIZ_DATA has entries
+   Name entry                          :  Name parameter not provided; user enters blank -> None
+   Number of questions requested       :  User enters valid integer in range
+   Question selection (random indices) :  Random shuffle produces distinct indices
+   Random shuffle edge                 :  request equals total_available
+   Real answer normalization           :  Answer needs strip/upper
+   Option formatting                   :  Options list contains 4 choices A-D
+   Guess input validation loop         :  User guess valid immediately (A/B/C/D)
+   Guess outcome per question          :  User avoids the real answer (scores +1)
+   Summary and score                   :  Mode score computed over all questions
+   Score persistence                   :  Name is None -> do NOT save
+
+
+Test Case 32 		(Key = 2.2.1.1.1.2.1.2.1.1.1.)
+   Quiz data availability              :  ALL_QUIZ_DATA has entries
+   Name entry                          :  Name parameter not provided; user enters blank -> None
+   Number of questions requested       :  User enters valid integer in range
+   Question selection (random indices) :  Random shuffle produces distinct indices
+   Random shuffle edge                 :  request equals total_available
+   Real answer normalization           :  Answer needs strip/upper
+   Option formatting                   :  Options list contains 4 choices A-D
+   Guess input validation loop         :  User guess invalid then valid (loop repeats)
+   Guess outcome per question          :  User picks the REAL correct answer (mistake)
+   Summary and score                   :  Mode score computed over all questions
+   Score persistence                   :  Name is None -> do NOT save
+
+
+Test Case 33 		(Key = 2.2.1.1.1.2.1.2.2.1.1.)
+   Quiz data availability              :  ALL_QUIZ_DATA has entries
+   Name entry                          :  Name parameter not provided; user enters blank -> None
+   Number of questions requested       :  User enters valid integer in range
+   Question selection (random indices) :  Random shuffle produces distinct indices
+   Random shuffle edge                 :  request equals total_available
+   Real answer normalization           :  Answer needs strip/upper
+   Option formatting                   :  Options list contains 4 choices A-D
+   Guess input validation loop         :  User guess invalid then valid (loop repeats)
+   Guess outcome per question          :  User avoids the real answer (scores +1)
+   Summary and score                   :  Mode score computed over all questions
+   Score persistence                   :  Name is None -> do NOT save
+
+
+Test Case 34 		(Key = 2.2.2.1.1.1.1.1.1.1.1.)
+   Quiz data availability              :  ALL_QUIZ_DATA has entries
+   Name entry                          :  Name parameter not provided; user enters blank -> None
+   Number of questions requested       :  User enters non-integer first (ValueError) then valid
+   Question selection (random indices) :  Random shuffle produces distinct indices
+   Random shuffle edge                 :  request equals total_available
+   Real answer normalization           :  Answer already uppercase A-D
+   Option formatting                   :  Options list contains 4 choices A-D
+   Guess input validation loop         :  User guess valid immediately (A/B/C/D)
+   Guess outcome per question          :  User picks the REAL correct answer (mistake)
+   Summary and score                   :  Mode score computed over all questions
+   Score persistence                   :  Name is None -> do NOT save
+
+
+Test Case 35 		(Key = 2.2.2.1.1.1.1.1.2.1.1.)
+   Quiz data availability              :  ALL_QUIZ_DATA has entries
+   Name entry                          :  Name parameter not provided; user enters blank -> None
+   Number of questions requested       :  User enters non-integer first (ValueError) then valid
+   Question selection (random indices) :  Random shuffle produces distinct indices
+   Random shuffle edge                 :  request equals total_available
+   Real answer normalization           :  Answer already uppercase A-D
+   Option formatting                   :  Options list contains 4 choices A-D
+   Guess input validation loop         :  User guess valid immediately (A/B/C/D)
+   Guess outcome per question          :  User avoids the real answer (scores +1)
+   Summary and score                   :  Mode score computed over all questions
+   Score persistence                   :  Name is None -> do NOT save
+
+
+Test Case 36 		(Key = 2.2.2.1.1.1.1.2.1.1.1.)
+   Quiz data availability              :  ALL_QUIZ_DATA has entries
+   Name entry                          :  Name parameter not provided; user enters blank -> None
+   Number of questions requested       :  User enters non-integer first (ValueError) then valid
+   Question selection (random indices) :  Random shuffle produces distinct indices
+   Random shuffle edge                 :  request equals total_available
+   Real answer normalization           :  Answer already uppercase A-D
+   Option formatting                   :  Options list contains 4 choices A-D
+   Guess input validation loop         :  User guess invalid then valid (loop repeats)
+   Guess outcome per question          :  User picks the REAL correct answer (mistake)
+   Summary and score                   :  Mode score computed over all questions
+   Score persistence                   :  Name is None -> do NOT save
+
+
+Test Case 37 		(Key = 2.2.2.1.1.1.1.2.2.1.1.)
+   Quiz data availability              :  ALL_QUIZ_DATA has entries
+   Name entry                          :  Name parameter not provided; user enters blank -> None
+   Number of questions requested       :  User enters non-integer first (ValueError) then valid
+   Question selection (random indices) :  Random shuffle produces distinct indices
+   Random shuffle edge                 :  request equals total_available
+   Real answer normalization           :  Answer already uppercase A-D
+   Option formatting                   :  Options list contains 4 choices A-D
+   Guess input validation loop         :  User guess invalid then valid (loop repeats)
+   Guess outcome per question          :  User avoids the real answer (scores +1)
+   Summary and score                   :  Mode score computed over all questions
+   Score persistence                   :  Name is None -> do NOT save
+
+
+Test Case 38 		(Key = 2.2.2.1.1.2.1.1.1.1.1.)
+   Quiz data availability              :  ALL_QUIZ_DATA has entries
+   Name entry                          :  Name parameter not provided; user enters blank -> None
+   Number of questions requested       :  User enters non-integer first (ValueError) then valid
+   Question selection (random indices) :  Random shuffle produces distinct indices
+   Random shuffle edge                 :  request equals total_available
+   Real answer normalization           :  Answer needs strip/upper
+   Option formatting                   :  Options list contains 4 choices A-D
+   Guess input validation loop         :  User guess valid immediately (A/B/C/D)
+   Guess outcome per question          :  User picks the REAL correct answer (mistake)
+   Summary and score                   :  Mode score computed over all questions
+   Score persistence                   :  Name is None -> do NOT save
+
+
+Test Case 39 		(Key = 2.2.2.1.1.2.1.1.2.1.1.)
+   Quiz data availability              :  ALL_QUIZ_DATA has entries
+   Name entry                          :  Name parameter not provided; user enters blank -> None
+   Number of questions requested       :  User enters non-integer first (ValueError) then valid
+   Question selection (random indices) :  Random shuffle produces distinct indices
+   Random shuffle edge                 :  request equals total_available
+   Real answer normalization           :  Answer needs strip/upper
+   Option formatting                   :  Options list contains 4 choices A-D
+   Guess input validation loop         :  User guess valid immediately (A/B/C/D)
+   Guess outcome per question          :  User avoids the real answer (scores +1)
+   Summary and score                   :  Mode score computed over all questions
+   Score persistence                   :  Name is None -> do NOT save
+
+
+Test Case 40 		(Key = 2.2.2.1.1.2.1.2.1.1.1.)
+   Quiz data availability              :  ALL_QUIZ_DATA has entries
+   Name entry                          :  Name parameter not provided; user enters blank -> None
+   Number of questions requested       :  User enters non-integer first (ValueError) then valid
+   Question selection (random indices) :  Random shuffle produces distinct indices
+   Random shuffle edge                 :  request equals total_available
+   Real answer normalization           :  Answer needs strip/upper
+   Option formatting                   :  Options list contains 4 choices A-D
+   Guess input validation loop         :  User guess invalid then valid (loop repeats)
+   Guess outcome per question          :  User picks the REAL correct answer (mistake)
+   Summary and score                   :  Mode score computed over all questions
+   Score persistence                   :  Name is None -> do NOT save
+
+
+Test Case 41 		(Key = 2.2.2.1.1.2.1.2.2.1.1.)
+   Quiz data availability              :  ALL_QUIZ_DATA has entries
+   Name entry                          :  Name parameter not provided; user enters blank -> None
+   Number of questions requested       :  User enters non-integer first (ValueError) then valid
+   Question selection (random indices) :  Random shuffle produces distinct indices
+   Random shuffle edge                 :  request equals total_available
+   Real answer normalization           :  Answer needs strip/upper
+   Option formatting                   :  Options list contains 4 choices A-D
+   Guess input validation loop         :  User guess invalid then valid (loop repeats)
+   Guess outcome per question          :  User avoids the real answer (scores +1)
+   Summary and score                   :  Mode score computed over all questions
+   Score persistence                   :  Name is None -> do NOT save
+
+
+Test Case 42 		(Key = 2.2.3.1.1.1.1.1.1.1.1.)
+   Quiz data availability              :  ALL_QUIZ_DATA has entries
+   Name entry                          :  Name parameter not provided; user enters blank -> None
+   Number of questions requested       :  User enters out-of-range first then valid
+   Question selection (random indices) :  Random shuffle produces distinct indices
+   Random shuffle edge                 :  request equals total_available
+   Real answer normalization           :  Answer already uppercase A-D
+   Option formatting                   :  Options list contains 4 choices A-D
+   Guess input validation loop         :  User guess valid immediately (A/B/C/D)
+   Guess outcome per question          :  User picks the REAL correct answer (mistake)
+   Summary and score                   :  Mode score computed over all questions
+   Score persistence                   :  Name is None -> do NOT save
+
+
+Test Case 43 		(Key = 2.2.3.1.1.1.1.1.2.1.1.)
+   Quiz data availability              :  ALL_QUIZ_DATA has entries
+   Name entry                          :  Name parameter not provided; user enters blank -> None
+   Number of questions requested       :  User enters out-of-range first then valid
+   Question selection (random indices) :  Random shuffle produces distinct indices
+   Random shuffle edge                 :  request equals total_available
+   Real answer normalization           :  Answer already uppercase A-D
+   Option formatting                   :  Options list contains 4 choices A-D
+   Guess input validation loop         :  User guess valid immediately (A/B/C/D)
+   Guess outcome per question          :  User avoids the real answer (scores +1)
+   Summary and score                   :  Mode score computed over all questions
+   Score persistence                   :  Name is None -> do NOT save
+
+
+Test Case 44 		(Key = 2.2.3.1.1.1.1.2.1.1.1.)
+   Quiz data availability              :  ALL_QUIZ_DATA has entries
+   Name entry                          :  Name parameter not provided; user enters blank -> None
+   Number of questions requested       :  User enters out-of-range first then valid
+   Question selection (random indices) :  Random shuffle produces distinct indices
+   Random shuffle edge                 :  request equals total_available
+   Real answer normalization           :  Answer already uppercase A-D
+   Option formatting                   :  Options list contains 4 choices A-D
+   Guess input validation loop         :  User guess invalid then valid (loop repeats)
+   Guess outcome per question          :  User picks the REAL correct answer (mistake)
+   Summary and score                   :  Mode score computed over all questions
+   Score persistence                   :  Name is None -> do NOT save
+
+
+Test Case 45 		(Key = 2.2.3.1.1.1.1.2.2.1.1.)
+   Quiz data availability              :  ALL_QUIZ_DATA has entries
+   Name entry                          :  Name parameter not provided; user enters blank -> None
+   Number of questions requested       :  User enters out-of-range first then valid
+   Question selection (random indices) :  Random shuffle produces distinct indices
+   Random shuffle edge                 :  request equals total_available
+   Real answer normalization           :  Answer already uppercase A-D
+   Option formatting                   :  Options list contains 4 choices A-D
+   Guess input validation loop         :  User guess invalid then valid (loop repeats)
+   Guess outcome per question          :  User avoids the real answer (scores +1)
+   Summary and score                   :  Mode score computed over all questions
+   Score persistence                   :  Name is None -> do NOT save
+
+
+Test Case 46 		(Key = 2.2.3.1.1.2.1.1.1.1.1.)
+   Quiz data availability              :  ALL_QUIZ_DATA has entries
+   Name entry                          :  Name parameter not provided; user enters blank -> None
+   Number of questions requested       :  User enters out-of-range first then valid
+   Question selection (random indices) :  Random shuffle produces distinct indices
+   Random shuffle edge                 :  request equals total_available
+   Real answer normalization           :  Answer needs strip/upper
+   Option formatting                   :  Options list contains 4 choices A-D
+   Guess input validation loop         :  User guess valid immediately (A/B/C/D)
+   Guess outcome per question          :  User picks the REAL correct answer (mistake)
+   Summary and score                   :  Mode score computed over all questions
+   Score persistence                   :  Name is None -> do NOT save
+
+
+Test Case 47 		(Key = 2.2.3.1.1.2.1.1.2.1.1.)
+   Quiz data availability              :  ALL_QUIZ_DATA has entries
+   Name entry                          :  Name parameter not provided; user enters blank -> None
+   Number of questions requested       :  User enters out-of-range first then valid
+   Question selection (random indices) :  Random shuffle produces distinct indices
+   Random shuffle edge                 :  request equals total_available
+   Real answer normalization           :  Answer needs strip/upper
+   Option formatting                   :  Options list contains 4 choices A-D
+   Guess input validation loop         :  User guess valid immediately (A/B/C/D)
+   Guess outcome per question          :  User avoids the real answer (scores +1)
+   Summary and score                   :  Mode score computed over all questions
+   Score persistence                   :  Name is None -> do NOT save
+
+
+Test Case 48 		(Key = 2.2.3.1.1.2.1.2.1.1.1.)
+   Quiz data availability              :  ALL_QUIZ_DATA has entries
+   Name entry                          :  Name parameter not provided; user enters blank -> None
+   Number of questions requested       :  User enters out-of-range first then valid
+   Question selection (random indices) :  Random shuffle produces distinct indices
+   Random shuffle edge                 :  request equals total_available
+   Real answer normalization           :  Answer needs strip/upper
+   Option formatting                   :  Options list contains 4 choices A-D
+   Guess input validation loop         :  User guess invalid then valid (loop repeats)
+   Guess outcome per question          :  User picks the REAL correct answer (mistake)
+   Summary and score                   :  Mode score computed over all questions
+   Score persistence                   :  Name is None -> do NOT save
+
+
+Test Case 49 		(Key = 2.2.3.1.1.2.1.2.2.1.1.)
+   Quiz data availability              :  ALL_QUIZ_DATA has entries
+   Name entry                          :  Name parameter not provided; user enters blank -> None
+   Number of questions requested       :  User enters out-of-range first then valid
+   Question selection (random indices) :  Random shuffle produces distinct indices
+   Random shuffle edge                 :  request equals total_available
+   Real answer normalization           :  Answer needs strip/upper
+   Option formatting                   :  Options list contains 4 choices A-D
+   Guess input validation loop         :  User guess invalid then valid (loop repeats)
+   Guess outcome per question          :  User avoids the real answer (scores +1)
+   Summary and score                   :  Mode score computed over all questions
+   Score persistence                   :  Name is None -> do NOT save
+
+
+Test Case 50 		(Key = 2.3.1.1.1.1.1.1.1.1.2.)
+   Quiz data availability              :  ALL_QUIZ_DATA has entries
+   Name entry                          :  Name parameter not provided; user enters non-blank
+   Number of questions requested       :  User enters valid integer in range
+   Question selection (random indices) :  Random shuffle produces distinct indices
+   Random shuffle edge                 :  request equals total_available
+   Real answer normalization           :  Answer already uppercase A-D
+   Option formatting                   :  Options list contains 4 choices A-D
+   Guess input validation loop         :  User guess valid immediately (A/B/C/D)
+   Guess outcome per question          :  User picks the REAL correct answer (mistake)
+   Summary and score                   :  Mode score computed over all questions
+   Score persistence                   :  Name not None -> save percent score
+
+
+Test Case 51 		(Key = 2.3.1.1.1.1.1.1.2.1.2.)
+   Quiz data availability              :  ALL_QUIZ_DATA has entries
+   Name entry                          :  Name parameter not provided; user enters non-blank
+   Number of questions requested       :  User enters valid integer in range
+   Question selection (random indices) :  Random shuffle produces distinct indices
+   Random shuffle edge                 :  request equals total_available
+   Real answer normalization           :  Answer already uppercase A-D
+   Option formatting                   :  Options list contains 4 choices A-D
+   Guess input validation loop         :  User guess valid immediately (A/B/C/D)
+   Guess outcome per question          :  User avoids the real answer (scores +1)
+   Summary and score                   :  Mode score computed over all questions
+   Score persistence                   :  Name not None -> save percent score
+
+
+Test Case 52 		(Key = 2.3.1.1.1.1.1.2.1.1.2.)
+   Quiz data availability              :  ALL_QUIZ_DATA has entries
+   Name entry                          :  Name parameter not provided; user enters non-blank
+   Number of questions requested       :  User enters valid integer in range
+   Question selection (random indices) :  Random shuffle produces distinct indices
+   Random shuffle edge                 :  request equals total_available
+   Real answer normalization           :  Answer already uppercase A-D
+   Option formatting                   :  Options list contains 4 choices A-D
+   Guess input validation loop         :  User guess invalid then valid (loop repeats)
+   Guess outcome per question          :  User picks the REAL correct answer (mistake)
+   Summary and score                   :  Mode score computed over all questions
+   Score persistence                   :  Name not None -> save percent score
+
+
+Test Case 53 		(Key = 2.3.1.1.1.1.1.2.2.1.2.)
+   Quiz data availability              :  ALL_QUIZ_DATA has entries
+   Name entry                          :  Name parameter not provided; user enters non-blank
+   Number of questions requested       :  User enters valid integer in range
+   Question selection (random indices) :  Random shuffle produces distinct indices
+   Random shuffle edge                 :  request equals total_available
+   Real answer normalization           :  Answer already uppercase A-D
+   Option formatting                   :  Options list contains 4 choices A-D
+   Guess input validation loop         :  User guess invalid then valid (loop repeats)
+   Guess outcome per question          :  User avoids the real answer (scores +1)
+   Summary and score                   :  Mode score computed over all questions
+   Score persistence                   :  Name not None -> save percent score
+
+
+Test Case 54 		(Key = 2.3.1.1.1.2.1.1.1.1.2.)
+   Quiz data availability              :  ALL_QUIZ_DATA has entries
+   Name entry                          :  Name parameter not provided; user enters non-blank
+   Number of questions requested       :  User enters valid integer in range
+   Question selection (random indices) :  Random shuffle produces distinct indices
+   Random shuffle edge                 :  request equals total_available
+   Real answer normalization           :  Answer needs strip/upper
+   Option formatting                   :  Options list contains 4 choices A-D
+   Guess input validation loop         :  User guess valid immediately (A/B/C/D)
+   Guess outcome per question          :  User picks the REAL correct answer (mistake)
+   Summary and score                   :  Mode score computed over all questions
+   Score persistence                   :  Name not None -> save percent score
+
+
+Test Case 55 		(Key = 2.3.1.1.1.2.1.1.2.1.2.)
+   Quiz data availability              :  ALL_QUIZ_DATA has entries
+   Name entry                          :  Name parameter not provided; user enters non-blank
+   Number of questions requested       :  User enters valid integer in range
+   Question selection (random indices) :  Random shuffle produces distinct indices
+   Random shuffle edge                 :  request equals total_available
+   Real answer normalization           :  Answer needs strip/upper
+   Option formatting                   :  Options list contains 4 choices A-D
+   Guess input validation loop         :  User guess valid immediately (A/B/C/D)
+   Guess outcome per question          :  User avoids the real answer (scores +1)
+   Summary and score                   :  Mode score computed over all questions
+   Score persistence                   :  Name not None -> save percent score
+
+
+Test Case 56 		(Key = 2.3.1.1.1.2.1.2.1.1.2.)
+   Quiz data availability              :  ALL_QUIZ_DATA has entries
+   Name entry                          :  Name parameter not provided; user enters non-blank
+   Number of questions requested       :  User enters valid integer in range
+   Question selection (random indices) :  Random shuffle produces distinct indices
+   Random shuffle edge                 :  request equals total_available
+   Real answer normalization           :  Answer needs strip/upper
+   Option formatting                   :  Options list contains 4 choices A-D
+   Guess input validation loop         :  User guess invalid then valid (loop repeats)
+   Guess outcome per question          :  User picks the REAL correct answer (mistake)
+   Summary and score                   :  Mode score computed over all questions
+   Score persistence                   :  Name not None -> save percent score
+
+
+Test Case 57 		(Key = 2.3.1.1.1.2.1.2.2.1.2.)
+   Quiz data availability              :  ALL_QUIZ_DATA has entries
+   Name entry                          :  Name parameter not provided; user enters non-blank
+   Number of questions requested       :  User enters valid integer in range
+   Question selection (random indices) :  Random shuffle produces distinct indices
+   Random shuffle edge                 :  request equals total_available
+   Real answer normalization           :  Answer needs strip/upper
+   Option formatting                   :  Options list contains 4 choices A-D
+   Guess input validation loop         :  User guess invalid then valid (loop repeats)
+   Guess outcome per question          :  User avoids the real answer (scores +1)
+   Summary and score                   :  Mode score computed over all questions
+   Score persistence                   :  Name not None -> save percent score
+
+
+Test Case 58 		(Key = 2.3.2.1.1.1.1.1.1.1.2.)
+   Quiz data availability              :  ALL_QUIZ_DATA has entries
+   Name entry                          :  Name parameter not provided; user enters non-blank
+   Number of questions requested       :  User enters non-integer first (ValueError) then valid
+   Question selection (random indices) :  Random shuffle produces distinct indices
+   Random shuffle edge                 :  request equals total_available
+   Real answer normalization           :  Answer already uppercase A-D
+   Option formatting                   :  Options list contains 4 choices A-D
+   Guess input validation loop         :  User guess valid immediately (A/B/C/D)
+   Guess outcome per question          :  User picks the REAL correct answer (mistake)
+   Summary and score                   :  Mode score computed over all questions
+   Score persistence                   :  Name not None -> save percent score
+
+
+Test Case 59 		(Key = 2.3.2.1.1.1.1.1.2.1.2.)
+   Quiz data availability              :  ALL_QUIZ_DATA has entries
+   Name entry                          :  Name parameter not provided; user enters non-blank
+   Number of questions requested       :  User enters non-integer first (ValueError) then valid
+   Question selection (random indices) :  Random shuffle produces distinct indices
+   Random shuffle edge                 :  request equals total_available
+   Real answer normalization           :  Answer already uppercase A-D
+   Option formatting                   :  Options list contains 4 choices A-D
+   Guess input validation loop         :  User guess valid immediately (A/B/C/D)
+   Guess outcome per question          :  User avoids the real answer (scores +1)
+   Summary and score                   :  Mode score computed over all questions
+   Score persistence                   :  Name not None -> save percent score
+
+
+Test Case 60 		(Key = 2.3.2.1.1.1.1.2.1.1.2.)
+   Quiz data availability              :  ALL_QUIZ_DATA has entries
+   Name entry                          :  Name parameter not provided; user enters non-blank
+   Number of questions requested       :  User enters non-integer first (ValueError) then valid
+   Question selection (random indices) :  Random shuffle produces distinct indices
+   Random shuffle edge                 :  request equals total_available
+   Real answer normalization           :  Answer already uppercase A-D
+   Option formatting                   :  Options list contains 4 choices A-D
+   Guess input validation loop         :  User guess invalid then valid (loop repeats)
+   Guess outcome per question          :  User picks the REAL correct answer (mistake)
+   Summary and score                   :  Mode score computed over all questions
+   Score persistence                   :  Name not None -> save percent score
+
+
+Test Case 61 		(Key = 2.3.2.1.1.1.1.2.2.1.2.)
+   Quiz data availability              :  ALL_QUIZ_DATA has entries
+   Name entry                          :  Name parameter not provided; user enters non-blank
+   Number of questions requested       :  User enters non-integer first (ValueError) then valid
+   Question selection (random indices) :  Random shuffle produces distinct indices
+   Random shuffle edge                 :  request equals total_available
+   Real answer normalization           :  Answer already uppercase A-D
+   Option formatting                   :  Options list contains 4 choices A-D
+   Guess input validation loop         :  User guess invalid then valid (loop repeats)
+   Guess outcome per question          :  User avoids the real answer (scores +1)
+   Summary and score                   :  Mode score computed over all questions
+   Score persistence                   :  Name not None -> save percent score
+
+
+Test Case 62 		(Key = 2.3.2.1.1.2.1.1.1.1.2.)
+   Quiz data availability              :  ALL_QUIZ_DATA has entries
+   Name entry                          :  Name parameter not provided; user enters non-blank
+   Number of questions requested       :  User enters non-integer first (ValueError) then valid
+   Question selection (random indices) :  Random shuffle produces distinct indices
+   Random shuffle edge                 :  request equals total_available
+   Real answer normalization           :  Answer needs strip/upper
+   Option formatting                   :  Options list contains 4 choices A-D
+   Guess input validation loop         :  User guess valid immediately (A/B/C/D)
+   Guess outcome per question          :  User picks the REAL correct answer (mistake)
+   Summary and score                   :  Mode score computed over all questions
+   Score persistence                   :  Name not None -> save percent score
+
+
+Test Case 63 		(Key = 2.3.2.1.1.2.1.1.2.1.2.)
+   Quiz data availability              :  ALL_QUIZ_DATA has entries
+   Name entry                          :  Name parameter not provided; user enters non-blank
+   Number of questions requested       :  User enters non-integer first (ValueError) then valid
+   Question selection (random indices) :  Random shuffle produces distinct indices
+   Random shuffle edge                 :  request equals total_available
+   Real answer normalization           :  Answer needs strip/upper
+   Option formatting                   :  Options list contains 4 choices A-D
+   Guess input validation loop         :  User guess valid immediately (A/B/C/D)
+   Guess outcome per question          :  User avoids the real answer (scores +1)
+   Summary and score                   :  Mode score computed over all questions
+   Score persistence                   :  Name not None -> save percent score
+
+
+Test Case 64 		(Key = 2.3.2.1.1.2.1.2.1.1.2.)
+   Quiz data availability              :  ALL_QUIZ_DATA has entries
+   Name entry                          :  Name parameter not provided; user enters non-blank
+   Number of questions requested       :  User enters non-integer first (ValueError) then valid
+   Question selection (random indices) :  Random shuffle produces distinct indices
+   Random shuffle edge                 :  request equals total_available
+   Real answer normalization           :  Answer needs strip/upper
+   Option formatting                   :  Options list contains 4 choices A-D
+   Guess input validation loop         :  User guess invalid then valid (loop repeats)
+   Guess outcome per question          :  User picks the REAL correct answer (mistake)
+   Summary and score                   :  Mode score computed over all questions
+   Score persistence                   :  Name not None -> save percent score
+
+
+Test Case 65 		(Key = 2.3.2.1.1.2.1.2.2.1.2.)
+   Quiz data availability              :  ALL_QUIZ_DATA has entries
+   Name entry                          :  Name parameter not provided; user enters non-blank
+   Number of questions requested       :  User enters non-integer first (ValueError) then valid
+   Question selection (random indices) :  Random shuffle produces distinct indices
+   Random shuffle edge                 :  request equals total_available
+   Real answer normalization           :  Answer needs strip/upper
+   Option formatting                   :  Options list contains 4 choices A-D
+   Guess input validation loop         :  User guess invalid then valid (loop repeats)
+   Guess outcome per question          :  User avoids the real answer (scores +1)
+   Summary and score                   :  Mode score computed over all questions
+   Score persistence                   :  Name not None -> save percent score
+
+
+Test Case 66 		(Key = 2.3.3.1.1.1.1.1.1.1.2.)
+   Quiz data availability              :  ALL_QUIZ_DATA has entries
+   Name entry                          :  Name parameter not provided; user enters non-blank
+   Number of questions requested       :  User enters out-of-range first then valid
+   Question selection (random indices) :  Random shuffle produces distinct indices
+   Random shuffle edge                 :  request equals total_available
+   Real answer normalization           :  Answer already uppercase A-D
+   Option formatting                   :  Options list contains 4 choices A-D
+   Guess input validation loop         :  User guess valid immediately (A/B/C/D)
+   Guess outcome per question          :  User picks the REAL correct answer (mistake)
+   Summary and score                   :  Mode score computed over all questions
+   Score persistence                   :  Name not None -> save percent score
+
+
+Test Case 67 		(Key = 2.3.3.1.1.1.1.1.2.1.2.)
+   Quiz data availability              :  ALL_QUIZ_DATA has entries
+   Name entry                          :  Name parameter not provided; user enters non-blank
+   Number of questions requested       :  User enters out-of-range first then valid
+   Question selection (random indices) :  Random shuffle produces distinct indices
+   Random shuffle edge                 :  request equals total_available
+   Real answer normalization           :  Answer already uppercase A-D
+   Option formatting                   :  Options list contains 4 choices A-D
+   Guess input validation loop         :  User guess valid immediately (A/B/C/D)
+   Guess outcome per question          :  User avoids the real answer (scores +1)
+   Summary and score                   :  Mode score computed over all questions
+   Score persistence                   :  Name not None -> save percent score
+
+
+Test Case 68 		(Key = 2.3.3.1.1.1.1.2.1.1.2.)
+   Quiz data availability              :  ALL_QUIZ_DATA has entries
+   Name entry                          :  Name parameter not provided; user enters non-blank
+   Number of questions requested       :  User enters out-of-range first then valid
+   Question selection (random indices) :  Random shuffle produces distinct indices
+   Random shuffle edge                 :  request equals total_available
+   Real answer normalization           :  Answer already uppercase A-D
+   Option formatting                   :  Options list contains 4 choices A-D
+   Guess input validation loop         :  User guess invalid then valid (loop repeats)
+   Guess outcome per question          :  User picks the REAL correct answer (mistake)
+   Summary and score                   :  Mode score computed over all questions
+   Score persistence                   :  Name not None -> save percent score
+
+
+Test Case 69 		(Key = 2.3.3.1.1.1.1.2.2.1.2.)
+   Quiz data availability              :  ALL_QUIZ_DATA has entries
+   Name entry                          :  Name parameter not provided; user enters non-blank
+   Number of questions requested       :  User enters out-of-range first then valid
+   Question selection (random indices) :  Random shuffle produces distinct indices
+   Random shuffle edge                 :  request equals total_available
+   Real answer normalization           :  Answer already uppercase A-D
+   Option formatting                   :  Options list contains 4 choices A-D
+   Guess input validation loop         :  User guess invalid then valid (loop repeats)
+   Guess outcome per question          :  User avoids the real answer (scores +1)
+   Summary and score                   :  Mode score computed over all questions
+   Score persistence                   :  Name not None -> save percent score
+
+
+Test Case 70 		(Key = 2.3.3.1.1.2.1.1.1.1.2.)
+   Quiz data availability              :  ALL_QUIZ_DATA has entries
+   Name entry                          :  Name parameter not provided; user enters non-blank
+   Number of questions requested       :  User enters out-of-range first then valid
+   Question selection (random indices) :  Random shuffle produces distinct indices
+   Random shuffle edge                 :  request equals total_available
+   Real answer normalization           :  Answer needs strip/upper
+   Option formatting                   :  Options list contains 4 choices A-D
+   Guess input validation loop         :  User guess valid immediately (A/B/C/D)
+   Guess outcome per question          :  User picks the REAL correct answer (mistake)
+   Summary and score                   :  Mode score computed over all questions
+   Score persistence                   :  Name not None -> save percent score
+
+
+Test Case 71 		(Key = 2.3.3.1.1.2.1.1.2.1.2.)
+   Quiz data availability              :  ALL_QUIZ_DATA has entries
+   Name entry                          :  Name parameter not provided; user enters non-blank
+   Number of questions requested       :  User enters out-of-range first then valid
+   Question selection (random indices) :  Random shuffle produces distinct indices
+   Random shuffle edge                 :  request equals total_available
+   Real answer normalization           :  Answer needs strip/upper
+   Option formatting                   :  Options list contains 4 choices A-D
+   Guess input validation loop         :  User guess valid immediately (A/B/C/D)
+   Guess outcome per question          :  User avoids the real answer (scores +1)
+   Summary and score                   :  Mode score computed over all questions
+   Score persistence                   :  Name not None -> save percent score
+
+
+Test Case 72 		(Key = 2.3.3.1.1.2.1.2.1.1.2.)
+   Quiz data availability              :  ALL_QUIZ_DATA has entries
+   Name entry                          :  Name parameter not provided; user enters non-blank
+   Number of questions requested       :  User enters out-of-range first then valid
+   Question selection (random indices) :  Random shuffle produces distinct indices
+   Random shuffle edge                 :  request equals total_available
+   Real answer normalization           :  Answer needs strip/upper
+   Option formatting                   :  Options list contains 4 choices A-D
+   Guess input validation loop         :  User guess invalid then valid (loop repeats)
+   Guess outcome per question          :  User picks the REAL correct answer (mistake)
+   Summary and score                   :  Mode score computed over all questions
+   Score persistence                   :  Name not None -> save percent score
+
+
+Test Case 73 		(Key = 2.3.3.1.1.2.1.2.2.1.2.)
+   Quiz data availability              :  ALL_QUIZ_DATA has entries
+   Name entry                          :  Name parameter not provided; user enters non-blank
+   Number of questions requested       :
