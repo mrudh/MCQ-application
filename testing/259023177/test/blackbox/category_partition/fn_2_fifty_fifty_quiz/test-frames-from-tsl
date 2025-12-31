@@ -1,0 +1,228 @@
+
+Test Case 1  		(Key = 1.1.1.1.1.)
+   Lifeline choice          :  Lifeline not used
+   Options configuration    :  Four options present
+   Correct option detection :  Correct option found
+   User guess               :  Guess is correct
+   Player name              :  Name not provided
+
+
+Test Case 2  		(Key = 1.1.1.1.2.)
+   Lifeline choice          :  Lifeline not used
+   Options configuration    :  Four options present
+   Correct option detection :  Correct option found
+   User guess               :  Guess is correct
+   Player name              :  Name provided
+
+
+Test Case 3  		(Key = 1.1.1.2.1.)
+   Lifeline choice          :  Lifeline not used
+   Options configuration    :  Four options present
+   Correct option detection :  Correct option found
+   User guess               :  Guess is incorrect
+   Player name              :  Name not provided
+
+
+Test Case 4  		(Key = 1.1.1.2.2.)
+   Lifeline choice          :  Lifeline not used
+   Options configuration    :  Four options present
+   Correct option detection :  Correct option found
+   User guess               :  Guess is incorrect
+   Player name              :  Name provided
+
+
+Test Case 5  		(Key = 1.1.2.1.1.)
+   Lifeline choice          :  Lifeline not used
+   Options configuration    :  Four options present
+   Correct option detection :  Correct option missing
+   User guess               :  Guess is correct
+   Player name              :  Name not provided
+
+
+Test Case 6  		(Key = 1.1.2.1.2.)
+   Lifeline choice          :  Lifeline not used
+   Options configuration    :  Four options present
+   Correct option detection :  Correct option missing
+   User guess               :  Guess is correct
+   Player name              :  Name provided
+
+
+Test Case 7  		(Key = 1.1.2.2.1.)
+   Lifeline choice          :  Lifeline not used
+   Options configuration    :  Four options present
+   Correct option detection :  Correct option missing
+   User guess               :  Guess is incorrect
+   Player name              :  Name not provided
+
+
+Test Case 8  		(Key = 1.1.2.2.2.)
+   Lifeline choice          :  Lifeline not used
+   Options configuration    :  Four options present
+   Correct option detection :  Correct option missing
+   User guess               :  Guess is incorrect
+   Player name              :  Name provided
+
+
+Test Case 9  		(Key = 1.2.1.1.1.)
+   Lifeline choice          :  Lifeline not used
+   Options configuration    :  Less than four options present
+   Correct option detection :  Correct option found
+   User guess               :  Guess is correct
+   Player name              :  Name not provided
+
+
+Test Case 10 		(Key = 1.2.1.1.2.)
+   Lifeline choice          :  Lifeline not used
+   Options configuration    :  Less than four options present
+   Correct option detection :  Correct option found
+   User guess               :  Guess is correct
+   Player name              :  Name provided
+
+
+Test Case 11 		(Key = 1.2.1.2.1.)
+   Lifeline choice          :  Lifeline not used
+   Options configuration    :  Less than four options present
+   Correct option detection :  Correct option found
+   User guess               :  Guess is incorrect
+   Player name              :  Name not provided
+
+
+Test Case 12 		(Key = 1.2.1.2.2.)
+   Lifeline choice          :  Lifeline not used
+   Options configuration    :  Less than four options present
+   Correct option detection :  Correct option found
+   User guess               :  Guess is incorrect
+   Player name              :  Name provided
+
+
+Test Case 13 		(Key = 1.2.2.1.1.)
+   Lifeline choice          :  Lifeline not used
+   Options configuration    :  Less than four options present
+   Correct option detection :  Correct option missing
+   User guess               :  Guess is correct
+   Player name              :  Name not provided
+
+
+Test Case 14 		(Key = 1.2.2.1.2.)
+   Lifeline choice          :  Lifeline not used
+   Options configuration    :  Less than four options present
+   Correct option detection :  Correct option missing
+   User guess               :  Guess is correct
+   Player name              :  Name provided
+
+
+Test Case 15 		(Key = 1.2.2.2.1.)
+   Lifeline choice          :  Lifeline not used
+   Options configuration    :  Less than four options present
+   Correct option detection :  Correct option missing
+   User guess               :  Guess is incorrect
+   Player name              :  Name not provided
+
+
+Test Case 16 		(Key = 1.2.2.2.2.)
+   Lifeline choice          :  Lifeline not used
+   Options configuration    :  Less than four options present
+   Correct option detection :  Correct option missing
+   User guess               :  Guess is incorrect
+   Player name              :  Name provided
+
+
+Test Case 17 		(Key = 2.1.1.1.1.)
+   Lifeline choice          :  Lifeline used
+   Options configuration    :  Four options present
+   Correct option detection :  Correct option found
+   User guess               :  Guess is correct
+   Player name              :  Name not provided
+
+
+Test Case 18 		(Key = 2.1.1.1.2.)
+   Lifeline choice          :  Lifeline used
+   Options configuration    :  Four options present
+   Correct option detection :  Correct option found
+   User guess               :  Guess is correct
+   Player name              :  Name provided
+
+
+Test Case 19 		(Key = 2.1.1.2.1.)
+   Lifeline choice          :  Lifeline used
+   Options configuration    :  Four options present
+   Correct option detection :  Correct option found
+   User guess               :  Guess is incorrect
+   Player name              :  Name not provided
+
+
+Test Case 20 		(Key = 2.1.1.2.2.)
+   Lifeline choice          :  Lifeline used
+   Options configuration    :  Four options present
+   Correct option detection :  Correct option found
+   User guess               :  Guess is incorrect
+   Player name              :  Name provided
+
+
+Test Case 21 		(Key = 2.1.2.1.1.)
+   Lifeline choice          :  Lifeline used
+   Options configuration    :  Four options present
+   Correct option detection :  Correct option missing
+   User guess               :  Guess is correct
+   Player name              :  Name not provided
+
+
+Test Case 22 		(Key = 2.1.2.1.2.)
+   Lifeline choice          :  Lifeline used
+   Options configuration    :  Four options present
+   Correct option detection :  Correct option missing
+   User guess               :  Guess is correct
+   Player name              :  Name provided
+
+
+Test Case 23 		(Key = 2.1.2.2.1.)
+   Lifeline choice          :  Lifeline used
+   Options configuration    :  Four options present
+   Correct option detection :  Correct option missing
+   User guess               :  Guess is incorrect
+   Player name              :  Name not provided
+
+
+Test Case 24 		(Key = 2.1.2.2.2.)
+   Lifeline choice          :  Lifeline used
+   Options configuration    :  Four options present
+   Correct option detection :  Correct option missing
+   User guess               :  Guess is incorrect
+   Player name              :  Name provided
+
+
+Test Case 25 		(Key = 2.2.1.1.1.)
+   Lifeline choice          :  Lifeline used
+   Options configuration    :  Less than four options present
+   Correct option detection :  Correct option found
+   User guess               :  Guess is correct
+   Player name              :  Name not provided
+
+
+Test Case 26 		(Key = 2.2.1.1.2.)
+   Lifeline choice          :  Lifeline used
+   Options configuration    :  Less than four options present
+   Correct option detection :  Correct option found
+   User guess               :  Guess is correct
+   Player name              :  Name provided
+
+
+Test Case 27 		(Key = 2.2.1.2.1.)
+   Lifeline choice          :  Lifeline used
+   Options configuration    :  Less than four options present
+   Correct option detection :  Correct option found
+   User guess               :  Guess is incorrect
+   Player name              :  Name not provided
+
+
+Test Case 28 		(Key = 2.2.1.2.2.)
+   Lifeline choice          :  Lifeline used
+   Options configuration    :  Less than four options present
+   Correct option detection :  Correct option found
+   User guess               :  Guess is incorrect
+   Player name              :  Name provided
+
+
+Test Case 29 		(Key = 2.2.2.1.1.)
+   Lifeline choice          :  Lifeline used
+   Options configuration    :  Less 
