@@ -1,0 +1,20 @@
+User flow:
+    Quick quiz → Timed quiz.
+    Quick quiz → 50-50 lifeline quiz.
+    Quiz modes → Back.
+    Assessments → Create assessment.
+    Assessments → Open assessment.
+    Review tools → See all answers.
+    Review tools → Export questions.
+    Exit program.
+
+User name input:
+    Name provided.
+    Name empty.
+
+Numeric input:
+    Valid number.
+    Invalid number.
+
+Filename handling:
+    Default filename.
