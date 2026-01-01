@@ -1,0 +1,143 @@
+
+Test Case 1  		(Key = 1.1.1.1.)
+   User flow         :  Quick quiz → Timed quiz
+   User name input   :  Name provided
+   Numeric input     :  Valid number
+   Filename handling :  Default filename
+
+
+Test Case 2  		(Key = 1.1.2.1.)
+   User flow         :  Quick quiz → Timed quiz
+   User name input   :  Name provided
+   Numeric input     :  Invalid number
+   Filename handling :  Default filename
+
+
+Test Case 3  		(Key = 1.2.1.1.)
+   User flow         :  Quick quiz → Timed quiz
+   User name input   :  Name empty
+   Numeric input     :  Valid number
+   Filename handling :  Default filename
+
+
+Test Case 4  		(Key = 1.2.2.1.)
+   User flow         :  Quick quiz → Timed quiz
+   User name input   :  Name empty
+   Numeric input     :  Invalid number
+   Filename handling :  Default filename
+
+
+Test Case 5  		(Key = 2.1.1.1.)
+   User flow         :  Quick quiz → 50-50 lifeline quiz
+   User name input   :  Name provided
+   Numeric input     :  Valid number
+   Filename handling :  Default filename
+
+
+Test Case 6  		(Key = 2.1.2.1.)
+   User flow         :  Quick quiz → 50-50 lifeline quiz
+   User name input   :  Name provided
+   Numeric input     :  Invalid number
+   Filename handling :  Default filename
+
+
+Test Case 7  		(Key = 2.2.1.1.)
+   User flow         :  Quick quiz → 50-50 lifeline quiz
+   User name input   :  Name empty
+   Numeric input     :  Valid number
+   Filename handling :  Default filename
+
+
+Test Case 8  		(Key = 2.2.2.1.)
+   User flow         :  Quick quiz → 50-50 lifeline quiz
+   User name input   :  Name empty
+   Numeric input     :  Invalid number
+   Filename handling :  Default filename
+
+
+Test Case 9  		(Key = 3.1.1.1.)
+   User flow         :  Quiz modes → Back
+   User name input   :  Name provided
+   Numeric input     :  Valid number
+   Filename handling :  Default filename
+
+
+Test Case 10 		(Key = 3.1.2.1.)
+   User flow         :  Quiz modes → Back
+   User name input   :  Name provided
+   Numeric input     :  Invalid number
+   Filename handling :  Default filename
+
+
+Test Case 11 		(Key = 3.2.1.1.)
+   User flow         :  Quiz modes → Back
+   User name input   :  Name empty
+   Numeric input     :  Valid number
+   Filename handling :  Default filename
+
+
+Test Case 12 		(Key = 3.2.2.1.)
+   User flow         :  Quiz modes → Back
+   User name input   :  Name empty
+   Numeric input     :  Invalid number
+   Filename handling :  Default filename
+
+
+Test Case 13 		(Key = 4.1.1.1.)
+   User flow         :  Assessments → Create assessment
+   User name input   :  Name provided
+   Numeric input     :  Valid number
+   Filename handling :  Default filename
+
+
+Test Case 14 		(Key = 4.1.2.1.)
+   User flow         :  Assessments → Create assessment
+   User name input   :  Name provided
+   Numeric input     :  Invalid number
+   Filename handling :  Default filename
+
+
+Test Case 15 		(Key = 4.2.1.1.)
+   User flow         :  Assessments → Create assessment
+   User name input   :  Name empty
+   Numeric input     :  Valid number
+   Filename handling :  Default filename
+
+
+Test Case 16 		(Key = 4.2.2.1.)
+   User flow         :  Assessments → Create assessment
+   User name input   :  Name empty
+   Numeric input     :  Invalid number
+   Filename handling :  Default filename
+
+
+Test Case 17 		(Key = 5.1.1.1.)
+   User flow         :  Assessments → Open assessment
+   User name input   :  Name provided
+   Numeric input     :  Valid number
+   Filename handling :  Default filename
+
+
+Test Case 18 		(Key = 5.1.2.1.)
+   User flow         :  Assessments → Open assessment
+   User name input   :  Name provided
+   Numeric input     :  Invalid number
+   Filename handling :  Default filename
+
+
+Test Case 19 		(Key = 5.2.1.1.)
+   User flow         :  Assessments → Open assessment
+   User name input   :  Name empty
+   Numeric input     :  Valid number
+   Filename handling :  Default filename
+
+
+Test Case 20 		(Key = 5.2.2.1.)
+   User flow         :  Assessments → Open assessment
+   User name input   :  Name empty
+   Numeric input     :  Invalid number
+   Filename handling :  Default filename
+
+
+Test Case 21 		(Key = 6.1.1.1.)
+   Us
