@@ -33,6 +33,7 @@ def quiz_modes_menu():
         print("10. Wrong-answer training mode")
         print("11. Summary-based quiz")
         print("12. Learning mode (flashcard style)")
+        print("13. Quiz by topic")
         print("0. Back")
         choice = input("Enter choice: ").strip()
 
@@ -165,6 +166,9 @@ def quiz_modes_menu():
             questions = [q['question'] for q in ALL_QUIZ_DATA]
             answers = [q['answer'] for q in ALL_QUIZ_DATA]
             learning_mode(questions, answers)
+            
+        elif choice == "13":
+            quiz_by_topic(ALL_QUIZ_DATA)
 
         elif choice == "0":
             break
