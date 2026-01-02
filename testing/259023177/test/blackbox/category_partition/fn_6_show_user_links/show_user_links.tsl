@@ -1,0 +1,14 @@
+MCQ index:
+    Index is valid.            {ValidIndex}
+    Index is invalid.          {InvalidIndex}
+
+User link state:
+    No user links exist.       {NoLinks}
+    User links exist.          {HasLinks}
+
+Number of stored links:
+    Zero links.                {Count0}
+    One link.                  {Count1}
+    Two links.                 {Count2}
+    Many links.                {CountMany}
+    Links include special text.{CountSpecial}
