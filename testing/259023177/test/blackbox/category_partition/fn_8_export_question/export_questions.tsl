@@ -1,0 +1,12 @@
+Filename:
+    Default filename (exported_questions.json).        {DefaultName}
+    Simple custom filename (questions.json).           {SimpleName}
+    Filename with spaces ("my questions.json").        {NameWithSpaces}
+    Unicode filename ("प्रश्न.json").                  {UnicodeName}
+
+Export outcome:
+    Write succeeds and prints success message.         {OkWrite}
+    Permission denied error.                           {ErrPermission}
+    Path or directory not found.                       {ErrPathMissing}
+    JSON serialization error.                          {ErrJson}
+    Other I/O error.                                   {ErrOther}

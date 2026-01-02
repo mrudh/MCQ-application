@@ -1,0 +1,200 @@
+
+Test Case 1  		(Key = 1.1.)
+   Filename       :  Default filename (exported_questions
+   Export outcome :  Write succeeds and prints success message
+
+
+Test Case 2  		(Key = 1.2.)
+   Filename       :  Default filename (exported_questions
+   Export outcome :  Permission denied error
+
+
+Test Case 3  		(Key = 1.3.)
+   Filename       :  Default filename (exported_questions
+   Export outcome :  Path or directory not found
+
+
+Test Case 4  		(Key = 1.4.)
+   Filename       :  Default filename (exported_questions
+   Export outcome :  JSON serialization error
+
+
+Test Case 5  		(Key = 1.5.)
+   Filename       :  Default filename (exported_questions
+   Export outcome :  Other I/O error
+
+
+Test Case 6  		(Key = 2.1.)
+   Filename       :  json)
+   Export outcome :  Write succeeds and prints success message
+
+
+Test Case 7  		(Key = 2.2.)
+   Filename       :  json)
+   Export outcome :  Permission denied error
+
+
+Test Case 8  		(Key = 2.3.)
+   Filename       :  json)
+   Export outcome :  Path or directory not found
+
+
+Test Case 9  		(Key = 2.4.)
+   Filename       :  json)
+   Export outcome :  JSON serialization error
+
+
+Test Case 10 		(Key = 2.5.)
+   Filename       :  json)
+   Export outcome :  Other I/O error
+
+
+Test Case 11 		(Key = 3.1.)
+   Filename       :  Simple custom filename (questions
+   Export outcome :  Write succeeds and prints success message
+
+
+Test Case 12 		(Key = 3.2.)
+   Filename       :  Simple custom filename (questions
+   Export outcome :  Permission denied error
+
+
+Test Case 13 		(Key = 3.3.)
+   Filename       :  Simple custom filename (questions
+   Export outcome :  Path or directory not found
+
+
+Test Case 14 		(Key = 3.4.)
+   Filename       :  Simple custom filename (questions
+   Export outcome :  JSON serialization error
+
+
+Test Case 15 		(Key = 3.5.)
+   Filename       :  Simple custom filename (questions
+   Export outcome :  Other I/O error
+
+
+Test Case 16 		(Key = 4.1.)
+   Filename       :  json)
+   Export outcome :  Write succeeds and prints success message
+
+
+Test Case 17 		(Key = 4.2.)
+   Filename       :  json)
+   Export outcome :  Permission denied error
+
+
+Test Case 18 		(Key = 4.3.)
+   Filename       :  json)
+   Export outcome :  Path or directory not found
+
+
+Test Case 19 		(Key = 4.4.)
+   Filename       :  json)
+   Export outcome :  JSON serialization error
+
+
+Test Case 20 		(Key = 4.5.)
+   Filename       :  json)
+   Export outcome :  Other I/O error
+
+
+Test Case 21 		(Key = 5.1.)
+   Filename       :  Filename with spaces ("my questions
+   Export outcome :  Write succeeds and prints success message
+
+
+Test Case 22 		(Key = 5.2.)
+   Filename       :  Filename with spaces ("my questions
+   Export outcome :  Permission denied error
+
+
+Test Case 23 		(Key = 5.3.)
+   Filename       :  Filename with spaces ("my questions
+   Export outcome :  Path or directory not found
+
+
+Test Case 24 		(Key = 5.4.)
+   Filename       :  Filename with spaces ("my questions
+   Export outcome :  JSON serialization error
+
+
+Test Case 25 		(Key = 5.5.)
+   Filename       :  Filename with spaces ("my questions
+   Export outcome :  Other I/O error
+
+
+Test Case 26 		(Key = 6.1.)
+   Filename       :  json")
+   Export outcome :  Write succeeds and prints success message
+
+
+Test Case 27 		(Key = 6.2.)
+   Filename       :  json")
+   Export outcome :  Permission denied error
+
+
+Test Case 28 		(Key = 6.3.)
+   Filename       :  json")
+   Export outcome :  Path or directory not found
+
+
+Test Case 29 		(Key = 6.4.)
+   Filename       :  json")
+   Export outcome :  JSON serialization error
+
+
+Test Case 30 		(Key = 6.5.)
+   Filename       :  json")
+   Export outcome :  Other I/O error
+
+
+Test Case 31 		(Key = 7.1.)
+   Filename       :  Unicode filename ("प्रश्न
+   Export outcome :  Write succeeds and prints success message
+
+
+Test Case 32 		(Key = 7.2.)
+   Filename       :  Unicode filename ("प्रश्न
+   Export outcome :  Permission denied error
+
+
+Test Case 33 		(Key = 7.3.)
+   Filename       :  Unicode filename ("प्रश्न
+   Export outcome :  Path or directory not found
+
+
+Test Case 34 		(Key = 7.4.)
+   Filename       :  Unicode filename ("प्रश्न
+   Export outcome :  JSON serialization error
+
+
+Test Case 35 		(Key = 7.5.)
+   Filename       :  Unicode filename ("प्रश्न
+   Export outcome :  Other I/O error
+
+
+Test Case 36 		(Key = 8.1.)
+   Filename       :  json")
+   Export outcome :  Write succeeds and prints success message
+
+
+Test Case 37 		(Key = 8.2.)
+   Filename       :  json")
+   Export outcome :  Permission denied error
+
+
+Test Case 38 		(Key = 8.3.)
+   Filename       :  json")
+   Export outcome :  Path or directory not found
+
+
+Test Case 39 		(Key = 8.4.)
+   Filename       :  json")
+   Export outcome :  JSON serialization error
+
+
+Test Case 40 		(Key = 8.5.)
+   Filename       :  json")
+   Export outcome :  Other I/O error
+
