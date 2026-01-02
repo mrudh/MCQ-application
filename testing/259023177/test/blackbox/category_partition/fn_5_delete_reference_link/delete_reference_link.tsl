@@ -1,0 +1,14 @@
+User link state:
+    No user links exist.                  {NoLinks}
+    One or more user links exist.         {HasLinks}
+
+Input type:
+    Argument is integer.                  {ArgIsInt}
+    Argument is string.                   {ArgIsStr}
+
+Expected outcome:
+    Fail no links to delete.              {FailNoLinks}
+    Fail invalid position number.         {FailBadPos}
+    Success delete by integer position.   {OkDelByPos}
+    Success delete by string match.       {OkDelByStr}
+    Fail string link not found.           {FailNotFound}
