@@ -1,0 +1,31 @@
+Scenario:
+    No quiz attempts stored yet (users list empty) -> prints "No quiz attempts stored yet." and returns.                 {S01}
+
+    Users exist; input is non-numeric -> ValueError -> prints "Invalid input. Please enter a number." and returns.     {S02}
+
+    Users exist; input is 0 -> prints "Cancelled." and returns.                                                        {S03}
+
+    Users exist (1 user); input is 1 -> selects that user -> calls show_first_and_latest_attempt(name).                {S04}
+    Users exist (2 users); input is 1 -> selects first user -> calls show_first_and_latest_attempt(name).              {S05}
+    Users exist (2 users); input is 2 -> selects second user -> calls show_first_and_latest_attempt(name).             {S06}
+
+    Users exist (3 users); input is 1 -> selects first user -> calls show_first_and_latest_attempt(name).              {S07}
+    Users exist (3 users); input is 2 -> selects middle user -> calls show_first_and_latest_attempt(name).             {S08}
+    Users exist (3 users); input is 3 -> selects last user -> calls show_first_and_latest_attempt(name).               {S09}
+
+    Users exist (3 users); input is -1 -> prints "Invalid selection." and returns.                                     {S10}
+    Users exist (3 users); input is 4  -> prints "Invalid selection." and returns.                                     {S11}
+
+    Scores contain blank/whitespace names only -> get_all_users filters them -> users list empty -> prints no attempts. {S12}
+
+    Duplicate names with different casing/spaces (e.g., "Alex", " alex ", "ALEX") -> normalized duplicate -> 1 user.    {S13}
+    Duplicate names mixed with blanks -> blanks removed, duplicates collapsed -> 1 user remains.                        {S14}
+
+    Many unique users (e.g., 5 users); input is 1 -> selects first user -> calls show_first_and_latest_attempt(name).  {S15}
+    Many unique users (e.g., 5 users); input is 5 -> selects last user -> calls show_first_and_latest_attempt(name).   {S16}
+    Many unique users (e.g., 5 users); input is 6 -> prints "Invalid selection." and returns.                          {S17}
+
+    Names include special characters (e.g., "@#", "weird  name") but non-empty -> treated as valid user names.          {S18}
+    Names include leading/trailing whitespace but non-empty after strip -> treated as valid user names.                 {S19}
+
+    Scores list is non-empty but all names normalize to same key -> users list length becomes 1; input is 1 selects it. {S20}

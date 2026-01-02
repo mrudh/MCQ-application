@@ -1,0 +1,148 @@
+
+Test Case 1  		(Key = 1.)
+   Scenario :  No quiz attempts stored yet (users list empty) -> prints "No quiz attempts storedD
+
+
+Test Case 2  		(Key = 2.)
+   Scenario :  " and returns
+
+
+Test Case 3  		(Key = 3.)
+   Scenario :  Users exist; input is non-numeric -> ValueError -> prints "Invalid input
+
+
+Test Case 4  		(Key = 4.)
+   Scenario :  Please enter a number
+
+
+Test Case 5  		(Key = 5.)
+   Scenario :  " and returns
+
+
+Test Case 6  		(Key = 6.)
+   Scenario :  Users exist; input is 0 -> prints "Cancelled
+
+
+Test Case 7  		(Key = 7.)
+   Scenario :  " and returns
+
+
+Test Case 8  		(Key = 8.)
+   Scenario :  Users exist (1 user); input is 1 -> selects that user -> calls show_first_and_lat
+
+
+Test Case 9  		(Key = 9.)
+   Scenario :  Users exist (2 users); input is 1 -> selects first user -> calls show_first_and_l
+
+
+Test Case 10 		(Key = 10.)
+   Scenario :  Users exist (2 users); input is 2 -> selects second user -> calls show_first_and_
+
+
+Test Case 11 		(Key = 11.)
+   Scenario :  Users exist (3 users); input is 1 -> selects first user -> calls show_first_and_l
+
+
+Test Case 12 		(Key = 12.)
+   Scenario :  Users exist (3 users); input is 2 -> selects middle user -> calls show_first_and_
+
+
+Test Case 13 		(Key = 13.)
+   Scenario :  Users exist (3 users); input is 3 -> selects last user -> calls show_first_and_la
+
+
+Test Case 14 		(Key = 14.)
+   Scenario :  Users exist (3 users); input is -1 -> prints "Invalid selection
+
+
+Test Case 15 		(Key = 15.)
+   Scenario :  " and returns
+
+
+Test Case 16 		(Key = 16.)
+   Scenario :  Users exist (3 users); input is 4  -> prints "Invalid selection
+
+
+Test Case 17 		(Key = 17.)
+   Scenario :  " and returns
+
+
+Test Case 18 		(Key = 18.)
+   Scenario :  Scores contain blank/whitespace names only -> get_all_users filters them -> usersh
+
+
+Test Case 19 		(Key = 19.)
+   Scenario :  Duplicate names with different casing/spaces (e
+
+
+Test Case 20 		(Key = 20.)
+   Scenario :  g
+
+
+Test Case 21 		(Key = 21.)
+   Scenario :  , "Alex", " alex ", "ALEX") -> normalized duplicate -> 1 user
+
+
+Test Case 22 		(Key = 22.)
+   Scenario :  Duplicate names mixed with blanks -> blanks removed, duplicates collapsed -> 1 us
+
+
+Test Case 23 		(Key = 23.)
+   Scenario :  Many unique users (e
+
+
+Test Case 24 		(Key = 24.)
+   Scenario :  g
+
+
+Test Case 25 		(Key = 25.)
+   Scenario :  , 5 users); input is 1 -> selects first user -> calls show_first_and_latest_attems
+
+
+Test Case 26 		(Key = 26.)
+   Scenario :  Many unique users (e
+
+
+Test Case 27 		(Key = 27.)
+   Scenario :  g
+
+
+Test Case 28 		(Key = 28.)
+   Scenario :  , 5 users); input is 5 -> selects last user -> calls show_first_and_latest_attempo
+
+
+Test Case 29 		(Key = 29.)
+   Scenario :  Many unique users (e
+
+
+Test Case 30 		(Key = 30.)
+   Scenario :  g
+
+
+Test Case 31 		(Key = 31.)
+   Scenario :  , 5 users); input is 6 -> prints "Invalid selection
+
+
+Test Case 32 		(Key = 32.)
+   Scenario :  " and returns
+
+
+Test Case 33 		(Key = 33.)
+   Scenario :  Names include special characters (e
+
+
+Test Case 34 		(Key = 34.)
+   Scenario :  g
+
+
+Test Case 35 		(Key = 35.)
+   Scenario :  ", "weird  name") but non-empty -> treated as valid user names
+
+
+Test Case 36 		(Key = 36.)
+   Scenario :  Names include leading/trailing whitespace but non-empty after strip -> treated as
+
+
+Test Case 37 		(Key = 37.)
+   Scenario :  Scores list is non-empty but all names normalize to same key -> users list length
+
