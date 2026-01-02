@@ -1,0 +1,20 @@
+Quiz mode:
+    Timed mode enabled.                       {Timed}
+    Timed mode disabled.                      {Untimed}
+
+Per-question input result:
+    User provides a valid choice (A/B/C/D).   {InputValid}
+    Timeout occurs (timed_quiz returns None). {InputTimeout}
+
+Per-question grading result:
+    Marked correct.                           {MarkCorrect}
+
+Overall score level:
+    Medium-high score (51 to 75%).            {Pct51_75}
+
+Name provided:
+    Name is provided (non-empty).             {NameProvided}
+    Name is not provided (None).              {NameNone}
+    Name is empty string ("").                {NameEmpty}
+    Name is whitespace ("   ").               {NameWhitespace}
+    Name contains special chars ("@#").       {NameSpecial}
