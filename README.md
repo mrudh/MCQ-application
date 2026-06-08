@@ -1,5 +1,5 @@
 # MCQ-application
-This project is a Python based MCQ desktop application that supports various quiz modes, assessment management, review tools, and certification exams. The project also includes whitebox and blackbox test cases.
+This group project is a Python based MCQ desktop application that supports various quiz modes, assessment management, review tools, and certification exams. The project also includes whitebox and blackbox test cases.
 
 Uncompress the project zip file: Right click on the ZIP file and select extract all.
 
